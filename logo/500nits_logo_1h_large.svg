@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200">
+  <!-- Brightness Symbol 1 Variation H: Alternating ray colors - Enlarged Version -->
+  <circle cx="100" cy="100" r="30" fill="#FFD700"/>
+  <line x1="100" y1="30" x2="100" y2="50" stroke="#FFD700" stroke-width="6"/>
+  <line x1="100" y1="150" x2="100" y2="170" stroke="#FFD700" stroke-width="6"/>
+  <line x1="30" y1="100" x2="50" y2="100" stroke="#FFD700" stroke-width="6"/>
+  <line x1="150" y1="100" x2="170" y2="100" stroke="#FFD700" stroke-width="6"/>
+  <line x1="50" y1="50" x2="65" y2="65" stroke="#FFA500" stroke-width="6"/>
+  <line x1="135" y1="65" x2="150" y2="50" stroke="#FFA500" stroke-width="6"/>
+  <line x1="50" y1="150" x2="65" y2="135" stroke="#FFA500" stroke-width="6"/>
+  <line x1="135" y1="135" x2="150" y2="150" stroke="#FFA500" stroke-width="6"/>
+</svg>
