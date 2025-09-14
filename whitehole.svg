@@ -1,0 +1,118 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Define gradient for center glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- Define gradient for rays -->
+    <linearGradient id="rayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="currentColor" stop-opacity="1"/>
+      <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+    </linearGradient>
+    
+    <!-- Animation for rays -->
+    <style>
+      <![CDATA[
+      .thick-ray, .thin-ray {
+        stroke-linecap: round;
+        transform-origin: center;
+        animation: expandRay 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        opacity: 0;
+      }
+      
+      .thick-ray {
+        stroke-width: 3px;
+        animation-delay: 0.1s;
+      }
+      
+      .thin-ray {
+        stroke-width: 1px;
+        animation-delay: 0.3s;
+      }
+      
+      /* Stagger the animations for a wave effect */
+      .thick-ray:nth-child(2n) { animation-delay: 0.2s; }
+      .thin-ray:nth-child(2n) { animation-delay: 0.4s; }
+      
+      @keyframes expandRay {
+        0% {
+          transform: rotate(var(--rotation)) translateY(0);
+          opacity: 0;
+        }
+        30% {
+          opacity: 1;
+        }
+        100% {
+          transform: rotate(var(--rotation)) translateY(var(--distance));
+          opacity: 1;
+        }
+      }
+      
+      /* Pulsing effect for center glow */
+      .center-glow {
+        animation: pulse 2s ease-in-out infinite alternate;
+      }
+      
+      @keyframes pulse {
+        0% {
+          r: 25;
+          opacity: 0.8;
+        }
+        100% {
+          r: 35;
+          opacity: 1;
+        }
+      }
+      ]]>
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="black"/>
+  
+  <!-- Center glow with pulsing effect -->
+  <circle class="center-glow" cx="250" cy="250" r="30" fill="url(#centerGlow)" opacity="0.9"/>
+  
+  <!-- Thick Rays -->
+  <g stroke="url(#rayGradient)">
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(0)" style="--rotation: 0deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(11.25)" style="--rotation: 11.25deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(22.5)" style="--rotation: 22.5deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(33.75)" style="--rotation: 33.75deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(45)" style="--rotation: 45deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(56.25)" style="--rotation: 56.25deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(67.5)" style="--rotation: 67.5deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(78.75)" style="--rotation: 78.75deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(90)" style="--rotation: 90deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(101.25)" style="--rotation: 101.25deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(112.5)" style="--rotation: 112.5deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(123.75)" style="--rotation: 123.75deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(135)" style="--rotation: 135deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(146.25)" style="--rotation: 146.25deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffffff" class="thick-ray" transform="translate(250,250) rotate(157.5)" style="--rotation: 157.5deg; --distance: -150px;"/>
+    <line x1="0" y1="0" x2="0" y2="-150" stroke="#ffcc00" class="thick-ray" transform="translate(250,250) rotate(168.75)" style="--rotation: 168.75deg; --distance: -150px;"/>
+    
+    <!-- Thin Rays -->
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(5.625)" style="--rotation: 5.625deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(16.875)" style="--rotation: 16.875deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(28.125)" style="--rotation: 28.125deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(39.375)" style="--rotation: 39.375deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(50.625)" style="--rotation: 50.625deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(61.875)" style="--rotation: 61.875deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(73.125)" style="--rotation: 73.125deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(84.375)" style="--rotation: 84.375deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(95.625)" style="--rotation: 95.625deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(106.875)" style="--rotation: 106.875deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(118.125)" style="--rotation: 118.125deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(129.375)" style="--rotation: 129.375deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(140.625)" style="--rotation: 140.625deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(151.875)" style="--rotation: 151.875deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffffff" class="thin-ray" transform="translate(250,250) rotate(163.125)" style="--rotation: 163.125deg; --distance: -170px;"/>
+    <line x1="0" y1="0" x2="0" y2="-170" stroke="#ffcc00" class="thin-ray" transform="translate(250,250) rotate(174.375)" style="--rotation: 174.375deg; --distance: -170px;"/>
+  </g>
+  
+  <!-- Outer circle for containment -->
+  <circle cx="250" cy="250" r="180" fill="none" stroke="none"/>
+</svg>
