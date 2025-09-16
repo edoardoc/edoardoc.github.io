@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 200 200">
+  <!-- Sun with multiple layers of rays -->
+  <!-- Primary long rays -->
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(45 100 100)"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(90 100 100)"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(135 100 100)"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(180 100 100)"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(225 100 100)"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(270 100 100)"/>
+  <line x1="100" y1="5" x2="100" y2="50" stroke="#FFD700" stroke-width="6" transform="rotate(315 100 100)"/>
+
+  <!-- Secondary medium rays (alternating) -->
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(22.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(67.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(112.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(157.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(202.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(247.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(292.5 100 100)"/>
+  <line x1="100" y1="8" x2="100" y2="50" stroke="#FFEC8B" stroke-width="6" transform="rotate(337.5 100 100)"/>
+
+  <!-- Tertiary short rays (additional layer) -->
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(11.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(33.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(56.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(78.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(101.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(123.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(146.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(168.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(191.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(213.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(236.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(258.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(281.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(303.75 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(326.25 100 100)"/>
+  <line x1="100" y1="15" x2="100" y2="50" stroke="#FFCC33" stroke-width="4" transform="rotate(348.75 100 100)"/>
+</svg>
