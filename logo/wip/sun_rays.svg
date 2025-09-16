@@ -1,0 +1,43 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="white"/>
+  <g transform="translate(200, 200)">
+    <!-- 32 rays: 16 thick (3px) and 16 thin (1px), alternating -->
+    <!-- Thick rays in gold, thin rays in orange -->
+    <!-- Each ray is rotated with an expanding offset to create a "departing" effect -->
+    <!-- Thick rays (index 0, 2, 4...) -->
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(0)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(25)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(50)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(75)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(100)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(125)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(150)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(175)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(200)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(225)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(250)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(275)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(300)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(325)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(350)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="gold" stroke-width="3" transform="rotate(375)"/>
+    
+    <!-- Thin rays (index 1, 3, 5...) -->
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(12.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(37.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(62.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(87.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(112.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(137.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(162.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(187.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(212.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(237.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(262.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(287.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(312.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(337.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(362.5)"/>
+    <line x1="0" y1="-30" x2="0" y2="-10" stroke="orange" stroke-width="1" transform="rotate(387.5)"/>
+  </g>
+</svg>
