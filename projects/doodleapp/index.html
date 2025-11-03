@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DoodleTag | LAN-Friendly Collaborative Drawing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <div class="logo-lockup">
+        <div class="logo-circle" aria-hidden="true"></div>
+        <span class="logo-text">DoodleTag</span>
+      </div>
+      <h1>Draw together on a shared canvas, instantly.</h1>
+      <p>
+        DoodleTag is a collaborative drawing application built for classrooms, studios,
+        and living rooms. Connect any two devices on the same local network and watch
+        every stroke appear in real time on both screens with zero cloud setup.
+      </p>
+      <div class="cta-group">
+        <a class="cta-button" href="#learn-more">Learn How It Works</a>
+        <a class="cta-link" href="#gallery">Preview the Experience</a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <img src="assets/placeholder-hero.svg" alt="Two tablets sharing the same DoodleTag canvas">
+    </div>
+  </header>
+
+  <main>
+    <section id="learn-more" class="feature-section">
+      <h2>Why creators love DoodleTag</h2>
+      <div class="feature-grid">
+        <article>
+          <h3>Lag-free collaboration</h3>
+          <p>
+            Built around the local network, DoodleTag keeps latency invisible so both
+            artists stay in sync without needing Wi‑Fi with internet access.
+          </p>
+        </article>
+        <article>
+          <h3>Natural tools</h3>
+          <p>
+            Pens, brushes, and layers feel familiar from the moment you start sketching.
+            Every touch, swipe, and erase action propagates instantly.
+          </p>
+        </article>
+        <article>
+          <h3>Set up in seconds</h3>
+          <p>
+            Launch the app on two devices, join the same doodle room, and the shared
+            canvas is ready. No accounts, no cloud logins, just creativity.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <div class="how-section__content">
+        <h2>The shared canvas workflow</h2>
+        <ol>
+          <li>Connect both devices to the same local network or hotspot.</li>
+          <li>Open DoodleTag and select <strong>Start Shared Canvas</strong>.</li>
+          <li>Choose your room name and pair with a partner via QR code or PIN.</li>
+          <li>Sketch together with synchronized layers, colors, and brush settings.</li>
+        </ol>
+      </div>
+      <div class="how-section__media">
+        <img src="assets/placeholder-how.svg" alt="Diagram showing two devices drawing on the same canvas">
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+      <h2>Showcase your ideas</h2>
+      <p class="gallery-section__lead">
+        Use these frames to highlight concept art, brainstorming boards, or classroom demos that shine with DoodleTag.
+      </p>
+      <div class="gallery-grid">
+        <figure>
+          <img src="assets/placeholder-gallery-600x400.svg" alt="Placeholder for a collaborative sketch example">
+          <figcaption>Dual-device concept art session</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/placeholder-gallery-600x400.svg" alt="Placeholder for a classroom teamwork scene">
+          <figcaption>Classroom teamwork on a brainstorming board</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/placeholder-gallery-360x360.svg" alt="Placeholder for brush and color palette details">
+          <figcaption>Brush dynamics and color palette showcase</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="cta-strip">
+      <div>
+        <h2>Bring DoodleTag to your creative space</h2>
+        <p>
+          Get in touch for beta access, bulk licensing, or tailored demos for schools and studios.
+        </p>
+      </div>
+      <a class="cta-button" href="mailto:hello@doodletag.local">Request Access</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="current-year"></span> DoodleTag. Created for local LAN collaboration.</p>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
