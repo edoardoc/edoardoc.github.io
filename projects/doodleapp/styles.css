@@ -171,6 +171,12 @@ a {
   width: min(28rem, 100%);
 }
 
+.how-section__footnote {
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+}
+
 .gallery-section {
   padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 3vw, 4rem);
 }
