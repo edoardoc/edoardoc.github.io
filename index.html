@@ -1,2 +1,168 @@
-Hello World:w
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>500nits — Small apps with bright ideas</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background: #111;
+        color: #f5f5f5;
+      }
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #000 0%, #1a1a1a 60%, #222 100%);
+      }
+      .page {
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 4rem;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      header h1 {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+      header p {
+        margin: 0.75rem 0 0;
+        font-size: 1.1rem;
+        color: rgba(245, 245, 245, 0.8);
+      }
+      section {
+        margin-bottom: 2.5rem;
+        background: rgba(20, 20, 20, 0.75);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+      }
+      h2 {
+        margin-top: 0;
+        font-size: 1.6rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .apps {
+        display: grid;
+        gap: 1.6rem;
+      }
+      .app-card {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 1.4rem;
+        background: rgba(10, 10, 10, 0.5);
+      }
+      .app-card h3 {
+        margin: 0 0 0.45rem;
+        font-size: 1.3rem;
+      }
+      .app-card p {
+        margin: 0;
+        color: rgba(245, 245, 245, 0.82);
+      }
+      .app-links {
+        margin-top: 0.8rem;
+      }
+      .app-links a {
+        display: inline-block;
+        margin-right: 0.75rem;
+        font-weight: 600;
+        color: #ffd966;
+        text-decoration: none;
+      }
+      .app-links a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        text-align: center;
+        color: rgba(245, 245, 245, 0.65);
+        font-size: 0.95rem;
+      }
+      footer a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 600px) {
+        section {
+          padding: 1.4rem;
+        }
+        .app-card {
+          padding: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>500nits</h1>
+        <p>Solo-built mobile experiences that glow in the store and stay memorable on your home screen.</p>
+      </header>
 
+      <section>
+        <h2>What We Do</h2>
+        <p>
+          500nits crafts focused, joyful apps—each one small in scope but sharp in execution. Every launch ships to the app stores first, then gets a clear,
+          searchable home here where people can learn more, get support, and discover what’s next.
+        </p>
+      </section>
+
+      <section>
+        <h2>Apps</h2>
+        <div class="apps">
+          <div class="app-card">
+            <h3>Doodletag</h3>
+            <p>
+              A playful photo tag game that mixes doodles, quick challenges, and shared laughs. Currently live on mobile stores.
+            </p>
+            <div class="app-links">
+              <a href="#">App Store</a>
+              <a href="#">Google Play</a>
+            </div>
+          </div>
+          <div class="app-card">
+            <h3>Flowing Forms</h3>
+            <p>
+              An upcoming tai chi companion focused on mindful movement sessions you can carry anywhere. Join the list to hear when it launches.
+            </p>
+            <div class="app-links">
+              <a href="mailto:hello@500nits.studio">Get launch updates</a>
+            </div>
+          </div>
+          <div class="app-card">
+            <h3>Checkmate Sprint</h3>
+            <p>
+              Fast, daily chess puzzles designed to sharpen tactics in five minutes or less. Currently in prototyping—feedback welcome.
+            </p>
+            <div class="app-links">
+              <a href="mailto:hello@500nits.studio">Share feedback</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Why the Site Matters</h2>
+        <p>
+          App store pages are the launchpad, but this hub keeps control of the story. It gives every title a press-friendly link, a home for support,
+          and a place to cross-promote future ideas without extra overhead.
+        </p>
+      </section>
+
+      <footer>
+        <p>Say hi at <a href="mailto:hello@500nits.studio">hello@500nits.studio</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
