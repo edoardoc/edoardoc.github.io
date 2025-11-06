@@ -28,6 +28,17 @@
         text-align: center;
         margin-bottom: 3rem;
       }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .brand img {
+        width: 56px;
+        height: auto;
+        display: block;
+      }
       header h1 {
         font-size: clamp(2.5rem, 8vw, 3.5rem);
         letter-spacing: 0.08em;
@@ -75,7 +86,10 @@
   <body>
     <div class="page">
       <header>
-        <h1>500nits</h1>
+        <div class="brand">
+          <img src="logo/500nits_logo_1h_large.svg" alt="500nits logo" class="brand-mark" />
+          <h1>500nits</h1>
+        </div>
         <p>Mobile experiences that glow in the store and stay memorable on your home screen.</p>
       </header>
 
