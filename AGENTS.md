@@ -12,3 +12,7 @@
 - Add a simple landing (or subsection) per app for searchability, credibility, and support info.
 - Use the site to cross-promote titles, collect analytics/email, and share press-friendly links.
 - Keep the stack simple (static hosting, single template) so a solo dev can maintain it quickly.
+
+### Deployment Process
+
+- Redeploy automatically after any change: run `git commit` with a clear message and immediately `git push` (redeploy = commit + push).
