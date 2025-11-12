@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>500nits — bright app ideas</title>
+    <title>500nits — When It’s Coming</title>
     <style>
       :root {
         color-scheme: light dark;
@@ -82,6 +82,22 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
+      .timeline {
+        margin: 1.5rem 0 0;
+        border-left: 2px solid rgba(245, 245, 245, 0.2);
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 1.2rem;
+      }
+      .timeline-item span {
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245, 245, 245, 0.7);
+      }
+      .timeline-item p {
+        margin: 0.4rem 0 0;
+      }
       footer {
         text-align: center;
         color: rgba(245, 245, 245, 0.65);
@@ -106,24 +122,39 @@
     <div class="page">
       <header>
         <nav class="top-nav">
-          <a href="index.html" class="active">What</a>
+          <a href="index.html">What</a>
           <a href="how.html">How</a>
-          <a href="when.html">When</a>
+          <a href="when.html" class="active">When</a>
         </nav>
         <div class="brand">
           <img src="logo/500nits_logo_1h_large.svg" alt="500nits logo" class="brand-mark" />
           <h1>500nits</h1>
         </div>
-        <p>Mobile experiences that glow in the store and stay memorable on your home screen.</p>
+        <p>Here’s the loose roadmap so you know when to expect the next glow-up.</p>
       </header>
 
-      <section id="what">
-        <h2>What</h2>
+      <section id="when">
+        <h2>When it lands</h2>
         <p>
-          500nits crafts focused, joyful apps—each one small in scope but sharp in execution. This compact overview unpacks the thinking behind each build
-          and keeps a direct line open for support, feedback, or early previews.
+          500nits ships frequently but quietly: micro-updates every week, bigger beats every quarter. Track the beats below or hop on the list for early
+          previews.
         </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>Now</span>
+            <p>Shipping micro-updates to live titles while polishing help docs and capturing fresh screenshots.</p>
+          </div>
+          <div class="timeline-item">
+            <span>Soon</span>
+            <p>Opening early builds to the mailing list for the next playful tool, plus a refreshed analytics pass on the hub.</p>
+          </div>
+          <div class="timeline-item">
+            <span>Later</span>
+            <p>Rolling out a compact press kit and per-app landing cards so every release has a shareable home.</p>
+          </div>
+        </div>
       </section>
+
       <footer>
         <p>Say hi 🙂 at <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
       </footer>
