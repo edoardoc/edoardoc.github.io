@@ -62,6 +62,42 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
+      .details-list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+      .details-list li {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
+        padding: 0.9rem 1rem;
+      }
+      .details-list strong {
+        display: block;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245, 245, 245, 0.8);
+        margin-bottom: 0.3rem;
+      }
+      .timeline {
+        margin: 1rem 0 0;
+        border-left: 2px solid rgba(245, 245, 245, 0.2);
+        padding-left: 1rem;
+        display: grid;
+        gap: 1rem;
+      }
+      .timeline-item span {
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245, 245, 245, 0.7);
+      }
+      .timeline-item p {
+        margin: 0.35rem 0 0;
+      }
       footer {
         text-align: center;
         color: rgba(245, 245, 245, 0.65);
@@ -92,11 +128,50 @@
         <p>Mobile experiences that glow in the store and stay memorable on your home screen.</p>
       </header>
 
-      <section>
+      <section id="what">
+        <h2>What</h2>
         <p>
           500nits crafts focused, joyful apps—each one small in scope but sharp in execution. This compact overview unpacks the thinking behind each build
           and keeps a direct line open for support, feedback, or early previews.
         </p>
+      </section>
+
+      <section id="how">
+        <h2>How</h2>
+        <p>We work in bright, minimal loops so every release earns a permanent spot on your phone and in the store.</p>
+        <ul class="details-list">
+          <li>
+            <strong>Simple stack</strong>
+            Static hosting and one reusable template keep the site fast to update right after each store launch.
+          </li>
+          <li>
+            <strong>Cross-promote</strong>
+            Each landing links across the 500nits lineup, shares support info, and helps searchers find the right app quickly.
+          </li>
+          <li>
+            <strong>Direct signal</strong>
+            Short feedback loops—email, TestFlight previews, lightweight analytics—guide the next sprint without overbuilding.
+          </li>
+        </ul>
+      </section>
+
+      <section id="when">
+        <h2>When</h2>
+        <p>A lightweight roadmap so friends, testers, and press can track what’s brewing.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>Now</span>
+            <p>Shipping micro-updates to live titles while polishing help docs and capturing fresh screenshots.</p>
+          </div>
+          <div class="timeline-item">
+            <span>Soon</span>
+            <p>Opening early builds to the mailing list for the next playful tool, plus a refreshed analytics pass on the hub.</p>
+          </div>
+          <div class="timeline-item">
+            <span>Later</span>
+            <p>Rolling out a compact press kit and per-app landing cards so every release has a shareable home.</p>
+          </div>
+        </div>
       </section>
 
       <footer>
