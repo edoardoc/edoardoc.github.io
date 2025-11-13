@@ -1,0 +1,79 @@
+#!/bin/bash
+# Runs every repo-local ./cd found under the given root (default: ~/projects) with centralized logging
+set -euo pipefail
+
+LOGFILE="/tmp/cd_alllogfile.log"
+MAXSIZE=$((10 * 1024 * 1024)) # 10 MB
+
+if [ -f "$LOGFILE" ]; then
+  filesize=$(stat -f%z "$LOGFILE" 2>/dev/null || stat --format=%s "$LOGFILE")
+  if [ "$filesize" -gt "$MAXSIZE" ]; then
+    echo "cd_all: trimming logfile (was $filesize bytes)"
+    tail -n 10000 "$LOGFILE" > "${LOGFILE}.tmp" && mv "${LOGFILE}.tmp" "$LOGFILE"
+  fi
+fi
+
+exec > >(tee -a "$LOGFILE") 2>&1
+
+ROOT="${1:-$HOME/projects}"
+
+if [ ! -d "$ROOT" ]; then
+  echo "cd_all: root '$ROOT' does not exist" >&2
+  exit 1
+fi
+
+shopt -s nullglob
+repos=("$ROOT"/*)
+shopt -u nullglob
+
+if [ "${#repos[@]}" -eq 0 ]; then
+  echo "cd_all: no repositories found under $ROOT"
+  exit 0
+fi
+
+ran_any=0
+for repo_path in "${repos[@]}"; do
+  repo_name="$(basename "$repo_path")"
+  echo "cd_all: inspecting $repo_name"
+  cd_script="$repo_path/cd"
+
+  if [ ! -f "$cd_script" ]; then
+    echo "cd_all: $repo_name has no ./cd, skipping"
+    continue
+  fi
+
+  ran_any=1
+  echo "cd_all: $repo_name has ./cd, checking for build tags"
+
+  if ! git -C "$repo_path" fetch --quiet --tags; then
+    echo "cd_all: warning: failed to fetch tags for $repo_name" >&2
+    continue
+  fi
+
+  if git -C "$repo_path" tag --list 'build/*' | grep -q .; then
+    echo "cd_all: found build tags in $repo_name, running ./cd"
+    if [ -x "$cd_script" ]; then
+      run_cmd=(./cd)
+    else
+      run_cmd=(bash ./cd)
+    fi
+
+    if (cd "$repo_path" && "${run_cmd[@]}"); then
+      echo "cd_all: $repo_name completed"
+      exit 0
+    else
+      status=$?
+      echo "cd_all: $repo_name failed with exit $status" >&2
+      exit $status
+    fi
+  else
+    echo "cd_all: $repo_name has no build/* tags"
+  fi
+done
+
+if [ "$ran_any" -eq 0 ]; then
+  echo "cd_all: no executable ./cd scripts found under $ROOT"
+fi
+
+echo "cd_all: no build tags found in any repository under $ROOT"
+exit 0
