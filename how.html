@@ -20,9 +20,24 @@
           url("blue-sky.jpg") center / cover fixed no-repeat;
       }
       .page {
+        position: relative;
+        isolation: isolate;
         max-width: 52rem;
         margin: 0 auto;
         padding: 3.5rem 1.5rem 4rem;
+      }
+      .page::before {
+        content: "";
+        position: absolute;
+        top: -1.5rem;
+        left: -1.5rem;
+        width: 72%;
+        max-width: 32rem;
+        aspect-ratio: 16 / 7;
+        background: url("logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: 0;
       }
       header {
         text-align: center;
@@ -52,12 +67,6 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.75rem;
-      }
-      .brand img {
-        width: 56px;
-        height: auto;
-        display: block;
       }
       header h1 {
         font-size: clamp(2.5rem, 8vw, 3.5rem);
@@ -131,33 +140,25 @@
           <a href="when.html">Live</a>
         </nav>
         <div class="brand">
-          <img src="logo/500nits_logo_1h_large.svg" alt="500nits logo" class="brand-mark" />
           <h1>500nits</h1>
         </div>
         <p>Bright, minimal loops that get 500nits ideas into people’s hands fast.</p>
       </header>
 
       <section id="how">
-        <p>
-          Each release runs through tiny, repeatable rituals: scope one playful idea, mock it in minutes, refine until it shines, then support it forever. The
-          cadence keeps the studio nimble without losing polish.
-        </p>
+        <p>Each build runs a short loop: pick one idea, sketch it quickly, ship the best cut, and keep it cared for.</p>
         <ul class="details-list">
           <li>
             <strong>Simple stack</strong>
-            Static hosting and a single site template mean the web layer updates alongside the App Store/Play Store in the same hour.
-          </li>
-          <li>
-            <strong>Cross-promote</strong>
-            Every landing links to the full 500nits lineup, nudges reviews, and routes support so no app feels isolated.
+            Static pages and one template ship with the App Store/Play Store updates the same day.
           </li>
           <li>
             <strong>Direct signal</strong>
-            Feedback arrives through one inbox, TestFlight cohorts, and lightweight analytics—enough to steer, never enough to bog us down.
+            Feedback flows through one inbox and small TestFlight cohorts—just enough signal, never heavy.
           </li>
           <li>
-            <strong>Steady care</strong>
-            After launch we keep nudging: screenshot refreshes, copy tweaks, accessibility passes, and small experiments keep each title glowing.
+            <strong>Cross-promote</strong>
+            Every landing links the full 500nits lineup, nudges reviews, and routes support so no app feels isolated.
           </li>
         </ul>
       </section>

@@ -20,9 +20,24 @@
           url("blue-sky.jpg") center / cover fixed no-repeat;
       }
       .page {
+        position: relative;
+        isolation: isolate;
         max-width: 52rem;
         margin: 0 auto;
         padding: 3.5rem 1.5rem 4rem;
+      }
+      .page::before {
+        content: "";
+        position: absolute;
+        top: -1.5rem;
+        left: -1.5rem;
+        width: 72%;
+        max-width: 32rem;
+        aspect-ratio: 16 / 7;
+        background: url("logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: 0;
       }
       header {
         text-align: center;
@@ -52,12 +67,6 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 0.75rem;
-      }
-      .brand img {
-        width: 56px;
-        height: auto;
-        display: block;
       }
       header h1 {
         font-size: clamp(2.5rem, 8vw, 3.5rem);
@@ -82,21 +91,29 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
-      .timeline {
-        margin: 1.5rem 0 0;
-        border-left: 2px solid rgba(245, 245, 245, 0.2);
-        padding-left: 1.2rem;
-        display: grid;
-        gap: 1.2rem;
+      .coming-soon {
+        margin-top: 1.6rem;
+        padding: 2rem 1.5rem;
+        border: 2px dashed rgba(245, 245, 245, 0.25);
+        border-radius: 14px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
       }
-      .timeline-item span {
-        font-size: 0.85rem;
+      .coming-soon .emoji {
+        font-size: 2.5rem;
+        line-height: 1;
+        display: block;
+      }
+      .coming-soon h2 {
+        margin: 0.75rem 0 0.35rem;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        color: rgba(245, 245, 245, 0.7);
       }
-      .timeline-item p {
-        margin: 0.4rem 0 0;
+      .coming-soon p {
+        margin: 0;
+        max-width: 32rem;
+        color: rgba(245, 245, 245, 0.8);
       }
       footer {
         text-align: center;
@@ -127,30 +144,17 @@
           <a href="when.html" class="active">Live</a>
         </nav>
         <div class="brand">
-          <img src="logo/500nits_logo_1h_large.svg" alt="500nits logo" class="brand-mark" />
           <h1>500nits</h1>
         </div>
         <p>Here’s the loose roadmap so you know when to expect the next glow-up.</p>
       </header>
 
       <section id="when">
-        <p>
-          500nits ships frequently but quietly: micro-updates every week, bigger beats every quarter. Track the beats below or hop on the list for early
-          previews.
-        </p>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span>Now</span>
-            <p>Shipping micro-updates to live titles while polishing help docs and capturing fresh screenshots.</p>
-          </div>
-          <div class="timeline-item">
-            <span>Soon</span>
-            <p>Opening early builds to the mailing list for the next playful tool, plus a refreshed analytics pass on the hub.</p>
-          </div>
-          <div class="timeline-item">
-            <span>Later</span>
-            <p>Rolling out a compact press kit and per-app landing cards so every release has a shareable home.</p>
-          </div>
+        <p>500nits ships often, but the next premiere needs a little more time in the edit bay.</p>
+        <div class="coming-soon">
+          <span class="emoji" aria-hidden="true">🎬</span>
+          <h2>Coming Soon</h2>
+          <p>The lights are down, the reel is loading, and the next release is almost ready for the marquee.</p>
         </div>
       </section>
 
