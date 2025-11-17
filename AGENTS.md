@@ -16,3 +16,4 @@
 ### Deployment Process
 
 - Redeploy automatically after any change: run `git commit` with a clear message and immediately `git push` (redeploy = commit + push).
+- When publishing a new version, always show the full site link: https://www.500nits.com
