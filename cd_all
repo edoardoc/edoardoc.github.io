@@ -53,22 +53,12 @@ for repo_path in "${repos[@]}"; do
   if git -C "$repo_path" tag --list 'build/*' | grep -q .; then
     echo "cd_all: found build tags in $repo_name, running ./cd"
 
-    # Decide how to run ./cd and ./cd_erase_tags
-    if [ -x "$cd_script" ]; then
-      run_cmd='./cd && ./cd_erase_tags'
-    else
-      run_cmd='bash ./cd && bash ./cd_erase_tags'
-    fi
-
-    # Run them in the repo directory
-    if (cd "$repo_path" && bash -c "$run_cmd"); then
-      echo "cd_all: $repo_name completed"
-      exit 0
-    else
-      status=$?
-      echo "cd_all: $repo_name failed with exit $status" >&2
-      exit $status
-    fi
+    (
+      set +e                     # stop `set -e` from killing the outer script here
+      cd "$repo_path" || exit    # still bail if we can't enter the repo
+      ./cd || true               # allow ./cd to fail
+      ./cd_erase_tags            # always executed
+    )
   else
     echo "cd_all: $repo_name has no build/* tags"
   fi
@@ -80,4 +70,3 @@ fi
 
 echo "cd_all: no build tags found in any repository under $ROOT"
 exit 0
-
