@@ -4,4 +4,6 @@ references/
 botify/
 .DS_Store
 logs/
-uploads/
+uploads/*
+!uploads/.gitkeep
+!uploads/photo-AQADJAtrG0LZCVF9.jpg
