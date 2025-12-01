@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+  <defs>
+    <radialGradient id="bgGlow" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#241d40" />
+      <stop offset="45%" stop-color="#0d0a1a" />
+      <stop offset="100%" stop-color="#04030c" />
+    </radialGradient>
+    <radialGradient id="orbGlow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#ffe07a" stop-opacity="0.95" />
+      <stop offset="60%" stop-color="#fbb040" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+    <linearGradient id="rayGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff2b0" />
+      <stop offset="100%" stop-color="#f29325" />
+    </linearGradient>
+    <linearGradient id="rayAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe59f" />
+      <stop offset="100%" stop-color="#ff8f3a" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bgGlow)" />
+
+  <g transform="translate(520 400)">
+    <circle cx="0" cy="0" r="280" fill="url(#orbGlow)" opacity="0.65" />
+
+    <g stroke-linecap="round">
+      <line x1="0" y1="-80" x2="0" y2="-420" stroke="url(#rayGold)" stroke-width="20" opacity="0.75" transform="rotate(-12)" />
+      <line x1="0" y1="-60" x2="0" y2="-360" stroke="url(#rayAmber)" stroke-width="12" opacity="0.7" transform="rotate(6)" />
+      <line x1="0" y1="-70" x2="0" y2="-380" stroke="url(#rayGold)" stroke-width="18" opacity="0.8" transform="rotate(24)" />
+      <line x1="0" y1="-55" x2="0" y2="-340" stroke="url(#rayAmber)" stroke-width="10" opacity="0.7" transform="rotate(42)" />
+      <line x1="0" y1="-80" x2="0" y2="-420" stroke="url(#rayGold)" stroke-width="20" opacity="0.75" transform="rotate(60)" />
+      <line x1="0" y1="-60" x2="0" y2="-360" stroke="url(#rayAmber)" stroke-width="12" opacity="0.7" transform="rotate(78)" />
+      <line x1="0" y1="-70" x2="0" y2="-380" stroke="url(#rayGold)" stroke-width="18" opacity="0.8" transform="rotate(96)" />
+      <line x1="0" y1="-55" x2="0" y2="-340" stroke="url(#rayAmber)" stroke-width="10" opacity="0.65" transform="rotate(114)" />
+      <line x1="0" y1="-80" x2="0" y2="-420" stroke="url(#rayGold)" stroke-width="20" opacity="0.75" transform="rotate(132)" />
+      <line x1="0" y1="-60" x2="0" y2="-360" stroke="url(#rayAmber)" stroke-width="12" opacity="0.7" transform="rotate(150)" />
+      <line x1="0" y1="-70" x2="0" y2="-380" stroke="url(#rayGold)" stroke-width="18" opacity="0.8" transform="rotate(168)" />
+      <line x1="0" y1="-55" x2="0" y2="-340" stroke="url(#rayAmber)" stroke-width="10" opacity="0.65" transform="rotate(186)" />
+    </g>
+
+    <g fill="none" stroke-linecap="round" opacity="0.45">
+      <circle cx="0" cy="0" r="230" stroke="#ffbe55" stroke-width="22" stroke-dasharray="220 1200" transform="rotate(-18)" />
+      <circle cx="0" cy="0" r="310" stroke="#ff9a39" stroke-width="18" stroke-dasharray="260 1200" transform="rotate(12)" />
+      <circle cx="0" cy="0" r="380" stroke="#ffd86f" stroke-width="12" stroke-dasharray="180 1200" transform="rotate(-42)" />
+    </g>
+
+    <circle cx="0" cy="0" r="120" fill="#ffd446" opacity="0.8" />
+    <circle cx="0" cy="0" r="40" fill="#fff7c1" opacity="0.95" />
+  </g>
+
+  <g transform="translate(1100 980)" opacity="0.35">
+    <circle cx="0" cy="0" r="220" fill="none" stroke="#44204f" stroke-width="90" stroke-dasharray="310 400" />
+    <circle cx="0" cy="0" r="320" fill="none" stroke="#45295f" stroke-width="30" stroke-dasharray="180 160" />
+  </g>
+</svg>
