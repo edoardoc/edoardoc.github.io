@@ -34,11 +34,11 @@ fi
 ran_any=0
 for repo_path in "${repos[@]}"; do
   repo_name="$(basename "$repo_path")"
-  echo "cd_all: inspecting $repo_name"
+  # echo "cd_all: inspecting $repo_name"
   cd_script="$repo_path/cd"
 
   if [ ! -f "$cd_script" ]; then
-    echo "cd_all: $repo_name has no ./cd, skipping"
+    # echo "cd_all: $repo_name has no ./cd, skipping"
     continue
   fi
 
