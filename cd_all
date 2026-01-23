@@ -36,21 +36,47 @@ for repo_path in "${repos[@]}"; do
   repo_name="$(basename "$repo_path")"
   # echo "cd_all: inspecting $repo_name"
   cd_script="$repo_path/cd"
+  cd_asc_script="$repo_path/cd_asc"
 
-  if [ ! -f "$cd_script" ]; then
-    # echo "cd_all: $repo_name has no ./cd, skipping"
+  if [ ! -f "$cd_script" ] && [ ! -f "$cd_asc_script" ]; then
+    # echo "cd_all: $repo_name has no ./cd or ./cd_asc, skipping"
     continue
   fi
 
   ran_any=1
-  echo "cd_all: $repo_name has ./cd, checking for build tags"
+  echo "cd_all: $repo_name has ./cd/.cd_asc, checking for tags"
 
   if ! git -C "$repo_path" fetch --quiet --tags; then
     echo "cd_all: warning: failed to fetch tags for $repo_name" >&2
     continue
   fi
 
+  has_build_tags=0
+  has_asc_tags=0
   if git -C "$repo_path" tag --list 'build/*' | grep -q .; then
+    has_build_tags=1
+  fi
+  if git -C "$repo_path" tag --list 'asc/*' | grep -q .; then
+    has_asc_tags=1
+  fi
+
+  if [ "$has_asc_tags" -eq 1 ]; then
+    if [ "$has_build_tags" -eq 1 ]; then
+      echo "cd_all: warning: found both asc/* and build/* tags in $repo_name; running ./cd_asc and skipping build tags."
+    else
+      echo "cd_all: found asc tags in $repo_name, running ./cd_asc"
+    fi
+
+    (
+      set +e                     # stop `set -e` from killing the outer script here
+      cd "$repo_path" || exit    # still bail if we can't enter the repo
+      if [ -x "$cd_asc_script" ]; then
+        ./cd_asc || true         # allow ./cd_asc to fail
+      else
+        echo "cd_all: warning: asc tags present but ./cd_asc missing or not executable in $repo_name"
+      fi
+    )
+  elif [ "$has_build_tags" -eq 1 ]; then
     echo "cd_all: found build tags in $repo_name, running ./cd"
 
     (
@@ -68,5 +94,5 @@ if [ "$ran_any" -eq 0 ]; then
   echo "cd_all: no executable ./cd scripts found under $ROOT"
 fi
 
-echo "cd_all: no build tags found in any repository under $ROOT"
+echo "cd_all: no build/asc tags found in any repository under $ROOT"
 exit 0
