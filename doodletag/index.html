@@ -3,11 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doodle Tag</title>
+    <title>doodle tag</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text: #111111;
+            --muted: #6b6b6b;
+            --bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 48px 20px 64px;
+            gap: 28px;
+        }
+
+        .hero {
+            width: min(620px, 92vw);
+            height: auto;
+            display: block;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Luckiest Guy", "Comic Sans MS", cursive;
+            font-size: clamp(2.6rem, 5vw, 3.6rem);
+            letter-spacing: 1px;
+        }
+
+        .stores {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stores a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stores img {
+            height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Doodle Tag</h1>
-    <p>Welcome to Doodle Tag.</p>
-    <p><a href="./privacy/">Privacy Policy</a></p>
+    <main>
+        <img class="hero" src="./assets/doodletag-hero.png" alt="Doodle Tag graphic">
+        <h1>doodle tag</h1>
+        <div class="stores" aria-label="Download links">
+            <a href="#" aria-label="Download on the App Store">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+            </a>
+            <a href="#" aria-label="Get it on Google Play">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+            </a>
+        </div>
+        <p class="note">Internal testing only.</p>
+    </main>
 </body>
 </html>
