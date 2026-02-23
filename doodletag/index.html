@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>doodle tag</title>
+    <link rel="icon" href="./assets/doodletag-hero.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <style>
         :root {
+            --blue: #2991f5;
+            --green: #10cd55;
             --text: #111111;
-            --muted: #6b6b6b;
+            --muted: #4a4a4a;
             --bg: #ffffff;
         }
 
@@ -25,6 +28,26 @@
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
+        body {
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                url("./assets/feature_graphic.svg"),
+                url("./assets/doodletag-hero.svg");
+            background-size: 85% auto, 28vmin;
+            background-position: top center, 92% 12%;
+            background-repeat: no-repeat, no-repeat;
+            opacity: 0.3168;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         main {
             min-height: 100vh;
             display: flex;
@@ -33,12 +56,8 @@
             justify-content: flex-start;
             padding: 48px 20px 64px;
             gap: 28px;
-        }
-
-        .hero {
-            width: min(620px, 92vw);
-            height: auto;
-            display: block;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
@@ -46,6 +65,15 @@
             font-family: "Luckiest Guy", "Comic Sans MS", cursive;
             font-size: clamp(2.6rem, 5vw, 3.6rem);
             letter-spacing: 1px;
+            margin-bottom: 90px;
+        }
+
+        .word-blue {
+            color: var(--blue);
+        }
+
+        .word-green {
+            color: var(--green);
         }
 
         .stores {
@@ -83,8 +111,7 @@
 </head>
 <body>
     <main>
-        <img class="hero" src="./assets/doodletag-hero.svg" alt="Doodle Tag graphic">
-        <h1>doodle tag</h1>
+        <h1><span class="word-blue">doodle</span> <span class="word-green">tag</span></h1>
         <div class="stores" aria-label="Download links">
             <a href="https://testflight.apple.com/join/S6Y1V65b" aria-label="Get on iOS (TestFlight)">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Testflight" title="Testflight">
