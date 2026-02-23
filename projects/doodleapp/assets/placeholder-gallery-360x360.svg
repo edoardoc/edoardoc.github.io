@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
-  <rect width="360" height="360" fill="#d1d4dd"/>
-  <rect x="20" y="20" width="320" height="320" rx="24" fill="#c5c8d2"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-        font-family="Arial, sans-serif" font-size="28" fill="#7a7d87" letter-spacing="3">
-    360 × 360
-  </text>
-</svg>

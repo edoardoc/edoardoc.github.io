@@ -39,7 +39,7 @@ for repo_path in "${repos[@]}"; do
   cd_asc_script="$repo_path/cd_asc"
 
   if [ ! -f "$cd_script" ] && [ ! -f "$cd_asc_script" ]; then
-    # echo "cd_all: $repo_name has no ./cd or ./cd_asc, skipping"
+    echo "cd_all: $repo_name has no ./cd or ./cd_asc, skipping"
     continue
   fi
 
