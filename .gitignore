@@ -8,3 +8,6 @@ botify/
 logs/
 uploads/*
 !uploads/.gitkeep
+
+# ignore local doodleapp scratch
+projects/.doodleapp/
