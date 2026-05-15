@@ -1,0 +1,3 @@
+[submodule "doodletag_500nits_com"]
+	path = doodletag_500nits_com
+	url = https://github.com/500nits/doodletag.git
