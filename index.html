@@ -83,6 +83,31 @@
         margin-bottom: 3rem;
       }
 
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav a {
+        color: rgba(245, 245, 245, 0.65);
+        text-decoration: none;
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      .top-nav a:hover,
+      .top-nav a:focus-visible {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+        outline: none;
+      }
+
       header h1 {
         margin: 0;
         font-size: clamp(2.5rem, 8vw, 3.5rem);
@@ -171,6 +196,11 @@
     <div class="page">
       <div class="content">
         <header>
+          <nav class="top-nav" aria-label="Sections">
+            <a href="#main-title">Main</a>
+            <a href="#about-title">About</a>
+            <a href="#doodletag-title">Doodle Tag</a>
+          </nav>
           <h1>500nits</h1>
           <p class="tagline">transforming ideas</p>
         </header>
