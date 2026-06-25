@@ -1,16 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=https://doodletag.500nits.com/">
-  <link rel="canonical" href="https://doodletag.500nits.com/">
-  <script>
-    window.location.replace('https://doodletag.500nits.com/');
-  </script>
-</head>
-<body>
-  <p>Redirecting to <a href="https://doodletag.500nits.com/">doodletag.500nits.com</a>...</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Doodle Tag is a shared sketchbook for people in the same room."
+    />
+    <title>500nits - Doodle Tag</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background: #111;
+        color: #f5f5f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #03030a;
+        background-image:
+          radial-gradient(circle at 22% 18%, rgba(255, 209, 128, 0.36), rgba(255, 209, 128, 0) 52%),
+          linear-gradient(135deg, rgba(3, 3, 10, 0.98), rgba(13, 9, 26, 0.9)),
+          url("../logo/hero-rays.svg");
+        background-size: 140% 140%, 100% 100%, cover;
+        background-position: top left, center, top center;
+        background-attachment: fixed, fixed, fixed;
+        background-repeat: no-repeat;
+      }
+
+      .page {
+        position: relative;
+        isolation: isolate;
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 4rem;
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        top: -1.5rem;
+        left: -12%;
+        width: 170%;
+        max-width: 80rem;
+        aspect-ratio: 16 / 7;
+        background: url("../logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
+        opacity: 0.12;
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.85) 40%,
+          rgba(0, 0, 0, 0.55) 60%,
+          rgba(0, 0, 0, 0.05) 92%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.85) 40%,
+          rgba(0, 0, 0, 0.55) 60%,
+          rgba(0, 0, 0, 0.05) 92%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav a {
+        color: rgba(245, 245, 245, 0.65);
+        text-decoration: none;
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      .top-nav a:hover,
+      .top-nav a:focus-visible {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+        outline: none;
+      }
+
+      .top-nav a.active {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        letter-spacing: 0.08em;
+      }
+
+      .tagline {
+        margin: 0.75rem 0 0;
+        font-size: 1.1rem;
+        color: rgba(245, 245, 245, 0.8);
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+        background: rgba(20, 20, 20, 0.75);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: 1.6rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .proper-case {
+        text-transform: none;
+      }
+
+      p {
+        margin: 0 0 1rem;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .lede {
+        font-size: 1.15rem;
+        color: rgba(245, 245, 245, 0.9);
+      }
+
+      .cta a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(245, 245, 245, 0.5);
+        padding-bottom: 0.1rem;
+      }
+
+      .cta a:hover {
+        text-decoration: none;
+        border-color: #f5f5f5;
+      }
+
+      footer {
+        text-align: center;
+        color: rgba(245, 245, 245, 0.65);
+        font-size: 0.95rem;
+      }
+
+      footer a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .page {
+          padding: 2.5rem 1rem 3rem;
+        }
+
+        section {
+          padding: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="content">
+        <header>
+          <nav class="top-nav" aria-label="Sections">
+            <a href="../">Main</a>
+            <a href="../about/">About</a>
+            <a href="./" class="active" aria-current="page">Doodle Tag</a>
+          </nav>
+          <h1>500nits</h1>
+          <p class="tagline">transforming ideas</p>
+        </header>
+
+        <section aria-labelledby="doodletag-title">
+          <h2 id="doodletag-title" class="proper-case">Doodle Tag</h2>
+          <p class="lede">
+            Doodle Tag is a shared sketchbook for people in the same room. Open it on two devices, connect over local Wi-Fi, and draw together
+            on one big canvas.
+          </p>
+          <p>
+            No accounts. No invites. No cloud sync. No tracking. Just a quick local connection and a private-by-design drawing space.
+          </p>
+          <p>
+            As I build and improve it, I'll share short notes on the process: Flutter, local networking, privacy-first product decisions, App
+            Store and Play Store releases, and what I learn while shipping a small app properly.
+          </p>
+          <p class="cta">
+            Get Doodle Tag:
+            <a href="https://doodletag.500nits.com">https://doodletag.500nits.com</a>
+          </p>
+        </section>
+
+        <footer>
+          <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
+        </footer>
+
+      </div>
+    </div>
+  </body>
 </html>
