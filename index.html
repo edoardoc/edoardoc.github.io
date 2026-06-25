@@ -3,158 +3,250 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>500nits — bright app ideas</title>
+    <meta
+      name="description"
+      content="500nits is transforming ideas into practical software, with a current focus on Doodle Tag."
+    />
+    <title>500nits - transforming ideas</title>
     <style>
       :root {
-        color-scheme: light dark;
+        color-scheme: light;
+        --bg: #f6f0e7;
+        --bg-alt: #ece3d8;
+        --surface: rgba(255, 255, 255, 0.74);
+        --surface-strong: rgba(255, 255, 255, 0.88);
+        --text: #1f1914;
+        --muted: #5e5347;
+        --accent: #156a5c;
+        --line: rgba(31, 25, 20, 0.12);
+        --shadow: 0 28px 80px rgba(31, 25, 20, 0.08);
         font-family: "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        background: #111;
-        color: #f5f5f5;
+        line-height: 1.65;
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
-        background-color: #03030a;
-        background-image:
-          radial-gradient(circle at 22% 18%, rgba(255, 209, 128, 0.36), rgba(255, 209, 128, 0) 52%),
-          linear-gradient(135deg, rgba(3, 3, 10, 0.98), rgba(13, 9, 26, 0.9)),
-          url("logo/hero-rays.svg");
-        background-size: 140% 140%, 100% 100%, cover;
-        background-position: top left, center, top center;
-        background-attachment: fixed, fixed, fixed;
-        background-repeat: no-repeat;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 8%, rgba(21, 106, 92, 0.14), transparent 28%),
+          radial-gradient(circle at 88% 10%, rgba(197, 142, 78, 0.15), transparent 24%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
       }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(31, 25, 20, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(31, 25, 20, 0.02) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent 95%);
+        pointer-events: none;
+      }
+
+      a {
+        color: inherit;
+      }
+
       .page {
         position: relative;
-        isolation: isolate;
-        max-width: 52rem;
+        max-width: 760px;
         margin: 0 auto;
-        padding: 3.5rem 1.5rem 4rem;
+        padding: 4rem 1.5rem 4.5rem;
       }
-      .page::before {
+
+      .page::after {
         content: "";
         position: absolute;
-        top: -1.5rem;
-        left: -12%;
-        width: 170%;
-        max-width: 80rem;
-        aspect-ratio: 16 / 7;
-        background: url("logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
-        opacity: 0.12;
-        -webkit-mask-image: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.85) 40%,
-          rgba(0, 0, 0, 0.55) 60%,
-          rgba(0, 0, 0, 0.05) 92%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        mask-image: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.85) 40%,
-          rgba(0, 0, 0, 0.55) 60%,
-          rgba(0, 0, 0, 0.05) 92%,
-          rgba(0, 0, 0, 0) 100%
-        );
+        top: 1rem;
+        right: -2rem;
+        width: 16rem;
+        height: 16rem;
+        border-radius: 999px;
+        background: radial-gradient(circle, rgba(21, 106, 92, 0.16), transparent 68%);
+        filter: blur(8px);
         pointer-events: none;
         z-index: 0;
       }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
       header {
-        text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 2.75rem;
       }
-      .top-nav {
-        display: flex;
-        justify-content: center;
-        gap: 1.25rem;
-        margin: 0 0 1.5rem;
-        font-size: 0.95rem;
-        letter-spacing: 0.08em;
+
+      h1 {
+        margin: 0;
+        font-size: clamp(3rem, 8vw, 5.2rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+        text-wrap: balance;
+      }
+
+      .panel {
+        margin-bottom: 1.25rem;
+        padding: 1.6rem;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+      }
+
+      .panel h2 {
+        margin: 0 0 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
         text-transform: uppercase;
+        color: var(--accent);
       }
-      .top-nav a {
-        color: rgba(245, 245, 245, 0.65);
-        text-decoration: none;
-        padding-bottom: 0.25rem;
-        border-bottom: 2px solid transparent;
+
+      .panel p {
+        margin: 0 0 1rem;
       }
-      .top-nav a:hover,
-      .top-nav a.active {
-        color: #f5f5f5;
-        border-color: #f5f5f5;
+
+      .panel p:last-child {
+        margin-bottom: 0;
       }
-      .brand {
+
+      .lede {
+        font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+        line-height: 1.45;
+        color: var(--text);
+      }
+
+      .label {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
-      }
-      header h1 {
-        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        gap: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        border: 1px solid rgba(21, 106, 92, 0.22);
+        border-radius: 999px;
+        background: var(--surface-strong);
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 700;
         letter-spacing: 0.08em;
-        margin: 0;
-      }
-      header p {
-        margin: 0.75rem 0 0;
-        font-size: 1.1rem;
-        color: rgba(245, 245, 245, 0.8);
-      }
-      section {
-        margin-bottom: 2.5rem;
-        background: rgba(20, 20, 20, 0.75);
-        border-radius: 16px;
-        padding: 1.8rem;
-        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
-      }
-      h2 {
-        margin-top: 0;
-        font-size: 1.6rem;
-        letter-spacing: 0.04em;
         text-transform: uppercase;
       }
-      footer {
-        text-align: center;
-        color: rgba(245, 245, 245, 0.65);
-        font-size: 0.95rem;
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        align-items: baseline;
+        margin-top: 1.25rem;
+        font-size: 1.05rem;
       }
-      footer a {
-        color: inherit;
+
+      .cta a {
+        color: var(--accent);
+        font-weight: 700;
         text-decoration: none;
-        font-weight: 600;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 0.08rem;
       }
-      footer a:hover {
+
+      .cta a:hover {
+        color: #0e584d;
+      }
+
+      .contact {
+        margin-top: 1rem;
+        color: var(--muted);
+      }
+
+      .contact a {
+        color: var(--accent);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .contact a:hover {
         text-decoration: underline;
       }
-      @media (max-width: 600px) {
-        section {
-          padding: 1.4rem;
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 2.5rem 1rem 3rem;
+        }
+
+        .panel {
+          padding: 1.35rem;
+          border-radius: 20px;
+        }
+
+        h1 {
+          max-width: 100%;
+        }
+
+        .cta {
+          display: block;
+        }
+
+        .cta a {
+          display: inline-block;
+          margin-top: 0.2rem;
         }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <header>
-        <nav class="top-nav">
-          <a href="index.html" class="active">Glow</a>
-          <a href="how.html">Spark</a>
-        </nav>
-        <div class="brand">
-          <h1>500nits</h1>
-        </div>
-        <p>Mobile experiences focused on usability and playfulness.</p>
-      </header>
+    <main class="page">
+      <div class="content">
+        <header>
+          <h1>500nits - transforming ideas</h1>
+        </header>
 
-      <section id="what">
-        <p>
-          500nits builds purposeful apps with a studio glow. Each one keeps its scope tight, lands polished in the stores, and stays cared for with
-          honest updates, open support, and friendly previews for anyone curious.
-        </p>
-      </section>
-      <footer>
-        <p>Say hi 🙂 at <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
-      </footer>
-    </div>
+        <section class="panel" aria-labelledby="intro-title">
+          <h2 id="intro-title">Hi, I’m Eddy.</h2>
+          <p class="lede">
+            I’m a software developer with 20+ years of hands-on experience building server-side systems, mobile apps, APIs, automation tools,
+            and cloud-native services.
+          </p>
+          <p>
+            I’ve worked across classified media, e-learning, remote management, healthcare, SaaS, and freelance projects — mostly close to the
+            code, the architecture, and the real problems that appear when software has to run in production.
+          </p>
+          <p class="label">LinkedIn</p>
+        </section>
+
+        <section class="panel" aria-labelledby="doodletag-title">
+          <h2 id="doodletag-title">Now building Doodle Tag</h2>
+          <p>
+            Doodle Tag is a shared sketchbook for people in the same room. Open it on two devices, connect over local Wi-Fi, and draw together
+            on one big canvas.
+          </p>
+          <p>
+            No accounts. No invites. No cloud sync. No tracking. Just a quick local connection and a private-by-design drawing space.
+          </p>
+          <p>
+            As I build and improve it, I’ll share short notes on the process: Flutter, local networking, privacy-first product decisions, App
+            Store and Play Store releases, and what I learn while shipping a small app properly.
+          </p>
+          <p class="cta">
+            Get Doodle Tag:
+            <a href="https://doodletag.500nits.com">https://doodletag.500nits.com</a>
+          </p>
+          <p class="contact">
+            Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a>
+          </p>
+        </section>
+      </div>
+    </main>
   </body>
 </html>
