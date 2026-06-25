@@ -9,5 +9,7 @@ logs/
 uploads/*
 !uploads/.gitkeep
 
+doodletag_500nits_com/
+
 # ignore local doodleapp scratch
 projects/.doodleapp/
