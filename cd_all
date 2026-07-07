@@ -2,6 +2,9 @@
 # Runs every repo-local ./cd found under the given root (default: ~/projects) with centralized logging
 set -euo pipefail
 
+# Prevent git and ssh commands from hanging in background/unattended environments
+export GIT_SSH_COMMAND="ssh -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -o BatchMode=yes"
+
 LOGFILE="/tmp/cd_alllogfile.log"
 MAXSIZE=$((10 * 1024 * 1024)) # 10 MB
 
@@ -46,7 +49,7 @@ for repo_path in "${repos[@]}"; do
   ran_any=1
   echo "cd_all: $repo_name has ./cd/.cd_asc, checking for tags"
 
-  if ! git -C "$repo_path" fetch --quiet --tags; then
+  if ! git -c transfer.timeout=60 -C "$repo_path" fetch --quiet --tags; then
     echo "cd_all: warning: failed to fetch tags for $repo_name" >&2
     continue
   fi
