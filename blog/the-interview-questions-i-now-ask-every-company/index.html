@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="What does it mean for a software company to actually use AI? The questions I now ask every company during interviews."
+    />
+    <title>500nits - The interview questions I now ask every company</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background: #111;
+        color: #f5f5f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #03030a;
+        background-image:
+          radial-gradient(circle at 22% 18%, rgba(255, 209, 128, 0.36), rgba(255, 209, 128, 0) 52%),
+          linear-gradient(135deg, rgba(3, 3, 10, 0.98), rgba(13, 9, 26, 0.9)),
+          url("../../logo/hero-rays.svg");
+        background-size: 140% 140%, 100% 100%, cover;
+        background-position: top left, center, top center;
+        background-attachment: fixed, fixed, fixed;
+        background-repeat: no-repeat;
+      }
+
+      .page {
+        position: relative;
+        isolation: isolate;
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 4rem;
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        top: -1.5rem;
+        left: -12%;
+        width: 170%;
+        max-width: 80rem;
+        aspect-ratio: 16 / 7;
+        background: url("../../logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
+        opacity: 0.12;
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.85) 40%,
+          rgba(0, 0, 0, 0.55) 60%,
+          rgba(0, 0, 0, 0.05) 92%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.85) 40%,
+          rgba(0, 0, 0, 0.55) 60%,
+          rgba(0, 0, 0, 0.05) 92%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav a {
+        color: rgba(245, 245, 245, 0.65);
+        text-decoration: none;
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      .top-nav a:hover,
+      .top-nav a:focus-visible {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+        outline: none;
+      }
+
+      .top-nav a.active {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        font-family: "Teko", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 0.9;
+      }
+
+      .tagline {
+        margin: 0.75rem 0 0;
+        font-size: 1.1rem;
+        color: rgba(245, 245, 245, 0.8);
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+        background: rgba(20, 20, 20, 0.75);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: 1.6rem;
+        letter-spacing: 0.04em;
+        text-transform: none;
+      }
+
+      p {
+        margin: 0 0 1rem;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .lede {
+        font-size: 1.15rem;
+        color: rgba(245, 245, 245, 0.9);
+      }
+
+      .post-date {
+        font-size: 0.9rem;
+        color: rgba(245, 245, 245, 0.5);
+        margin-bottom: 1.5rem;
+      }
+
+      .post-body p {
+        color: rgba(245, 245, 245, 0.85);
+      }
+
+      .post-body .highlight {
+        font-size: 1.05rem;
+        color: rgba(245, 245, 245, 0.95);
+        font-weight: 500;
+      }
+
+      .questions-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0;
+      }
+
+      .questions-list li {
+        padding: 0.5rem 0;
+        padding-left: 1.2rem;
+        position: relative;
+        color: rgba(245, 245, 245, 0.85);
+      }
+
+      .questions-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: rgba(255, 209, 128, 0.7);
+      }
+
+      .closing {
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(245, 245, 245, 0.1);
+        padding-top: 1.5rem;
+      }
+
+      .closing p {
+        margin-bottom: 0.4rem;
+      }
+
+      .link-row a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(245, 245, 245, 0.5);
+        padding-bottom: 0.1rem;
+      }
+
+      .link-row a:hover {
+        text-decoration: none;
+        border-color: #f5f5f5;
+      }
+
+      footer {
+        text-align: center;
+        color: rgba(245, 245, 245, 0.65);
+        font-size: 0.95rem;
+      }
+
+      footer a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .page {
+          padding: 2.5rem 1rem 3rem;
+        }
+
+        section {
+          padding: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="content">
+        <header>
+          <nav class="top-nav" aria-label="Sections">
+            <a href="/">About</a>
+            <a href="/doodletag/">Doodle Tag</a>
+          </nav>
+          <h1>500nits</h1>
+          <p class="tagline">transforming ideas, automating tasks</p>
+        </header>
+
+        <article>
+          <section aria-labelledby="post-title">
+            <h2 id="post-title">The interview questions I now ask every company</h2>
+            <p class="post-date"><time datetime="2025-07-17">17 July 2025</time></p>
+
+            <div class="post-body">
+              <p>
+                A typical roadmap to be hired is made of 4 or 5 steps (believe me, I know): introductions
+                from both sides, some HR, and a live coding session with two potential future colleagues.
+                I remember once being given an exercise to write an algorithm that spells out the numbers
+                from 1 to 100 in letters :)
+              </p>
+
+              <p>
+                That session is often the first real contact between a candidate and the company's
+                engineering culture. It is not only testing how I solve a problem, it is also showing me
+                how the company works, what it values, and whether we are compatible.
+              </p>
+
+              <p>
+                Recently, while waiting for one of these, I started wondering what it should look like
+                now: today, asking someone to write a small algorithm is not enough to understand how they
+                build software.
+              </p>
+
+              <p>
+                When working with agents, we are not following the evolution of the program in the same
+                way we used to. The work is shifting from writing logic to defining intent, and at the
+                scale of 30 devs on the same repositories, that intent needs to be explicit, shared, and
+                maintained. Otherwise every developer gives different directions based on a different
+                understanding of the same system: using AI is not just having Claude's logo in the roster
+                of tools next to Terraform and the database (no offence, Terraform).
+              </p>
+
+              <ul class="questions-list">
+                <li>Are changes produced with agents reviewed differently?</li>
+                <li>Is the current architecture and its evolution maintained in plain source files that both people and agents can read?</li>
+                <li>Are repository and project rules being organised with <a href="https://github.com/Fission-AI/OpenSpec" target="_blank" rel="noreferrer noopener" class="link-row" style="font-weight: normal; border-bottom: 1px solid rgba(245,245,245,0.35);">OpenSpec</a>? If not, are they at least maintaining AGENTS.md templates?</li>
+                <li>Are they using any kind of memory system, <a href="https://github.com/topoteretes/cognee" target="_blank" rel="noreferrer noopener" class="link-row" style="font-weight: normal; border-bottom: 1px solid rgba(245,245,245,0.35);">Cognee</a>, <a href="https://github.com/getzep/graphiti" target="_blank" rel="noreferrer noopener" class="link-row" style="font-weight: normal; border-bottom: 1px solid rgba(245,245,245,0.35);">Graphiti</a>, or something internal, to keep the context of all of this together?</li>
+              </ul>
+
+              <p>
+                These are not necessarily requirements for every company. They are examples of the
+                questions that start appearing once AI becomes part of the actual development process,
+                because it is not just another isolated tool in the stack. It affects almost every part
+                of software development.
+              </p>
+
+              <div class="closing">
+                <p class="highlight">Done right, it makes the work easier to control.</p>
+                <p class="highlight">Done badly, it becomes a jungle where everything can go wrong, no matter how many tokens you use or how smart the models are.</p>
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <footer>
+          <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
