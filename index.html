@@ -231,20 +231,94 @@
           </p>
         </section>
 
-        <section aria-label="Current Work">
-          <p class="link-row">
-            <a href="doodletag/">Now building Doodle Tag</a>
-          </p>
-        </section>
-
-        <section aria-labelledby="blog-title">
-          <h2 id="blog-title">Blog</h2>
+        <section aria-label="Projects and writing">
           <ul style="list-style: none; padding: 0; margin: 0;">
+            <li class="link-row" style="margin-bottom: 0.6rem;">
+              <a href="doodletag/">Now building Doodle Tag</a>
+            </li>
             <li style="display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;">
-              <a href="blog/the-interview-questions-i-now-ask-every-company/" class="link-row" style="color: inherit; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(245,245,245,0.5); padding-bottom: 0.1rem;">What does it mean for a software company to use AI</a>
+              <a href="blog/the-interview-questions-i-now-ask-every-company/" style="color: inherit; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(245,245,245,0.5); padding-bottom: 0.1rem;">What does it mean for a software company to use AI</a>
               <time datetime="2025-07-17" style="font-size: 0.85rem; color: rgba(245,245,245,0.45); white-space: nowrap;">17 Jul 2025</time>
             </li>
           </ul>
+        </section>
+
+        <section aria-labelledby="botify-title">
+          <h2 id="botify-title" class="proper-case">Botify</h2>
+          <p class="lede">
+            A self-hosted bridge between conversational interfaces and repository-based AI agents.
+          </p>
+          <p>
+            It started in October 2025 with a simple objective: allow a developer to interact with Codex remotely
+            through Telegram while keeping the agent connected to the files, instructions, tools, and working
+            directory of a real project.
+          </p>
+          <p>
+            As the project evolved, Botify became a reusable agent runtime rather than a basic chatbot integration.
+            Each deployment can be attached to a specific repository or business environment, allowing the agent to
+            work with local project context instead of operating inside an isolated conversation.
+          </p>
+
+          <h3 style="font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(245,245,245,0.6); margin: 2rem 0 1rem;">Timeline</h3>
+
+          <ol style="list-style: none; padding: 0; margin: 0; border-left: 2px solid rgba(255,209,128,0.25); padding-left: 1.4rem;">
+            <li style="margin-bottom: 1.4rem; position: relative;">
+              <span style="position: absolute; left: -1.65rem; top: 0.35rem; width: 0.55rem; height: 0.55rem; background: rgba(255,209,128,0.7); border-radius: 50%;"></span>
+              <strong style="color: rgba(245,245,245,0.95);">Oct 2025 — Project start</strong>
+              <p style="margin: 0.3rem 0 0; color: rgba(245,245,245,0.65); font-size: 0.95rem;">
+                Initial commit. A TypeScript bridge that lets Telegram messages reach Codex through MCP.
+              </p>
+            </li>
+            <li style="margin-bottom: 1.4rem; position: relative;">
+              <span style="position: absolute; left: -1.65rem; top: 0.35rem; width: 0.55rem; height: 0.55rem; background: rgba(255,209,128,0.7); border-radius: 50%;"></span>
+              <strong style="color: rgba(245,245,245,0.95);">Nov–Dec 2025 — Usability &amp; collaboration</strong>
+              <p style="margin: 0.3rem 0 0; color: rgba(245,245,245,0.65); font-size: 0.95rem;">
+                Improved status and lifecycle tools, startup scripts, Telegram group support, attachment saving,
+                auth health checks, helper server, and richer formatting.
+              </p>
+            </li>
+            <li style="margin-bottom: 1.4rem; position: relative;">
+              <span style="position: absolute; left: -1.65rem; top: 0.35rem; width: 0.55rem; height: 0.55rem; background: rgba(255,209,128,0.7); border-radius: 50%;"></span>
+              <strong style="color: rgba(245,245,245,0.95);">Jan 2026 — Persistent context</strong>
+              <p style="margin: 0.3rem 0 0; color: rgba(245,245,245,0.65); font-size: 0.95rem;">
+                Added PostgreSQL-backed shared memory, per-chat persistent conversation IDs, sender metadata in
+                prompts, diagnostics, and text-to-speech utilities.
+              </p>
+            </li>
+            <li style="margin-bottom: 1.4rem; position: relative;">
+              <span style="position: absolute; left: -1.65rem; top: 0.35rem; width: 0.55rem; height: 0.55rem; background: rgba(255,209,128,0.7); border-radius: 50%;"></span>
+              <strong style="color: rgba(245,245,245,0.95);">Feb–Mar 2026 — Multimodal features</strong>
+              <p style="margin: 0.3rem 0 0; color: rgba(245,245,245,0.65); font-size: 0.95rem;">
+                Added audio and voice-note capture, Whisper-based transcription, model controls,
+                attachment-path awareness, and on-demand shared memory queries.
+              </p>
+            </li>
+            <li style="margin-bottom: 1.4rem; position: relative;">
+              <span style="position: absolute; left: -1.65rem; top: 0.35rem; width: 0.55rem; height: 0.55rem; background: rgba(255,209,128,0.7); border-radius: 50%;"></span>
+              <strong style="color: rgba(245,245,245,0.95);">Apr 2026 — Major architecture refactor</strong>
+              <p style="margin: 0.3rem 0 0; color: rgba(245,245,245,0.65); font-size: 0.95rem;">
+                Modularized the Telegram bridge and separated concerns into providers, services, command routing,
+                sessions, transcription, memory, and helper-server components.
+              </p>
+            </li>
+            <li style="margin-bottom: 0; position: relative;">
+              <span style="position: absolute; left: -1.65rem; top: 0.35rem; width: 0.55rem; height: 0.55rem; background: rgba(255,209,128,0.7); border-radius: 50%;"></span>
+              <strong style="color: rgba(245,245,245,0.95);">May–Jun 2026 — Expansion &amp; stabilization</strong>
+              <p style="margin: 0.3rem 0 0; color: rgba(245,245,245,0.65); font-size: 0.95rem;">
+                Explored a multi-provider direction and continued hardening the runtime with compatibility, path,
+                and startup refinements.
+              </p>
+            </li>
+          </ol>
+
+          <div style="margin-top: 2rem; padding: 1rem 1.2rem; background: rgba(255,209,128,0.06); border-radius: 10px; border: 1px solid rgba(255,209,128,0.12);">
+            <p style="margin: 0; color: rgba(245,245,245,0.75); font-size: 0.95rem;">
+              <strong style="color: rgba(245,245,245,0.9);">Current direction:</strong>
+              A lightweight foundation for deploying dedicated AI operators around existing software, data, and
+              operational processes — without requiring those environments to be rebuilt around a conventional
+              chatbot platform.
+            </p>
+          </div>
         </section>
 
         <footer>
