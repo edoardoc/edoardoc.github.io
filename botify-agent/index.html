@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Botify is a self-hosted bridge between conversational interfaces and repository-based AI agents."
+    />
+    <title>500nits - Botify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        background: #111;
+        color: #f5f5f5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: #03030a;
+        background-image:
+          radial-gradient(circle at 22% 18%, rgba(255, 209, 128, 0.36), rgba(255, 209, 128, 0) 52%),
+          linear-gradient(135deg, rgba(3, 3, 10, 0.98), rgba(13, 9, 26, 0.9)),
+          url("../logo/hero-rays.svg");
+        background-size: 140% 140%, 100% 100%, cover;
+        background-position: top left, center, top center;
+        background-attachment: fixed, fixed, fixed;
+        background-repeat: no-repeat;
+      }
+
+      .page {
+        position: relative;
+        isolation: isolate;
+        max-width: 52rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 4rem;
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        top: -1.5rem;
+        left: -12%;
+        width: 170%;
+        max-width: 80rem;
+        aspect-ratio: 16 / 7;
+        background: url("../logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
+        opacity: 0.12;
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.85) 40%,
+          rgba(0, 0, 0, 0.55) 60%,
+          rgba(0, 0, 0, 0.05) 92%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.85) 40%,
+          rgba(0, 0, 0, 0.55) 60%,
+          rgba(0, 0, 0, 0.05) 92%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .top-nav a {
+        color: rgba(245, 245, 245, 0.65);
+        text-decoration: none;
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      .top-nav a:hover,
+      .top-nav a:focus-visible {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+        outline: none;
+      }
+
+      .top-nav a.active {
+        color: #f5f5f5;
+        border-color: #f5f5f5;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        font-family: "Teko", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 0.9;
+      }
+
+      .tagline {
+        margin: 0.75rem 0 0;
+        font-size: 1.1rem;
+        color: rgba(245, 245, 245, 0.8);
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+        background: rgba(20, 20, 20, 0.75);
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: 1.6rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .proper-case {
+        text-transform: none;
+      }
+
+      p {
+        margin: 0 0 1rem;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .lede {
+        font-size: 1.15rem;
+        color: rgba(245, 245, 245, 0.9);
+      }
+
+      .capabilities-list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0;
+      }
+
+      .capabilities-list li {
+        padding: 0.35rem 0;
+        padding-left: 1.2rem;
+        position: relative;
+        color: rgba(245, 245, 245, 0.8);
+        font-size: 0.95rem;
+      }
+
+      .capabilities-list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: rgba(255, 209, 128, 0.7);
+      }
+
+      .timeline-heading {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: rgba(245, 245, 245, 0.6);
+        margin: 2rem 0 1rem;
+      }
+
+      .timeline {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-left: 2px solid rgba(255, 209, 128, 0.25);
+        padding-left: 1.4rem;
+      }
+
+      .timeline li {
+        margin-bottom: 1.4rem;
+        position: relative;
+      }
+
+      .timeline li:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -1.65rem;
+        top: 0.35rem;
+        width: 0.55rem;
+        height: 0.55rem;
+        background: rgba(255, 209, 128, 0.7);
+        border-radius: 50%;
+      }
+
+      .timeline strong {
+        color: rgba(245, 245, 245, 0.95);
+      }
+
+      .timeline p {
+        margin: 0.3rem 0 0;
+        color: rgba(245, 245, 245, 0.65);
+        font-size: 0.95rem;
+      }
+
+      .direction-box {
+        margin-top: 2rem;
+        padding: 1rem 1.2rem;
+        background: rgba(255, 209, 128, 0.06);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 209, 128, 0.12);
+      }
+
+      .direction-box p {
+        margin: 0;
+        color: rgba(245, 245, 245, 0.75);
+        font-size: 0.95rem;
+      }
+
+      .direction-box strong {
+        color: rgba(245, 245, 245, 0.9);
+      }
+
+      footer {
+        text-align: center;
+        color: rgba(245, 245, 245, 0.65);
+        font-size: 0.95rem;
+      }
+
+      footer a {
+        color: inherit;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .page {
+          padding: 2.5rem 1rem 3rem;
+        }
+
+        section {
+          padding: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="content">
+        <header>
+          <nav class="top-nav" aria-label="Sections">
+            <a href="/">About</a>
+            <a href="/doodletag/">Doodle Tag</a>
+            <a href="./" class="active" aria-current="page">Botify</a>
+          </nav>
+          <h1>500nits</h1>
+          <p class="tagline">transforming ideas, automating tasks</p>
+        </header>
+
+        <section aria-labelledby="botify-title">
+          <h2 id="botify-title" class="proper-case">Botify</h2>
+          <p class="lede">
+            A self-hosted bridge between conversational interfaces and repository-based AI agents.
+          </p>
+          <p>
+            It started in October 2025 with a simple objective: allow a developer to interact with Codex remotely
+            through Telegram while keeping the agent connected to the files, instructions, tools, and working
+            directory of a real project.
+          </p>
+          <p>
+            As the project evolved, Botify became a reusable agent runtime rather than a basic chatbot integration.
+            Each deployment can be attached to a specific repository or business environment, allowing the agent to
+            work with local project context instead of operating inside an isolated conversation.
+          </p>
+          <p>Current capabilities include:</p>
+          <ul class="capabilities-list">
+            <li>Telegram access through private chats and groups</li>
+            <li>Independent, persistent conversations for each authorized chat</li>
+            <li>Document, image, audio, and voice-note ingestion</li>
+            <li>Local Whisper-based voice transcription</li>
+            <li>PostgreSQL-backed shared and searchable memory</li>
+            <li>Project-scoped file access and repository awareness</li>
+            <li>Operational diagnostics, authentication checks, model controls, and deployment commands</li>
+            <li>Automatic startup and recovery on macOS and Debian hosts</li>
+            <li>Extensible transports, services, and AI-provider boundaries</li>
+            <li>Starter configurations for adapting the system to domain-specific workflows</li>
+          </ul>
+          <p>
+            Botify's architecture is also evolving from an initial monolithic bridge into clearly separated components
+            for message ingestion, command routing, session lifecycle, prompt execution, AI-provider communication,
+            memory, attachments, transcription, and transport delivery.
+          </p>
+
+          <h3 class="timeline-heading">Timeline</h3>
+
+          <ol class="timeline">
+            <li>
+              <strong>Oct 2025 — Project start</strong>
+              <p>
+                Initial commit. A TypeScript bridge that lets Telegram messages reach Codex through MCP.
+              </p>
+            </li>
+            <li>
+              <strong>Nov–Dec 2025 — Usability &amp; collaboration</strong>
+              <p>
+                Improved status and lifecycle tools, startup scripts, Telegram group support, attachment saving,
+                auth health checks, helper server, and richer formatting.
+              </p>
+            </li>
+            <li>
+              <strong>Jan 2026 — Persistent context</strong>
+              <p>
+                Added PostgreSQL-backed shared memory, per-chat persistent conversation IDs, sender metadata in
+                prompts, diagnostics, and text-to-speech utilities.
+              </p>
+            </li>
+            <li>
+              <strong>Feb–Mar 2026 — Multimodal features</strong>
+              <p>
+                Added audio and voice-note capture, Whisper-based transcription, model controls,
+                attachment-path awareness, and on-demand shared memory queries.
+              </p>
+            </li>
+            <li>
+              <strong>Apr 2026 — Major architecture refactor</strong>
+              <p>
+                Modularized the Telegram bridge and separated concerns into providers, services, command routing,
+                sessions, transcription, memory, and helper-server components.
+              </p>
+            </li>
+            <li>
+              <strong>May–Jun 2026 — Expansion &amp; stabilization</strong>
+              <p>
+                Explored a multi-provider direction and continued hardening the runtime with compatibility, path,
+                and startup refinements.
+              </p>
+            </li>
+          </ol>
+
+          <div class="direction-box">
+            <p>
+              <strong>Current direction:</strong>
+              A lightweight foundation for deploying dedicated AI operators around existing software, data, and
+              operational processes — without requiring those environments to be rebuilt around a conventional
+              chatbot platform.
+            </p>
+          </div>
+        </section>
+
+        <footer>
+          <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
