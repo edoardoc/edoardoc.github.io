@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="About Eddy and the 500nits studio background."
+      content="About 500nits."
     />
-    <title>500nits - about</title>
+    <title>500nits — about</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="500nits — about" />
+    <meta property="og:description" content="About 500nits." />
+    <meta property="og:image" content="https://500nits.com/google-play-featured-header-4096x2304.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -188,6 +193,13 @@
         text-decoration: underline;
       }
 
+      footer .legal {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: rgba(245, 245, 245, 0.45);
+        line-height: 1.5;
+      }
+
       @media (max-width: 600px) {
         .page {
           padding: 2.5rem 1rem 3rem;
@@ -204,26 +216,37 @@
       <div class="content">
         <header>
           <nav class="top-nav" aria-label="Sections">
-            <a href="/" class="active" aria-current="page">About</a>
-            <a href="../doodletag/">Doodle Tag</a>
+            <a href="/">Home</a>
+            <a href="/about/" class="active" aria-current="page">About</a>
+            <a href="/doodletag/">Doodle Tag</a>
+            <a href="/botify-agent/">Botify</a>
           </nav>
           <h1>500nits</h1>
-          <p class="tagline">transforming ideas, automating tasks</p>
+          <p class="tagline">an independent product studio</p>
         </header>
 
         <section aria-labelledby="about-title">
           <h2 id="about-title">About</h2>
+          <p class="lede">We're 500nits — an independent product studio.</p>
+          <p>
+            We build our own software end to end, engineering and design under one roof — 20+ years of hands-on experience with
+            server-side systems, mobile apps, APIs, automation tools, and cloud-native services, and the same care for how things
+            feel and work: UI, usability, and accessibility.
+          </p>
           <p class="lede">
-            I've worked across classified media, e-learning, remote management, healthcare, SaaS, and freelance projects - mostly close to the
-            code, the architecture, and the real problems that appear when software has to run in production.
+            We've worked across classified media, e-learning, remote management, healthcare, SaaS, and independent products —
+            mostly close to the code, the design, and the real problems that appear when software has to run in production.
           </p>
           <p class="link-row">
-            <a href="https://www.linkedin.com/in/edoardoc/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/500nits/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
           </p>
         </section>
 
         <footer>
           <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
+          <p class="legal">
+            500nits LTD — Company No. 05797476, registered in England and Wales
+          </p>
         </footer>
       </div>
     </div>

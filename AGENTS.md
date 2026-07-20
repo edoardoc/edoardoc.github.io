@@ -1,8 +1,5 @@
-## Codex Agent Reference
+## Codex Agent Guidance
 
-- The `references/` directory contains files with project context for the agent to consult.
-- Treat every file in this directory as read-only; never modify or delete content here.
-- Use these references to align with existing code decisions, terminology, and style whenever possible.
 - Always write “500nits” in lowercase in every mention (UI, docs, commits, etc.).
 
 ### 500nits Web Presence Guidance

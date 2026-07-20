@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="500nits is transforming ideas into practical software, with a current focus on Doodle Tag."
+      content="500nits is currently building Doodle Tag — a local Wi-Fi drawing app where two people can draw together in the same room."
     />
-    <title>500nits - transforming ideas</title>
+    <title>500nits</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="500nits" />
+    <meta property="og:description" content="Currently building Doodle Tag — a local Wi-Fi drawing app where two people can draw together in the same room." />
+    <meta property="og:image" content="https://500nits.com/google-play-featured-header-4096x2304.jpg" />
+    <meta property="og:url" content="https://500nits.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -192,6 +198,42 @@
         text-decoration: underline;
       }
 
+      footer .legal {
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: rgba(245, 245, 245, 0.45);
+        line-height: 1.5;
+      }
+
+      .product-card {
+        border: 1px solid rgba(41, 145, 245, 0.45);
+      }
+
+      .product-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      a.cta {
+        display: inline-block;
+        background: #2991f5;
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 0.55rem 1.4rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      a.cta:hover,
+      a.cta:focus-visible {
+        background: #10cd55;
+        text-decoration: none;
+        border: none;
+      }
+
       @media (max-width: 600px) {
         .page {
           padding: 2.5rem 1rem 3rem;
@@ -208,27 +250,40 @@
       <div class="content">
         <header>
           <nav class="top-nav" aria-label="Sections">
-            <a href="/">About</a>
-            <a href="doodletag/">Doodle Tag</a>
-            <a href="botify-agent/">Botify</a>
+            <a href="/" class="active" aria-current="page">Home</a>
+            <a href="/about/">About</a>
+            <a href="/doodletag/">Doodle Tag</a>
+            <a href="/botify-agent/">Botify</a>
           </nav>
           <h1>500nits</h1>
-          <p class="tagline">transforming ideas, automating tasks</p>
+          <p class="tagline">an independent product studio</p>
         </header>
 
-        <section aria-labelledby="about-title">
-          <h2 id="about-title">About</h2>
-          <p class="lede">Hi, I'm Eddy.</p>
-          <p>
-            I'm a software developer with 20+ years of hands-on experience building server-side systems, mobile apps, APIs, automation tools,
-            and cloud-native services.
-          </p>
+        <section aria-labelledby="doodletag-title" class="product-card">
+          <h2 id="doodletag-title" class="proper-case">Now building: Doodle Tag</h2>
           <p class="lede">
-            I've worked across classified media, e-learning, remote management, healthcare, SaaS, and freelance projects - mostly close to the
-            code, the architecture, and the real problems that appear when software has to run in production.
+            Doodle Tag is a local Wi-Fi drawing app where two people can draw together in the same room.
+            No accounts. No invites. No cloud. Just doodles.
+          </p>
+          <p>Live on the App Store and Google Play, in six languages.</p>
+          <p class="link-row product-links">
+            <a class="cta" href="doodletag/">Visit Doodle Tag</a>
+            <a href="doodletag-overview.pdf">Overview (PDF)</a>
+          </p>
+          <!-- Dev notes: enable when the first posts are published.
+          <p>
+            Short notes on how it is built — Flutter, local networking, privacy-first decisions:
+            <a href="doodletag/notes/">read the notes</a>.
+          </p>
+          -->
+        </section>
+
+        <section aria-label="About 500nits">
+          <p class="lede">
+            We design, build and ship our own apps — Doodle Tag is what we are building now.
           </p>
           <p class="link-row">
-            <a href="https://www.linkedin.com/in/edoardoc/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            <a href="about/">More about 500nits</a>
           </p>
         </section>
 
@@ -249,6 +304,9 @@
 
         <footer>
           <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
+          <p class="legal">
+            500nits LTD — Company No. 05797476, registered in England and Wales
+          </p>
         </footer>
       </div>
     </div>
