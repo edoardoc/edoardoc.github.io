@@ -7,6 +7,8 @@
       name="description"
       content="500nits is currently building Doodle Tag — a local Wi-Fi drawing app where two people can draw together in the same room."
     />
+    <link rel="canonical" href="https://500nits.com/" />
+    <meta name="robots" content="index,follow" />
     <title>500nits</title>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="500nits" />
@@ -152,6 +154,16 @@
         text-transform: uppercase;
       }
 
+      h2 a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h2 a:hover,
+      h2 a:focus-visible {
+        text-decoration: underline;
+      }
+
       .proper-case {
         text-transform: none;
       }
@@ -260,14 +272,16 @@
         </header>
 
         <section aria-labelledby="doodletag-title" class="product-card">
-          <h2 id="doodletag-title" class="proper-case">Now building: Doodle Tag</h2>
+          <h2 id="doodletag-title" class="proper-case">
+            <a href="doodletag/">Now building: Doodle Tag</a>
+          </h2>
           <p class="lede">
             Doodle Tag is a local Wi-Fi drawing app where two people can draw together in the same room.
             No accounts. No invites. No cloud. Just doodles.
           </p>
           <p>Live on the App Store and Google Play, in six languages.</p>
           <p class="link-row product-links">
-            <a class="cta" href="doodletag/">Visit Doodle Tag</a>
+            <a class="cta" href="https://doodletag.500nits.com/">Visit Doodle Tag</a>
             <a href="doodletag-overview.pdf">Overview (PDF)</a>
           </p>
           <!-- Dev notes: enable when the first posts are published.
