@@ -13,6 +13,6 @@
 ### Deployment Process
 
 - Redeploy automatically after any change: run `git commit` with a clear message and immediately `git push` (redeploy = commit + push).
-- When publishing a new version, always show the full site link: https://www.500nits.com
+- When publishing a new version, always show the full site link: https://500nits.com/
 - Any text change goes live instantly after deploy, so verify copy carefully.
 - Keep `uploads/` ignored; when you need to deploy a file from there, copy it into the repo root (or another tracked path) so GitHub Pages picks it up.
