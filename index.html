@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="500nits is currently building Doodle Tag — a local Wi-Fi drawing app where two people can draw together in the same room."
+      content="500nits is an independent product studio building Doodle Tag and Task for Spaces."
     />
     <link rel="canonical" href="https://500nits.com/" />
+    <link rel="icon" sizes="32x32" href="favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="robots" content="index,follow" />
     <title>500nits</title>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="500nits" />
-    <meta property="og:description" content="Currently building Doodle Tag — a local Wi-Fi drawing app where two people can draw together in the same room." />
+    <meta property="og:description" content="An independent product studio building Doodle Tag and Task for Spaces." />
     <meta property="og:image" content="https://500nits.com/google-play-featured-header-4096x2304.jpg" />
     <meta property="og:url" content="https://500nits.com/" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -221,6 +223,27 @@
         border: 1px solid rgba(41, 145, 245, 0.45);
       }
 
+      .product-entry + .product-entry {
+        margin-top: 1.8rem;
+        padding-top: 1.8rem;
+        border-top: 1px solid rgba(245, 245, 245, 0.16);
+      }
+
+      .product-entry h3 {
+        margin: 0 0 0.65rem;
+        font-size: 1.35rem;
+      }
+
+      .product-entry h3 a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .product-entry h3 a:hover,
+      .product-entry h3 a:focus-visible {
+        text-decoration: underline;
+      }
+
       .product-links {
         display: flex;
         flex-wrap: wrap;
@@ -265,47 +288,51 @@
             <a href="/" class="active" aria-current="page">Home</a>
             <a href="/about/">About</a>
             <a href="/doodletag/">Doodle Tag</a>
+            <a href="https://task.500nits.com/">Task</a>
             <a href="/botify-agent/">Botify</a>
           </nav>
           <h1>500nits</h1>
           <p class="tagline">an independent product studio</p>
         </header>
 
-        <section aria-labelledby="doodletag-title" class="product-card">
-          <h2 id="doodletag-title" class="proper-case">
-            <a href="doodletag/">Now building: Doodle Tag</a>
-          </h2>
-          <p class="lede">
-            Doodle Tag is a local Wi-Fi drawing app where two people can draw together in the same room.
-            No accounts. No invites. No cloud. Just doodles.
-          </p>
-          <p>Live on the App Store and Google Play, in six languages.</p>
-          <p class="link-row product-links">
-            <a class="cta" href="https://doodletag.500nits.com/">Visit Doodle Tag</a>
-            <a href="doodletag-overview.pdf">Overview (PDF)</a>
-          </p>
-          <!-- Dev notes: enable when the first posts are published.
-          <p>
-            Short notes on how it is built — Flutter, local networking, privacy-first decisions:
-            <a href="doodletag/notes/">read the notes</a>.
-          </p>
-          -->
-        </section>
+        <section aria-labelledby="working-on-title" class="product-card">
+          <h2 id="working-on-title">Working on</h2>
 
-        <section aria-label="About 500nits">
-          <p class="lede">
-            We design, build and ship our own apps — Doodle Tag is what we are building now.
-          </p>
-          <p class="link-row">
-            <a href="about/">More about 500nits</a>
-          </p>
+          <article class="product-entry" aria-labelledby="task-title">
+            <h3 id="task-title">
+              <a href="https://task.500nits.com/">Task</a>
+            </h3>
+            <p class="lede">
+              Task is a tiny macOS menu-bar app that names numbered Mission Control Desktops and briefly
+              shows their purpose as you move between Spaces.
+            </p>
+            <p>
+              It is being built as a native Objective-C and AppKit app, with a plain-text configuration
+              and a deliberately simple focus on normal macOS Spaces. More information is coming soon.
+            </p>
+            <p class="link-row product-links">
+              <a class="cta" href="https://task.500nits.com/">Visit Task for Spaces</a>
+            </p>
+          </article>
+
+          <article class="product-entry" aria-labelledby="doodletag-title">
+            <h3 id="doodletag-title">
+              <a href="doodletag/">Doodle Tag</a>
+            </h3>
+            <p class="lede">
+              Doodle Tag is a local Wi-Fi drawing app where two people can draw together in the same room.
+              No accounts. No invites. No cloud. Just doodles.
+            </p>
+            <p>Live on the App Store and Google Play, in six languages.</p>
+            <p class="link-row product-links">
+              <a class="cta" href="https://doodletag.500nits.com/">Visit Doodle Tag</a>
+              <a target="_blank" href="doodletag-overview.pdf">Overview (PDF)</a>
+            </p>
+          </article>
         </section>
 
         <section aria-label="Projects and writing">
           <ul style="list-style: none; padding: 0; margin: 0;">
-            <li class="link-row" style="margin-bottom: 0.6rem;">
-              <a href="doodletag/">Now building Doodle Tag</a>
-            </li>
             <li class="link-row" style="margin-bottom: 0.6rem;">
               <a href="botify-agent/">Botify</a>
             </li>
@@ -319,7 +346,7 @@
         <footer>
           <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
           <p class="legal">
-            500nits LTD — Company No. 05797476, registered in England and Wales
+            500nits LTD, Company No. 05797476, registered in England and Wales
           </p>
         </footer>
       </div>

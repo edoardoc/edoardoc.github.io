@@ -1,7 +1,7 @@
 # Strokes that stay alive
 
 Most drawing apps flatten your line into pixels the moment you lift your
-finger. Doodle Tag keeps every stroke as a live vector object — which is the
+finger. Doodle Tag keeps every stroke as a live vector object, which is the
 only reason Eraser, Wind, and replay can exist.
 
 - The model: what a stroke is in memory (points? curves?), and what it costs
