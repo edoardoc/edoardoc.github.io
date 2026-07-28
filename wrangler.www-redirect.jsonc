@@ -1,0 +1,7 @@
+{
+  "name": "500nits-www-redirect",
+  "main": "cloudflare/www-redirect.js",
+  "compatibility_date": "2026-07-28",
+  "workers_dev": false,
+  "routes": ["www.500nits.com/*"]
+}

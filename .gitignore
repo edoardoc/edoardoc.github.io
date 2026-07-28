@@ -6,6 +6,7 @@ references/
 botify/
 .DS_Store
 logs/
+.wrangler/
 uploads/*
 !uploads/.gitkeep
 
