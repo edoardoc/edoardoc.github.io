@@ -1,0 +1,38 @@
+{
+  "searchConsoleProperty": "sc-domain:500nits.com",
+  "sites": [
+    {
+      "id": "hub",
+      "name": "500nits studio hub",
+      "baseUrl": "https://500nits.com/",
+      "sourcePath": ".",
+      "gitPath": ".",
+      "branch": "master",
+      "cname": null,
+      "sitemap": "sitemap.xml",
+      "robots": "robots.txt"
+    },
+    {
+      "id": "doodletag",
+      "name": "Doodle Tag",
+      "baseUrl": "https://doodletag.500nits.com/",
+      "sourcePath": "doodletag_500nits_com",
+      "gitPath": "doodletag_500nits_com",
+      "branch": "main",
+      "cname": "CNAME",
+      "sitemap": "sitemap.xml",
+      "robots": "robots.txt"
+    },
+    {
+      "id": "task",
+      "name": "Task for Spaces",
+      "baseUrl": "https://task.500nits.com/",
+      "sourcePath": "task_500nits_com",
+      "gitPath": "task_500nits_com",
+      "branch": "main",
+      "cname": "CNAME",
+      "sitemap": "sitemap.xml",
+      "robots": "robots.txt"
+    }
+  ]
+}
