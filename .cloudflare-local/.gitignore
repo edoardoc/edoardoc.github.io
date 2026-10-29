@@ -1,0 +1,3 @@
+# Local credentials and full configuration exports must never be published.
+*
+!.gitignore
