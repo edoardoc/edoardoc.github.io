@@ -1,0 +1,6 @@
+# Design records and setup notes are development documentation, not public pages.
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
+  - docs/
+  - .impeccable/

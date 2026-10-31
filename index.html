@@ -3,353 +3,147 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="500nits is an independent product studio building Doodle Tag and Task for Spaces."
-    />
+    <title>500nits — independent software by Eddy</title>
+    <meta name="description" content="I'm Eddy. I design, build, and run 500nits, my independent software label. Explore Doodle Tag, Task for Spaces, and get occasional product updates." />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#1f2d4d" />
     <link rel="canonical" href="https://500nits.com/" />
     <link rel="icon" sizes="32x32" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="robots" content="index,follow" />
-    <title>500nits</title>
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="500nits" />
-    <meta property="og:description" content="An independent product studio building Doodle Tag and Task for Spaces." />
-    <meta property="og:image" content="https://500nits.com/google-play-featured-header-4096x2304.jpg" />
+    <meta property="og:title" content="500nits — independent software by Eddy" />
+    <meta property="og:description" content="One person, from the first idea to the next update. Apps and experiments by Eddy." />
     <meta property="og:url" content="https://500nits.com/" />
+    <meta property="og:image" content="https://500nits.com/assets/500nits-social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="500nits. Independent software by Eddy, with the navy 500nits mark on white." />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        color-scheme: dark;
-        font-family: "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        background: #111;
-        color: #f5f5f5;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        background-color: #03030a;
-        background-image:
-          radial-gradient(circle at 22% 18%, rgba(255, 209, 128, 0.36), rgba(255, 209, 128, 0) 52%),
-          linear-gradient(135deg, rgba(3, 3, 10, 0.98), rgba(13, 9, 26, 0.9)),
-          url("logo/hero-rays.svg");
-        background-size: 140% 140%, 100% 100%, cover;
-        background-position: top left, center, top center;
-        background-attachment: fixed, fixed, fixed;
-        background-repeat: no-repeat;
-      }
-
-      .page {
-        position: relative;
-        isolation: isolate;
-        max-width: 52rem;
-        margin: 0 auto;
-        padding: 3.5rem 1.5rem 4rem;
-      }
-
-      .page::before {
-        content: "";
-        position: absolute;
-        top: -1.5rem;
-        left: -12%;
-        width: 170%;
-        max-width: 80rem;
-        aspect-ratio: 16 / 7;
-        background: url("logo/500nits_logo_1h_large.svg") top left / contain no-repeat;
-        opacity: 0.12;
-        -webkit-mask-image: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.85) 40%,
-          rgba(0, 0, 0, 0.55) 60%,
-          rgba(0, 0, 0, 0.05) 92%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        mask-image: linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.85) 40%,
-          rgba(0, 0, 0, 0.55) 60%,
-          rgba(0, 0, 0, 0.05) 92%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .content {
-        position: relative;
-        z-index: 1;
-      }
-
-      header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
-
-      .top-nav {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1.25rem;
-        margin: 0 0 1.5rem;
-        font-size: 0.95rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .top-nav a {
-        color: rgba(245, 245, 245, 0.65);
-        text-decoration: none;
-        padding-bottom: 0.25rem;
-        border-bottom: 2px solid transparent;
-      }
-
-      .top-nav a:hover,
-      .top-nav a:focus-visible {
-        color: #f5f5f5;
-        border-color: #f5f5f5;
-        outline: none;
-      }
-
-      .top-nav a.active {
-        color: #f5f5f5;
-        border-color: #f5f5f5;
-      }
-
-      header h1 {
-        margin: 0;
-        font-size: clamp(2.5rem, 8vw, 3.5rem);
-        font-family: "Teko", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        line-height: 0.9;
-      }
-
-      .tagline {
-        margin: 0.75rem 0 0;
-        font-size: 1.1rem;
-        color: rgba(245, 245, 245, 0.8);
-      }
-
-      section {
-        margin-bottom: 2.5rem;
-        background: rgba(20, 20, 20, 0.75);
-        border-radius: 16px;
-        padding: 1.8rem;
-        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
-      }
-
-      h2 {
-        margin-top: 0;
-        font-size: 1.6rem;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-
-      h2 a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      h2 a:hover,
-      h2 a:focus-visible {
-        text-decoration: underline;
-      }
-
-      .proper-case {
-        text-transform: none;
-      }
-
-      p {
-        margin: 0 0 1rem;
-      }
-
-      p:last-child {
-        margin-bottom: 0;
-      }
-
-      .lede {
-        font-size: 1.15rem;
-        color: rgba(245, 245, 245, 0.9);
-      }
-
-      .link-row a {
-        color: inherit;
-        text-decoration: none;
-        font-weight: 600;
-        border-bottom: 1px solid rgba(245, 245, 245, 0.5);
-        padding-bottom: 0.1rem;
-      }
-
-      .link-row a:hover {
-        text-decoration: none;
-        border-color: #f5f5f5;
-      }
-
-      footer {
-        text-align: center;
-        color: rgba(245, 245, 245, 0.65);
-        font-size: 0.95rem;
-      }
-
-      footer a {
-        color: inherit;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      footer .legal {
-        margin-top: 1rem;
-        font-size: 0.8rem;
-        color: rgba(245, 245, 245, 0.45);
-        line-height: 1.5;
-      }
-
-      .product-card {
-        border: 1px solid rgba(41, 145, 245, 0.45);
-      }
-
-      .product-entry + .product-entry {
-        margin-top: 1.8rem;
-        padding-top: 1.8rem;
-        border-top: 1px solid rgba(245, 245, 245, 0.16);
-      }
-
-      .product-entry h3 {
-        margin: 0 0 0.65rem;
-        font-size: 1.35rem;
-      }
-
-      .product-entry h3 a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .product-entry h3 a:hover,
-      .product-entry h3 a:focus-visible {
-        text-decoration: underline;
-      }
-
-      .product-links {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1.25rem;
-      }
-
-      a.cta {
-        display: inline-block;
-        background: #2991f5;
-        color: #fff;
-        border: none;
-        border-radius: 999px;
-        padding: 0.55rem 1.4rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-      }
-
-      a.cta:hover,
-      a.cta:focus-visible {
-        background: #10cd55;
-        text-decoration: none;
-        border: none;
-      }
-
-      @media (max-width: 600px) {
-        .page {
-          padding: 2.5rem 1rem 3rem;
-        }
-
-        section {
-          padding: 1.4rem;
+    <link rel="preload" href="/assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/hub.css" />
+    <script src="/newsletter.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "500nits",
+        "url": "https://500nits.com/",
+        "description": "Independent software by Eddy, including Doodle Tag and Task for Spaces.",
+        "creator": {
+          "@type": "Person",
+          "name": "Eddy",
+          "url": "https://eddy.500nits.com/"
         }
       }
-    </style>
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="page">
-      <div class="content">
-        <header>
-          <nav class="top-nav" aria-label="Sections">
-            <a href="/" class="active" aria-current="page">Home</a>
-            <a href="/about/">About</a>
-            <a href="/doodletag/">Doodle Tag</a>
-            <a href="https://task.500nits.com/">Task</a>
-            <a href="/botify-agent/">Botify</a>
-          </nav>
-          <h1>500nits</h1>
-          <p class="tagline">an independent product studio</p>
-        </header>
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="500nits home">
+          <img src="/favicon.svg" alt="" width="42" height="42" />
+          <span>500nits</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="#products">Products</a>
+          <a href="https://eddy.500nits.com/">About Eddy</a>
+          <a class="updates-link" href="#updates">Get updates <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+        </nav>
+      </header>
 
-        <section aria-labelledby="working-on-title" class="product-card">
-          <h2 id="working-on-title">Working on</h2>
+      <main id="main">
+        <section class="intro" aria-labelledby="intro-title">
+          <h1 id="intro-title">Independent software.<br />Made by me.</h1>
+          <div class="intro-note">
+            <p>I'm Eddy. I design, build, and run the apps here at 500nits. One person, from the first idea to the next update.</p>
+            <a href="mailto:apps@500nits.com">Say hello <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+          </div>
+        </section>
 
-          <article class="product-entry" aria-labelledby="task-title">
-            <h3 id="task-title">
-              <a href="https://task.500nits.com/">Task</a>
-            </h3>
-            <p class="lede">
-              Task is a tiny macOS menu-bar app that names numbered Mission Control Desktops and briefly
-              shows their purpose as you move between Spaces.
-            </p>
-            <p>
-              It is being built as a native Objective-C and AppKit app, with a plain-text configuration
-              and a deliberately simple focus on normal macOS Spaces. More information is coming soon.
-            </p>
-            <p class="link-row product-links">
-              <a class="cta" href="https://task.500nits.com/">Visit Task for Spaces</a>
-            </p>
+        <section class="newsletter" id="updates" aria-labelledby="updates-title">
+          <div class="newsletter-copy">
+            <h2 id="updates-title">A little news from 500nits.</h2>
+            <p>New apps, release notes, and the occasional work in progress. Subscribe to get my updates.</p>
+          </div>
+          <form class="subscribe-form" action="mailto:apps@500nits.com?subject=Subscribe%20to%20500nits%20updates" method="post" enctype="text/plain" aria-labelledby="updates-title" aria-describedby="signup-note">
+            <label for="subscriber-email">Your email address</label>
+            <div class="form-row">
+              <input id="subscriber-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required maxlength="254" aria-describedby="signup-note" />
+              <button type="submit">Subscribe by email <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+            <p class="signup-note" id="signup-note">Opens your email app. Send the message to request updates; reply any time to leave.</p>
+            <p class="signup-status" id="signup-status" role="status" aria-live="polite" hidden></p>
+          </form>
+        </section>
+
+        <section class="products" id="products" aria-labelledby="products-title">
+          <div class="section-heading">
+            <h2 id="products-title">A few things I'm making.</h2>
+            <p>Small apps, each with a purpose.</p>
+          </div>
+
+          <article class="product" aria-labelledby="doodletag-title">
+            <div class="product-name">
+              <h3 id="doodletag-title"><a href="https://doodletag.500nits.com/">Doodle Tag</a></h3>
+              <p class="product-meta">iOS &amp; Android</p>
+            </div>
+            <div class="product-detail">
+              <p>Two people, one Wi-Fi network, a shared drawing. Doodle together in the same room. No accounts, invites, or cloud.</p>
+              <p class="product-meta">On the App Store and Google Play, in six languages.</p>
+              <div class="product-links">
+                <a href="https://doodletag.500nits.com/">Explore Doodle Tag <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+                <a class="secondary-link" href="/doodletag/">App overview</a>
+                <a class="secondary-link" href="/doodletag-overview.pdf">Press PDF</a>
+              </div>
+            </div>
           </article>
 
-          <article class="product-entry" aria-labelledby="doodletag-title">
-            <h3 id="doodletag-title">
-              <a href="/doodletag/">Doodle Tag</a>
-            </h3>
-            <p class="lede">
-              Doodle Tag is a local Wi-Fi drawing app where two people can draw together in the same room.
-              No accounts. No invites. No cloud. Just doodles.
-            </p>
-            <p>Live on the App Store and Google Play, in six languages.</p>
-            <p class="link-row product-links">
-              <a class="cta" href="https://doodletag.500nits.com/">Visit Doodle Tag</a>
-              <a target="_blank" href="/doodletag-overview.pdf">Overview (PDF)</a>
-            </p>
+          <article class="product" aria-labelledby="task-title">
+            <div class="product-name">
+              <h3 id="task-title"><a href="https://task.500nits.com/">Task for Spaces</a></h3>
+              <p class="product-meta">macOS · In development</p>
+            </div>
+            <div class="product-detail">
+              <p>A little more meaning for your Mac's desktops. Give your Mission Control Spaces names and see what each one is for as you switch.</p>
+              <p class="product-meta">A native menu-bar app with a plain-text configuration.</p>
+              <div class="product-links">
+                <a href="https://task.500nits.com/">Meet Task for Spaces <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product product-project" aria-labelledby="botify-title">
+            <div class="product-name">
+              <h3 id="botify-title"><a href="/botify-agent/">Botify</a></h3>
+              <p class="product-meta">An ongoing project</p>
+            </div>
+            <div class="product-detail">
+              <p>My experiments with AI agents, Telegram, and automation around existing software.</p>
+              <div class="product-links">
+                <a href="/botify-agent/">Read about Botify <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+              </div>
+            </div>
           </article>
         </section>
 
-        <section aria-label="Projects and writing">
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            <li class="link-row" style="margin-bottom: 0.6rem;">
-              <a href="/botify-agent/">Botify</a>
-            </li>
-            <li style="display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;">
-              <a href="/blog/what-does-it-mean-for-a-software-company-to-use-ai/" style="color: inherit; text-decoration: none; font-weight: 600; border-bottom: 1px solid rgba(245,245,245,0.5); padding-bottom: 0.1rem;">What does it mean for a software company to use AI</a>
-              <time datetime="2025-07-17" style="font-size: 0.85rem; color: rgba(245,245,245,0.45); white-space: nowrap;">17 Jul 2025</time>
-            </li>
-          </ul>
+        <section class="maker" aria-labelledby="maker-title">
+          <div>
+            <h2 id="maker-title">There's a person behind it.</h2>
+            <p>I make the software, answer the emails, and keep things running. If you have a question or something to share, you'll reach me directly.</p>
+          </div>
+          <div class="maker-links">
+            <a href="mailto:apps@500nits.com">apps@500nits.com <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+            <a href="https://eddy.500nits.com/">More about me &amp; my notes <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+          </div>
         </section>
+      </main>
 
-        <footer>
-          <p>Say hi: <a href="mailto:apps@500nits.com">apps@500nits.com</a></p>
-          <p class="legal">
-            500nits LTD, Company No. 05797476, registered in England and Wales
-          </p>
-        </footer>
-      </div>
+      <footer class="footer">
+        <a class="footer-brand" href="/">500nits</a>
+        <p>500nits Ltd · Company No. 05797476<br />Registered in England and Wales.</p>
+        <a href="#updates">Keep in touch <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+      </footer>
     </div>
   </body>
 </html>

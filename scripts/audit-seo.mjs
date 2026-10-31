@@ -47,7 +47,8 @@ const walkHtml = (directory, excludedDirectories) => {
   const files = [];
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const absolute = path.join(directory, entry.name);
-    if (excludedDirectories.has(absolute) || entry.name === ".git" || entry.name === "uploads") continue;
+    // Impeccable's private sketches and review captures are development artifacts.
+    if (excludedDirectories.has(absolute) || entry.name === ".git" || entry.name === ".impeccable" || entry.name === "uploads") continue;
     if (entry.isDirectory()) files.push(...walkHtml(absolute, excludedDirectories));
     if (entry.isFile() && entry.name.endsWith(".html")) files.push(absolute);
   }

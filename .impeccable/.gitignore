@@ -1,0 +1,6 @@
+# Local design decisions, review captures, and generated previews stay private.
+*
+!.gitignore
+!surfaces/
+!surfaces/*.md
+!design.json

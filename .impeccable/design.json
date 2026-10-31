@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T20:04:34.115634+00:00",
+  "title": "Design System: 500nits",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Navy ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 265)",
+          "oklch(27% 0.05 265)",
+          "oklch(39% 0.065 265)",
+          "oklch(51% 0.06 265)",
+          "oklch(63% 0.05 265)",
+          "oklch(75% 0.035 265)",
+          "oklch(87% 0.018 265)",
+          "oklch(95% 0.006 265)"
+        ],
+        "rampPurpose": "Synthesized preview only; not additional production palette tokens."
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "White paper",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ],
+        "rampPurpose": "Synthesized preview only; not additional production palette tokens."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted navy",
+        "tonalRamp": [
+          "oklch(15% 0.025 265)",
+          "oklch(27% 0.05 265)",
+          "oklch(39% 0.065 265)",
+          "oklch(51% 0.06 265)",
+          "oklch(63% 0.05 265)",
+          "oklch(75% 0.035 265)",
+          "oklch(87% 0.018 265)",
+          "oklch(95% 0.006 265)"
+        ],
+        "rampPurpose": "Synthesized preview only; not additional production palette tokens."
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Pale rule",
+        "tonalRamp": [
+          "oklch(15% 0.025 265)",
+          "oklch(27% 0.05 265)",
+          "oklch(39% 0.065 265)",
+          "oklch(51% 0.06 265)",
+          "oklch(63% 0.05 265)",
+          "oklch(75% 0.035 265)",
+          "oklch(87% 0.018 265)",
+          "oklch(95% 0.006 265)"
+        ],
+        "rampPurpose": "Synthesized preview only; not additional production palette tokens."
+      },
+      "inverse-muted": {
+        "role": "neutral",
+        "displayName": "Inverse supporting text",
+        "tonalRamp": [
+          "oklch(15% 0.025 265)",
+          "oklch(27% 0.05 265)",
+          "oklch(39% 0.065 265)",
+          "oklch(51% 0.06 265)",
+          "oklch(63% 0.05 265)",
+          "oklch(75% 0.035 265)",
+          "oklch(87% 0.018 265)",
+          "oklch(95% 0.006 265)"
+        ],
+        "rampPurpose": "Synthesized preview only; not additional production palette tokens."
+      },
+      "inverse-rule": {
+        "role": "neutral",
+        "displayName": "Inverse divider",
+        "tonalRamp": [
+          "oklch(15% 0.025 265)",
+          "oklch(27% 0.05 265)",
+          "oklch(39% 0.065 265)",
+          "oklch(51% 0.06 265)",
+          "oklch(63% 0.05 265)",
+          "oklch(75% 0.035 265)",
+          "oklch(87% 0.018 265)",
+          "oklch(95% 0.006 265)"
+        ],
+        "rampPurpose": "Synthesized preview only; not additional production palette tokens."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Main heading",
+        "purpose": "Fluid introduction; smaller mobile clamp at 650px."
+      },
+      "headline": {
+        "displayName": "Section heading",
+        "purpose": "Product and maker sections; 28px on mobile."
+      },
+      "title": {
+        "displayName": "Product title",
+        "purpose": "Product names; 26px on mobile."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default copy; descriptions use a larger 18px/17px treatment."
+      },
+      "label": {
+        "displayName": "Field label",
+        "purpose": "Persistent label above the email input."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "intermediate",
+        "value": "1000px"
+      },
+      {
+        "name": "mobile",
+        "value": "650px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Subscription button",
+      "kind": "button",
+      "refersTo": "button-subscribe",
+      "description": "Email-request action, shown on its actual navy ground.",
+      "html": "<div class=\"ds-button-ground\"><button class=\"ds-subscribe\" type=\"button\">Subscribe by email <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button></div>",
+      "css": ".ds-button-ground{padding:16px;background:var(--ink,#1f2d4d);color:var(--paper,#fff)}.ds-subscribe{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:11px 14px;border:1px solid var(--paper,#fff);border-radius:0;background:var(--ink,#1f2d4d);color:var(--paper,#fff);font-size:15px;font-weight:600;line-height:1.55;cursor:pointer}.ds-subscribe svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}.ds-subscribe:hover,.ds-subscribe:active{background:var(--paper,#fff);color:var(--ink,#1f2d4d)}.ds-subscribe:focus-visible{outline:2px solid currentColor;outline-offset:5px;}.ds-subscribe:disabled{opacity:.6;cursor:wait}"
+    },
+    {
+      "name": "Email field",
+      "kind": "input",
+      "refersTo": "input-email",
+      "description": "A persistent label and native email field on the inverted panel.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Your email address</label><input id=\"ds-email\" type=\"email\" placeholder=\"you@example.com\" autocomplete=\"email\" required maxlength=\"254\"></div>",
+      "css": ".ds-field{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);padding:20px;background:var(--ink,#1f2d4d);color:var(--paper,#fff);line-height:1.55}.ds-field label{display:block;margin-bottom:8px;font-size:14px;font-weight:500}.ds-field input{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);box-sizing:border-box;width:100%;min-width:0;min-height:50px;padding:11px 13px;border:1px solid var(--paper,#fff);border-radius:0;background:var(--paper,#fff);color:var(--ink,#1f2d4d);caret-color:var(--ink,#1f2d4d);font-size:16px;line-height:1.55}.ds-field input::placeholder{color:var(--muted,#526078);opacity:1}.ds-field input:focus-visible{outline:2px solid var(--paper,#fff);outline-offset:5px}"
+    },
+    {
+      "name": "Plain navigation",
+      "kind": "nav",
+      "description": "Text navigation with an emphasized updates link and responsive spacing.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#products\">Products</a><a href=\"https://eddy.500nits.com/\">About Eddy</a><a class=\"ds-updates\" href=\"#updates\">Get updates <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></nav>",
+      "css": ".ds-nav{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:flex;align-items:center;gap:30px;color:var(--ink,#1f2d4d);font-size:16px;line-height:1.55}.ds-nav a{display:inline-flex;align-items:center;gap:8px;padding-block:10px;color:inherit;text-decoration:none;text-underline-offset:5px;text-decoration-thickness:1px}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:2px solid currentColor;outline-offset:5px;}.ds-nav .ds-updates{font-weight:600}.ds-nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}@media(max-width:650px){.ds-nav{width:100%;justify-content:space-between;gap:12px;font-size:14px}.ds-nav a{padding-block:6px}}"
+    },
+    {
+      "name": "Product action link",
+      "kind": "custom",
+      "description": "An ordinary underlined action with a restrained stroked arrow.",
+      "html": "<a class=\"ds-action\" href=\"https://doodletag.500nits.com/\">Explore Doodle Tag <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-action{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:inline-flex;align-items:center;gap:8px;color:var(--ink,#1f2d4d);font-size:16px;font-weight:600;line-height:1.55;text-underline-offset:5px;text-decoration-thickness:1px}.ds-action svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}.ds-action:hover{text-decoration-thickness:2px}.ds-action:focus-visible{outline:2px solid currentColor;outline-offset:5px;}"
+    },
+    {
+      "name": "Product row",
+      "kind": "custom",
+      "description": "Open, ruled product entry with separate name and description columns.",
+      "html": "<article class=\"ds-product\"><div><h3><a href=\"https://doodletag.500nits.com/\">Doodle Tag</a></h3><p class=\"ds-meta\">iOS &amp; Android</p></div><div class=\"ds-detail\"><p>Two people, one Wi-Fi network, a shared drawing. Doodle together in the same room. No accounts, invites, or cloud.</p><a href=\"https://doodletag.500nits.com/\">Explore Doodle Tag <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></div></article>",
+      "css": ".ds-product{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:grid;grid-template-columns:.85fr 1.55fr;gap:48px;padding-block:31px 34px;border-top:1px solid var(--rule,#d2d5db);color:var(--ink,#1f2d4d);background:var(--paper,#fff);line-height:1.55}.ds-product h3,.ds-product p{margin:0}.ds-product h3{font-size:27px;font-weight:600;line-height:1.1;letter-spacing:-.025em}.ds-product a{color:inherit;text-underline-offset:5px;text-decoration-thickness:1px}.ds-product h3 a{text-decoration:none}.ds-product h3 a:hover{text-decoration:underline}.ds-product a:hover{text-decoration-thickness:2px}.ds-product a:focus-visible{outline:2px solid currentColor;outline-offset:5px;}.ds-product .ds-meta{margin-top:8px;font-size:14px;color:var(--muted,#526078)}.ds-detail>p{max-width:65ch;font-size:18px}.ds-detail>a{display:inline-flex;margin-top:19px;font-size:16px;font-weight:600}@media(max-width:650px){.ds-product{grid-template-columns:1fr;gap:17px;padding-block:25px 30px}.ds-product h3{font-size:26px}.ds-detail>p{font-size:17px}} .ds-detail>a{align-items:center;gap:8px}.ds-detail svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}"
+    },
+    {
+      "name": "Newsletter invitation",
+      "kind": "custom",
+      "refersTo": "newsletter",
+      "description": "The signature navy region with honest email-request behavior; no subscription success is implied.",
+      "html": "<section class=\"ds-newsletter\" aria-labelledby=\"ds-updates-title\"><div><h2 id=\"ds-updates-title\">A little news from 500nits.</h2><p>New apps, release notes, and the occasional work in progress. Subscribe to get my updates.</p></div><form action=\"mailto:apps@500nits.com?subject=Subscribe%20to%20500nits%20updates\" method=\"post\" enctype=\"text/plain\"><label for=\"ds-newsletter-email\">Your email address</label><div class=\"ds-form-row\"><input id=\"ds-newsletter-email\" type=\"email\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"you@example.com\" required maxlength=\"254\" aria-describedby=\"ds-signup-note\"><button class=\"ds-subscribe\" type=\"submit\">Subscribe by email <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button></div><p class=\"ds-note\" id=\"ds-signup-note\">Opens your email app. Send the message to request updates; reply any time to leave.</p></form></section>",
+      "css": ".ds-newsletter{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:grid;grid-template-columns:.95fr 1.15fr;gap:36px;align-items:center;padding:34px 36px;background:var(--ink,#1f2d4d);color:var(--paper,#fff);line-height:1.55}.ds-newsletter h2{margin:0;font-size:29px;font-weight:600;line-height:1.1;letter-spacing:-.03em}.ds-newsletter p{margin:12px 0 0;max-width:38ch;font-size:16px;color:#e0e3e8}.ds-newsletter .ds-note{margin-top:11px;font-size:13px;line-height:1.5}.ds-subscribe{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:11px 14px;border:1px solid var(--paper,#fff);border-radius:0;background:var(--ink,#1f2d4d);color:var(--paper,#fff);font-size:15px;font-weight:600;line-height:1.55;cursor:pointer}.ds-subscribe svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}.ds-subscribe:hover,.ds-subscribe:active{background:var(--paper,#fff);color:var(--ink,#1f2d4d)}.ds-subscribe:focus-visible{outline:2px solid currentColor;outline-offset:5px;}.ds-subscribe:disabled{opacity:.6;cursor:wait}@media(max-width:1000px){.ds-newsletter{grid-template-columns:1fr 1.1fr;gap:28px;padding:30px}.ds-newsletter h2{font-size:26px}}@media(max-width:650px){.ds-newsletter{grid-template-columns:1fr;gap:22px;padding:25px 22px}.ds-newsletter h2{font-size:27px}}.ds-newsletter form{min-width:0}.ds-newsletter label{display:block;margin-bottom:8px;font-size:14px;font-weight:500}.ds-form-row{display:flex;gap:8px}.ds-form-row input{box-sizing:border-box;width:100%;min-width:0;min-height:50px;padding:11px 13px;border:1px solid var(--paper,#fff);border-radius:0;font:inherit;background:var(--paper,#fff);color:var(--ink,#1f2d4d);caret-color:var(--ink,#1f2d4d)}.ds-form-row input::placeholder{color:var(--muted,#526078);opacity:1}.ds-form-row input:focus-visible{outline:2px solid var(--paper,#fff);outline-offset:5px}.ds-form-row button{flex-shrink:0}@media(max-width:1000px){.ds-form-row{flex-wrap:wrap}.ds-form-row input{flex:1 1 190px}.ds-form-row button{flex:1 1 auto}}@media(max-width:650px){.ds-form-row{flex-direction:column;gap:10px}.ds-form-row input,.ds-form-row button{flex:auto;min-height:50px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The independent-maker correspondence sheet",
+    "overview": "The hub feels like a simple printed sheet: white paper, navy lettering, generous margins, and direct first-person copy. The existing mark and Karla carry its identity. This records the hub's implemented system; product sites retain their own visual identities.\n\nLo-fi means restrained and readable. Ordinary links, horizontal rules, and one inverted newsletter region establish hierarchy without decorative motion or illustration.",
+    "keyCharacteristics": [
+      "Navy on white, with navy-derived supporting shades.",
+      "One locally hosted type family and clear weight changes.",
+      "Flat product rows, square controls, and visible keyboard focus.",
+      "Static content with minimal progressive JavaScript."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Color Identity Rule",
+        "body": "Keep navy and white as the identity; supporting shades provide readable hierarchy rather than introducing another accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Separate content with space and rules; preserve flat surfaces at rest and during interaction.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do retain the existing mark, lowercase 500nits, and first-person singular voice.",
+      "Do use navy-derived secondary shades for readable metadata and rules.",
+      "Do keep navigation and product destinations available as ordinary HTML links.",
+      "Do preserve visible labels, native validation, and clear keyboard focus.",
+      "Do describe the email request honestly until a verified provider is connected."
+    ],
+    "donts": [
+      "Don't add decorative animation, flashes, gradients, or shadows.",
+      "Don't turn product rows into ornamental cards or add rounded control styling.",
+      "Don't introduce a competing accent palette or display font.",
+      "Don't claim an email draft has subscribed its sender."
+    ]
+  }
+}
