@@ -10,7 +10,7 @@ Read this file before editing, auditing, or deploying any 500nits website. The m
 | Doodle Tag product site | `https://doodletag.500nits.com/` | `doodletag_500nits_com/` | separate repository and root submodule, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Task for Spaces product site | `https://task.500nits.com/` | `task_500nits_com/` | separate ignored repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 
-The hub page at `https://500nits.com/doodletag/` is a studio overview, not the source tree for `https://doodletag.500nits.com/`. Keep those two pages distinct and link the overview to the product site.
+Doodle Tag's canonical product site is `https://doodletag.500nits.com/`, sourced from `doodletag_500nits_com/`. At Eddy's request, the former hub overview at `https://500nits.com/doodletag/` is retired. Redirect `/doodletag`, `/doodletag/`, and `/doodletag/index.html` permanently to the product site, link there directly, and omit the retired page from the hub sitemap. The hub's `retiredPages` entry in `sites.json` records this decision.
 
 ## Repository boundaries
 

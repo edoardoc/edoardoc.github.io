@@ -10,7 +10,14 @@
       "branch": "master",
       "cname": null,
       "sitemap": "sitemap.xml",
-      "robots": "robots.txt"
+      "robots": "robots.txt",
+      "retiredPages": [
+        {
+          "path": "/doodletag/",
+          "redirectTo": "https://doodletag.500nits.com/",
+          "status": 301
+        }
+      ]
     },
     {
       "id": "doodletag",

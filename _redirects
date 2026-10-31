@@ -4,5 +4,8 @@
 /PRODUCT.md / 301
 /DESIGN.md / 301
 /_config.yml / 301
+/doodletag https://doodletag.500nits.com/ 301
+/doodletag/ https://doodletag.500nits.com/ 301
+/doodletag/index.html https://doodletag.500nits.com/ 301
 /doodletag/privacy  /doodletag/privacy/index.html  200
 /doodletag/privacy/ /doodletag/privacy/index.html  200
