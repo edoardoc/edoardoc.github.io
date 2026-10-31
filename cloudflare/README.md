@@ -4,6 +4,9 @@ This directory is the starting point for managing `500nits.com` from this reposi
 The exporter reads the live Cloudflare API; it does not apply changes. A snapshot is
 observed state, not a configuration file that is automatically deployed on push.
 
+See [session memory](../memory/cloudflare.md) for verified setup, retention limits,
+private full-history exports, and how to rebuild the PDF with daily count tables.
+
 ## Export current configuration
 
 Use Python 3.10 or newer. No third-party packages are needed.

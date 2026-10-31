@@ -1,0 +1,3 @@
+# Never publish account exports or the local virtual environment.
+*
+!.gitignore

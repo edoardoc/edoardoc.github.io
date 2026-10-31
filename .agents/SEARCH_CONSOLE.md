@@ -31,6 +31,11 @@ Follow the browser's action-time confirmation requirements for external changes.
 
 ## API boundary
 
+The local read-only workflow is implemented in [`search-console/gsc.py`](../search-console/gsc.py).
+Read its [setup and commands](../search-console/README.md) and the dated
+[connection notes](../memory/search-console.md) before using it. A configured
+client is not proof of current API access; run `status` before reporting live data.
+
 The general Search Console API can:
 
 - list and manage Search Console properties;
@@ -40,7 +45,7 @@ The general Search Console API can:
 
 The URL Inspection API does not test the live URL and does not provide a general request-indexing method. Google's separate Indexing API is restricted to eligible `JobPosting` pages and livestream pages with `BroadcastEvent` in `VideoObject`; do not use it for ordinary 500nits pages. For an ordinary page-level recrawl request, use the Search Console URL Inspection UI.
 
-If API automation is added later, use OAuth with the minimum required scope and a local credential store outside the repository. Keep write commands explicit about the property and full sitemap URL, and show the planned target before execution.
+The API automation uses read-only OAuth and a local credential store outside the repository. Keep any future write commands explicit about the property and full sitemap URL, and show the planned target before execution.
 
 ## Reporting states accurately
 

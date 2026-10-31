@@ -8,6 +8,7 @@
 
 ## Required reading and routing
 
+- Before Cloudflare, analytics, or search reporting work, read [`memory/README.md`](memory/README.md) and the relevant dated notes.
 - Before changing any site, domain, sitemap, or deployment, read [`.agents/SITES.md`](.agents/SITES.md). It defines the site inventory, repository boundaries, and release ownership.
 - Before creating or changing public pages, metadata, redirects, robots directives, or sitemaps, read [`.agents/SEO.md`](.agents/SEO.md) and follow its release checklist.
 - Before inspecting or changing Google Search Console, read [`.agents/SEARCH_CONSOLE.md`](.agents/SEARCH_CONSOLE.md). Use the verified domain property strategy described there.
