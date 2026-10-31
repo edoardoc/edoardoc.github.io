@@ -35,6 +35,83 @@ observations, not a transactionally consistent backup.
 
 ## Analytics and SEO-related information
 
+### Daily PDF for your external scheduler
+
+The lightweight PDF mode uses browser-based Cloudflare Web Analytics with
+**Exclude Bots** enabled (`bot = 0`). It reports estimated human visits, filtered
+page views, hourly visits, and the top sites, countries, and entry pages on one
+page. It does not download DNS, email, rulesets, or the general edge traffic export.
+Bot detection is imperfect; this cannot certify that every included visit is human.
+
+One-time setup from this repository:
+
+```sh
+python3 -m venv .cloudflare-local/.venv
+.cloudflare-local/.venv/bin/python -m pip install -r cloudflare/requirements-report.txt
+```
+
+The environment is already installed on this machine. Call this from any working
+directory in your existing daily script:
+
+```sh
+/Users/eddy/edoardoc.github.io/.cloudflare-local/.venv/bin/python \
+  /Users/eddy/edoardoc.github.io/cloudflare/export.py --human-pdf
+```
+
+The default window is the **previous complete UTC calendar day**, from midnight
+inclusive to the next midnight exclusive. Schedule after 01:00 UTC to leave time
+for analytics ingestion. The command prints the absolute PDF path to stdout;
+diagnostics go to stderr. No scheduler is installed by this repository.
+
+Outputs are `.cloudflare-local/reports/500nits-human-visits-YYYY-MM-DD.pdf` and a
+matching JSON file. Both remain private and Git-ignored. Rerunning a date replaces
+that date's files; each file is written through an atomic replacement, and an
+output lock prevents concurrent writers. Treat the exit status as authoritative.
+
+| Exit | Meaning |
+| --- | --- |
+| `0` | Filtered measurements were retrieved and PDF/JSON were written; safe for the caller to deliver |
+| `2` | Data unavailable or no browser measurements; PDF/JSON explain the problem and contain no inferred human count |
+| `1` | Startup, invalid report date, dependency, lock, or other runtime failure; do not deliver an existing file |
+
+Argument-parser usage errors also exit `2` but do not produce a report. A caller
+should deliver output only on exit `0`, for example:
+
+```sh
+if report_path="$(/Users/eddy/edoardoc.github.io/.cloudflare-local/.venv/bin/python \
+  /Users/eddy/edoardoc.github.io/cloudflare/export.py --human-pdf)"; then
+  printf '%s\n' "$report_path"
+  # Pass this path to your existing delivery step.
+else
+  report_status=$?
+  printf 'Daily visit report failed (exit %s).\n' "$report_status" >&2
+  exit "$report_status"
+fi
+```
+
+For a rerun/backfill within Cloudflare's retention window:
+
+```sh
+.cloudflare-local/.venv/bin/python cloudflare/export.py --human-pdf \
+  --report-date 2026-10-30 \
+  --pdf-output .cloudflare-local/reports/review-2026-10-30.pdf
+```
+
+Web Analytics must already be enabled and collecting browser measurements. The
+token needs **Zone Read**, **Account Settings Read** (to identify the site's
+configuration), and **Account Analytics Read**, scoped to the owning account.
+Existing zone-only analytics access does not grant account Web Analytics access.
+The command does not enable tracking, change Cloudflare settings, or upgrade plans.
+It never substitutes raw edge requests or a user-agent denylist for human visits.
+
+Run the focused checks with:
+
+```sh
+.cloudflare-local/.venv/bin/python -m unittest discover -s cloudflare -p 'test_*.py'
+```
+
+### General edge analytics
+
 To save the past 24 hours of Analytics dashboard traffic alongside configuration:
 
 ```sh

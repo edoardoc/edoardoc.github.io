@@ -30,8 +30,29 @@ organic-search conversions. Match the time window, timezone, metric, and filters
 before comparing an export with the dashboard. Hourly rows are returned by request
 count and must be sorted by timestamp before plotting them as a time series.
 
-Cloudflare's browser-beacon Web Analytics/RUM and Google Search Console are separate
-sources and are not queried by this exporter. Search Console is the relevant source
+The `--analytics` export uses edge traffic. The separate `--human-pdf` mode uses
+browser-beacon Web Analytics/RUM with Cloudflare's Exclude Bots filter. It reads
+`rumPageloadEventsAdaptiveGroups` at account scope, restricted to this domain,
+its subdomains, and its configured Web Analytics sites. This mode covers the previous
+complete UTC day and skips the configuration backup.
+
+Only `bot = 0` measurements feed the PDF's visit count, page views, graph, and
+breakdowns. An additional collection check distinguishes missing measurements from
+zero qualifying visits; its unfiltered count is never presented as human activity.
+Known bots are excluded, but undetected automation can remain and blocked browser
+beacons can omit real people. The PDF therefore says **estimated human visits**.
+Cloudflare visits count arrivals from a different hostname or a direct link, not
+unique people or deduplicated cross-subdomain sessions. No network identifiers,
+IPs, or individual visitor records are exported.
+
+The Free zone denied the `botManagementDecision` field when checked. This is why
+the PDF does not try to classify humans from the existing edge traffic report.
+Web Analytics requires its own account-level access and collection setup; if those
+are unavailable the PDF explains that and the command exits nonzero. See the
+[daily command documentation](README.md#daily-pdf-for-your-external-scheduler).
+
+Google Search Console is a separate source and is not queried by this exporter.
+Search Console is the relevant source
 for Google's recorded indexing, impressions, clicks, and query performance; follow
 `../.agents/SEARCH_CONSOLE.md` before accessing it.
 
@@ -74,3 +95,6 @@ state. This request has not selected or applied any policy changes.
 - [Update bot configuration](https://developers.cloudflare.com/api/resources/bot_management/methods/update/)
 - [Stored Speed reports](https://developers.cloudflare.com/api/resources/speed/subresources/pages/methods/list/)
 - [Crawler Hints](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/)
+- [Web Analytics Exclude Bots filter](https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/)
+- [Web Analytics visit definition](https://developers.cloudflare.com/web-analytics/data-metrics/high-level-metrics/)
+- [Web Analytics site discovery permissions](https://developers.cloudflare.com/api/resources/rum/subresources/site_info/methods/list/)

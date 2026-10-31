@@ -244,7 +244,15 @@ def main():
                         help="Also read bot/robots settings, stored speed reports, and 24-hour crawler analytics")
     parser.add_argument("--analytics", action="store_true",
                         help="Also export 24-hour edge traffic, referrer, and crawler analytics")
+    parser.add_argument("--human-pdf", action="store_true",
+                        help="Only produce a daily PDF from Web Analytics with Exclude Bots enabled")
+    parser.add_argument("--report-date", help="Completed UTC day YYYY-MM-DD; defaults to yesterday")
+    parser.add_argument("--pdf-output", type=Path, help="PDF path; defaults to the private reports directory")
     args = parser.parse_args()
+    if args.human_pdf and (args.seo or args.analytics):
+        parser.error("--human-pdf runs separately from --seo and --analytics")
+    if not args.human_pdf and (args.report_date or args.pdf_output):
+        parser.error("--report-date and --pdf-output require --human-pdf")
     os.umask(0o077)
     token = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
     if not token:
@@ -255,6 +263,9 @@ def main():
     if not token or any(c.isspace() for c in token):
         raise ExportError("Token is empty or contains whitespace")
     api = Cloudflare(token)
+    if args.human_pdf:
+        from human_report import run
+        return run(api, args.report_date, args.pdf_output)
     zones = api.listing("/zones", {"name": DOMAIN})
     zones = [zone for zone in zones if zone.get("name") == DOMAIN]
     if len(zones) != 1:
@@ -364,6 +375,8 @@ def main():
 
 
 if __name__ == "__main__":
+    # Share exception types with the optional PDF module when invoked as a script.
+    sys.modules["export"] = sys.modules[__name__]
     try:
         sys.exit(main())
     except ExportError as error:
