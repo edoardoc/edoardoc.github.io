@@ -1,2 +1,8 @@
+# Development records are not public website content.
+/.impeccable/* / 301
+/docs/* / 301
+/PRODUCT.md / 301
+/DESIGN.md / 301
+/_config.yml / 301
 /doodletag/privacy  /doodletag/privacy/index.html  200
 /doodletag/privacy/ /doodletag/privacy/index.html  200
