@@ -60,6 +60,11 @@ class SearchConsoleTests(unittest.TestCase):
         api.request = Mock(return_value={"rows": [metric()]})
         self.assertTrue(api.analytics("2026-09-01", "2026-09-02", max_rows=1)["row_cap_reached"])
 
+    def test_no_impressions_does_not_imply_position_zero(self):
+        report = {"generated_at": "2026-10-31", "status": "ok", "window": {"start": "2026-10-01", "end": "2026-10-28"},
+                  "hosts": {"500nits.com": {"totals": {"rows": [{"clicks": 0, "impressions": 0, "ctr": 0, "position": 0}]}}}}
+        self.assertIn("| 500nits.com | 0 | 0 | — | — |", gsc.markdown(report))
+
     def test_partial_export_never_calls_an_unavailable_url_indexed(self):
         api = Mock()
         api.request.return_value = {"siteUrl": gsc.PROPERTY}

@@ -245,7 +245,9 @@ def markdown(report):
             rows = sections.get("totals", {}).get("rows", [])
             if rows:
                 r = rows[0]
-                lines.append(f"| {cell(host)} | {r['clicks']:,.0f} | {r['impressions']:,.0f} | {r['ctr']:.1%} | {r['position']:.1f} |")
+                ctr = f"{r['ctr']:.1%}" if r["impressions"] else "—"
+                position = f"{r['position']:.1f}" if r["impressions"] else "—"
+                lines.append(f"| {cell(host)} | {r['clicks']:,.0f} | {r['impressions']:,.0f} | {ctr} | {position} |")
             else:
                 lines.append(f"| {cell(host)} | No data | — | — | — |")
         lines += ["", "Page/query/country/device breakdowns and the previous equal-length period are in report.json.", ""]
@@ -315,7 +317,7 @@ def pdf_report(report, destination):
         story.append(Spacer(1, 5))
     flush_table()
     output = BytesIO()
-    SimpleDocTemplate(output, pagesize=A4, leftMargin=42, rightMargin=42,
+    SimpleDocTemplate(output, pagesize=A4, leftMargin=42, rightMargin=42, topMargin=42, bottomMargin=42,
                       title="500nits Search Console", author="500nits").build(story)
     save(destination, output.getvalue())
 

@@ -19,15 +19,28 @@ Credentials live outside Git at `~/.config/500nits/search-console/`. Only the
 Git-ignored in `.search-console-local/`. No scheduler, sitemap submission, recrawl
 request, or SEO change was installed/applied by this reporting workflow.
 
-Connection status at this note: **Desktop OAuth client saved; browser consent
-not completed**. The previous local Google authorization could not refresh. No
-live Search Console export has yet succeeded. The user created the new client at
-`~/.config/500nits/search-console/client.json`. Google returned `403 access_denied`
-during consent; the user was directed to add the exact sign-in account under
-Google Auth Platform → Audience → Test users. After that, rerun `auth`, have the
-user complete browser consent, then run `status` and a real `export --pdf`.
-Do not call the connection active based on offline tests. Review Testing-mode
-seven-day refresh-token expiry before relying on unattended reporting.
+Connection status at this note: **read-only OAuth authorization succeeded on
+2026-10-31**. A real `status` request confirmed access to `sc-domain:500nits.com`
+with the signed-in account's `siteOwner` permission. The script still requests
+only read-only OAuth scope. Client and refresh credentials are saved privately
+outside the repository; neither belongs in exports or version control.
+
+The earlier `403 access_denied` occurred during browser consent, not a Search
+Console data request. Setup guidance covered adding the exact sign-in account
+under Google Auth Platform → Audience → Test users; a fresh consent flow then
+succeeded. Do not reuse old localhost authorization links after their listener
+exits. Review Testing-mode seven-day refresh-token expiry before relying on
+unattended reporting; the project's publishing status has not been verified.
+
+The first real `export --pdf` completed successfully (exit 0) on 2026-10-31.
+Private artifacts: `.search-console-local/snapshots/20261031T195050.858277Z/`.
+Read `report.json` for exact metrics, raw indexing evidence, and query coverage;
+`README.md` and `report.pdf` summarize it. The run covered the four configured
+hosts, twelve intended URLs, sitemap submissions, and finalized performance for
+2026-10-01 through 2026-10-28 in Pacific time. Private findings are recorded in
+`memory/local/2026-10-31.md`. Refresh before answering a later live-state question.
+Hosts with no impressions show no CTR/average-position value in the summary;
+Google's returned zero placeholders must not be described as a ranking of zero.
 
 Full Page Indexing dashboard counts are not exported by these methods. Inspect
 known URLs individually; never call a submitted/live URL indexed by inference.
