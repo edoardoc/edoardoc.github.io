@@ -9,6 +9,7 @@
       "gitPath": ".",
       "branch": "master",
       "cname": null,
+      "aboutUrl": "https://500nits.com/about/",
       "sitemap": "sitemap.xml",
       "robots": "robots.txt",
       "retiredPages": [

@@ -12,6 +12,8 @@ Read this file before editing, auditing, or deploying any 500nits website. The m
 
 Doodle Tag's canonical product site is `https://doodletag.500nits.com/`, sourced from `doodletag_500nits_com/`. At Eddy's request, the former hub overview at `https://500nits.com/doodletag/` is retired. Redirect `/doodletag`, `/doodletag/`, and `/doodletag/index.html` permanently to the product site, link there directly, and omit the retired page from the hub sitemap. The hub's `retiredPages` entry in `sites.json` records this decision.
 
+The hub's About page is `https://500nits.com/about/` (`aboutUrl` on the hub in `sites.json`). Eddy's latest request keeps this page on the hub and supersedes the earlier local deletion and proposed redirects to the personal site. Use `About` in navigation. Eddy's personal writing site is not ready to link from the hub.
+
 ## Repository boundaries
 
 Before editing, run status checks in the root and every target site repository. A clean root status says nothing about an ignored nested repository.

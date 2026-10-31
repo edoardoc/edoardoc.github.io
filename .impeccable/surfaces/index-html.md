@@ -27,3 +27,5 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 ## Open decisions
 
 No newsletter account or endpoint supplied. Use an honest email-request fallback that opens the visitor's mail app, with explicit copy requiring them to send. Do not claim an automated subscription or unsubscribe mechanism until a verified hosted form is connected. Build directly in code for this session; no standing build-path preference is recorded without an answer.
+
+Current navigation uses the hub's /about/ page. Do not link to the unfinished personal writing site. The signup note requires sending an email and explains how to unsubscribe; the form remains a manual email request until a verified newsletter endpoint is supplied.

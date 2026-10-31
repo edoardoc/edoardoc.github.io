@@ -16,7 +16,7 @@ Visitors exploring Eddy's software and people who want to hear about releases. I
 
 ## Capabilities and Constraints
 
-Static HTML and CSS, with minimal progressive JavaScript where useful. Preserve ordinary HTML navigation, canonical URLs, product facts, accessibility, and the existing repository release process. Personal background and writing belong at https://eddy.500nits.com/.
+Static HTML and CSS, with minimal progressive JavaScript where useful. Preserve ordinary HTML navigation, canonical URLs, product facts, accessibility, and the existing repository release process. The hub's About page at https://500nits.com/about/ introduces Eddy's software work. Eddy's personal writing site is not ready to link from the hub.
 
 The email newsletter provider and account are undecided. Never invent a working subscription endpoint or show an unearned success state.
 
@@ -33,4 +33,4 @@ index.html contains product facts for Doodle Tag and Task for Spaces, a Botify p
 - Make the person and the products easy to understand.
 - Put the invitation to subscribe where visitors can find it immediately.
 - Keep the site lightweight enough for one developer to maintain.
-- Preserve clear links to each product and to Eddy's personal site.
+- Preserve clear links to each product and to the hub's About page. Do not link to Eddy's unfinished personal site.

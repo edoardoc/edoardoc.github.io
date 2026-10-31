@@ -8,14 +8,14 @@ if (form && email && status && new URL(form.action).protocol === 'mailto:') {
     event.preventDefault();
     const address = email.value.trim();
     const subject = 'Subscribe to 500nits updates';
-    const body = `Hi Eddy,\n\nPlease add ${address} to your list for occasional 500nits product updates.\n\nI can reply to ask you to remove me from the list.\n`;
+    const body = `Hi Eddy,\n\nI'd like to get updates from 500nits at ${address}.\n`;
     const draft = `mailto:apps@500nits.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     status.replaceChildren(
-      document.createTextNode('Send the message in your email app to request updates. If it didn’t open, '),
+      document.createTextNode("Send the email to join the list. If your email app didn't open, "),
     );
     const retry = document.createElement('a');
     retry.href = draft;
-    retry.textContent = 'open the email draft';
+    retry.textContent = 'open the draft';
     status.append(retry, document.createTextNode(' or email apps@500nits.com.'));
     status.hidden = false;
     window.location.href = draft;

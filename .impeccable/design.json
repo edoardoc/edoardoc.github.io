@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-31T20:04:34.115634+00:00",
+  "generatedAt": "2026-10-31T20:36:17.281586+00:00",
   "title": "Design System: 500nits",
   "extensions": {
     "colorMeta": {
@@ -115,6 +115,22 @@
       "label": {
         "displayName": "Field label",
         "purpose": "Persistent label above the email input."
+      },
+      "reading-lead": {
+        "displayName": "Reading-page lead",
+        "purpose": "Introductory copy, limited to 58ch; 20px below 650px."
+      },
+      "reading-body": {
+        "displayName": "Reading copy",
+        "purpose": "Long-form sections, limited to 70ch; 17px below 650px with 1.65 line-height."
+      },
+      "history-title": {
+        "displayName": "Chronology heading",
+        "purpose": "Development milestone titles within ruled history rows."
+      },
+      "history-date": {
+        "displayName": "Chronology date",
+        "purpose": "Muted development dates with tabular numerals; stacked above entries below 650px."
       }
     },
     "shadows": [],
@@ -123,6 +139,10 @@
       {
         "name": "intermediate",
         "value": "1000px"
+      },
+      {
+        "name": "reading-stack",
+        "value": "800px"
       },
       {
         "name": "mobile",
@@ -151,7 +171,7 @@
       "name": "Plain navigation",
       "kind": "nav",
       "description": "Text navigation with an emphasized updates link and responsive spacing.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#products\">Products</a><a href=\"https://eddy.500nits.com/\">About Eddy</a><a class=\"ds-updates\" href=\"#updates\">Get updates <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></nav>",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#products\">Products</a><a href=\"/about/\">About</a><a class=\"ds-updates\" href=\"#updates\">Get updates <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></a></nav>",
       "css": ".ds-nav{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:flex;align-items:center;gap:30px;color:var(--ink,#1f2d4d);font-size:16px;line-height:1.55}.ds-nav a{display:inline-flex;align-items:center;gap:8px;padding-block:10px;color:inherit;text-decoration:none;text-underline-offset:5px;text-decoration-thickness:1px}.ds-nav a:hover{text-decoration:underline}.ds-nav a:focus-visible{outline:2px solid currentColor;outline-offset:5px;}.ds-nav .ds-updates{font-weight:600}.ds-nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}@media(max-width:650px){.ds-nav{width:100%;justify-content:space-between;gap:12px;font-size:14px}.ds-nav a{padding-block:6px}}"
     },
     {
@@ -173,8 +193,15 @@
       "kind": "custom",
       "refersTo": "newsletter",
       "description": "The signature navy region with honest email-request behavior; no subscription success is implied.",
-      "html": "<section class=\"ds-newsletter\" aria-labelledby=\"ds-updates-title\"><div><h2 id=\"ds-updates-title\">Get updates from 500nits</h2><p>Subscribe for new releases and app updates.</p></div><form action=\"mailto:apps@500nits.com?subject=Subscribe%20to%20500nits%20updates\" method=\"post\" enctype=\"text/plain\"><label for=\"ds-newsletter-email\">Your email address</label><div class=\"ds-form-row\"><input id=\"ds-newsletter-email\" type=\"email\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"you@example.com\" required maxlength=\"254\" aria-describedby=\"ds-signup-note\"><button class=\"ds-subscribe\" type=\"submit\">Subscribe by email <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button></div><p class=\"ds-note\" id=\"ds-signup-note\">Opens your email app. Send the message to request updates; reply any time to leave.</p></form></section>",
+      "html": "<section class=\"ds-newsletter\" aria-labelledby=\"ds-updates-title\"><div><h2 id=\"ds-updates-title\">Get updates from 500nits</h2><p>Subscribe for new releases and app updates.</p></div><form action=\"mailto:apps@500nits.com?subject=Subscribe%20to%20500nits%20updates\" method=\"post\" enctype=\"text/plain\"><label for=\"ds-newsletter-email\">Your email address</label><div class=\"ds-form-row\"><input id=\"ds-newsletter-email\" type=\"email\" name=\"email\" autocomplete=\"email\" inputmode=\"email\" placeholder=\"you@example.com\" required maxlength=\"254\" aria-describedby=\"ds-signup-note\"><button class=\"ds-subscribe\" type=\"submit\">Subscribe by email <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button></div><p class=\"ds-note\" id=\"ds-signup-note\">Send the signup email to join the list. Email me to unsubscribe.</p></form></section>",
       "css": ".ds-newsletter{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:grid;grid-template-columns:.95fr 1.15fr;gap:36px;align-items:center;padding:34px 36px;background:var(--ink,#1f2d4d);color:var(--paper,#fff);line-height:1.55}.ds-newsletter h2{margin:0;font-size:29px;font-weight:600;line-height:1.1;letter-spacing:-.03em}.ds-newsletter p{margin:12px 0 0;max-width:38ch;font-size:16px;color:#e0e3e8}.ds-newsletter .ds-note{margin-top:11px;font-size:13px;line-height:1.5}.ds-subscribe{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:11px 14px;border:1px solid var(--paper,#fff);border-radius:0;background:var(--ink,#1f2d4d);color:var(--paper,#fff);font-size:15px;font-weight:600;line-height:1.55;cursor:pointer}.ds-subscribe svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;}.ds-subscribe:hover,.ds-subscribe:active{background:var(--paper,#fff);color:var(--ink,#1f2d4d)}.ds-subscribe:focus-visible{outline:2px solid currentColor;outline-offset:5px;}.ds-subscribe:disabled{opacity:.6;cursor:wait}@media(max-width:1000px){.ds-newsletter{grid-template-columns:1fr 1.1fr;gap:28px;padding:30px}.ds-newsletter h2{font-size:26px}}@media(max-width:650px){.ds-newsletter{grid-template-columns:1fr;gap:22px;padding:25px 22px}.ds-newsletter h2{font-size:27px}}.ds-newsletter form{min-width:0}.ds-newsletter label{display:block;margin-bottom:8px;font-size:14px;font-weight:500}.ds-form-row{display:flex;gap:8px}.ds-form-row input{box-sizing:border-box;width:100%;min-width:0;min-height:50px;padding:11px 13px;border:1px solid var(--paper,#fff);border-radius:0;font:inherit;background:var(--paper,#fff);color:var(--ink,#1f2d4d);caret-color:var(--ink,#1f2d4d)}.ds-form-row input::placeholder{color:var(--muted,#526078);opacity:1}.ds-form-row input:focus-visible{outline:2px solid var(--paper,#fff);outline-offset:5px}.ds-form-row button{flex-shrink:0}@media(max-width:1000px){.ds-form-row{flex-wrap:wrap}.ds-form-row input{flex:1 1 190px}.ds-form-row button{flex:1 1 auto}}@media(max-width:650px){.ds-form-row{flex-direction:column;gap:10px}.ds-form-row input,.ds-form-row button{flex:auto;min-height:50px}}"
+    },
+    {
+      "name": "Development chronology",
+      "kind": "custom",
+      "description": "Flat dated rows within a reading page; dates stack above entries on mobile.",
+      "html": "<ol class=\"ds-history\"><li><span class=\"ds-history-date\">Oct 2025</span><div><h3>First version</h3><p>A TypeScript bridge that passes Telegram messages to Codex through MCP.</p></div></li><li><span class=\"ds-history-date\">Jan 2026</span><div><h3>Persistent memory</h3><p>PostgreSQL-backed shared memory and persistent conversation IDs for each chat.</p></div></li></ol>",
+      "css": ".ds-history{font-family:var(--font,Karla,\"Helvetica Neue\",Arial,sans-serif);max-width:70ch;margin:0;padding:0;list-style:none;background:var(--paper,#fff);color:var(--ink,#1f2d4d);font-size:18px;line-height:1.65}.ds-history li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;border-top:1px solid var(--rule,#d2d5db);padding-block:22px}.ds-history-date{color:var(--muted,#526078);font-size:14px;font-variant-numeric:tabular-nums}.ds-history h3{margin:0 0 10px;font-size:23px;font-weight:600;line-height:1.1;letter-spacing:-.02em;text-wrap:balance}.ds-history p{margin:0;font-size:17px}@media(max-width:650px){.ds-history{font-size:17px}.ds-history li{grid-template-columns:1fr;gap:8px}}"
     }
   ],
   "narrative": {
