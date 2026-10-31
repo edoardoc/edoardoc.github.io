@@ -29,8 +29,27 @@ status 1 means startup or authentication failed.
 The snapshot includes DNS records and a BIND zone export; DNS settings and DNSSEC;
 zone settings such as TLS and HTTPS; Page Rules; zone rulesets and their details;
 Worker routes; and Email Routing settings, DNS, rules, and the catch-all rule.
-List endpoints are paginated. API requests use GET only. Exports are sequential
+Paginated list endpoints are followed. Configuration requests use GET; optional
+analytics use read-only GraphQL queries sent with POST. Exports are sequential
 observations, not a transactionally consistent backup.
+
+## Analytics and SEO-related information
+
+To save the past 24 hours of Analytics dashboard traffic alongside configuration:
+
+```sh
+python3 cloudflare/export.py --analytics
+```
+
+This adds traffic totals, hourly activity, hostnames, status codes, countries,
+requested paths, cache status, referrers when available, and selected crawler
+user-agent matches. Results live in the snapshot's `analytics/` directory with a
+readable report. Each JSON file records its time window and limitations.
+
+Use `--seo` to additionally read bot policies, managed robots settings, and stored
+Speed/Observatory reports. Combine `--analytics --seo` for both. These flags never
+change policies or start new speed tests. See [SEO.md](SEO.md) for permissions,
+API capabilities, and the difference between traffic, crawl activity, and indexing.
 
 Account-level bulk redirects, account-level email rules and destination verification,
 Worker code and bindings, Pages projects, registrar settings, and other account
