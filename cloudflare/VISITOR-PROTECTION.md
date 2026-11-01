@@ -32,6 +32,16 @@ Compare equal time windows and equivalent metrics. Blocked/challenged requests
 can still be counted in Cloudflare edge traffic, so total hits need not converge
 to the browser visit count after deploying this policy.
 
+## Deployment status
+
+Activated on 2026-11-01 after the WAF token permission update. Cloudflare API
+read-back confirmed the checked-in rule is enabled. Automated page requests on
+the apex, www, Doodle Tag, and Task receive a Cloudflare challenge; all three
+published sites' robots.txt, sitemap.xml, and sampled assets remain HTTP 200.
+A spoofed Googlebot user-agent is challenged. Full browser challenge completion
+and requests from genuinely verified crawler IPs were not tested in this session.
+See [dated memory](../memory/visitor-protection.md) for evidence and limitations.
+
 ## Deployment and rollback
 
 Requires **Zone / WAF / Edit** on `500nits.com` and existing zone read access.

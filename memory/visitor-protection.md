@@ -18,10 +18,21 @@ It is not proof of human identity, a complete asset/API gate, or protection of
 alternate origin hostnames. Normal browsers may be challenged; some can fail.
 Edge request totals can still include rejected/challenged traffic.
 
-**Deployment is blocked, not active:** `python3 cloudflare/visitor_policy.py
---apply` returned HTTP 403. The user was asked to add Zone → WAF → Edit scoped to
-500nits.com to the existing token. No successful deployment was verified. Do not
-report visitor protection as enabled merely because these files were committed.
+**Active as of 2026-11-01:** after the user updated token permissions,
+`python3 cloudflare/visitor_policy.py --apply` succeeded. API read-back verified
+one enabled `500nits_browser_visits` rule with the exact checked-in action and
+expression. Before/after state and live-check results are saved privately in
+`.cloudflare-local/visitor-policy/20261101T181346.219622Z/`.
+
+Live checks: the apex, www, Doodle Tag, and Task page requests from curl received
+HTTP 403 with `cf-mitigated: challenge`. A spoofed Googlebot user-agent was also
+challenged. Each published site's robots.txt and sitemap.xml returned HTTP 200,
+as did a sampled asset per site (hub.css, feature_graphic.svg, icon.png). These
+prove the edge rule is taking effect and the sampled exclusions work. The search
+crawler exception is configured but was not tested from a genuinely verified
+crawler IP. A full browser challenge solve was not tested because browser
+automation was unavailable. Do not claim every real person can pass or every bot
+will fail. No other firewall rules or Bot Fight Mode toggles were changed.
 
 Before the attempt, a fresh baseline was saved in
 `.cloudflare-local/snapshots/20261101T180345.936722Z/`. The export was partial
@@ -30,9 +41,8 @@ entrypoint read returned HTTP 404. Bot-management configuration read returned
 HTTP 403, so its current toggle values are unknown. The policy tool separately
 saves before/after WAF state privately under `.cloudflare-local/visitor-policy/`.
 
-Next: after the token update, apply the policy, read back the exact action,
-expression, and enabled flag, then check browser page access and public discovery
-files on each live hostname. Verified-crawler access cannot be tested by spoofing
+Next: check page access in a regular browser, then review real verified-crawler
+requests and challenge events as they arrive. Verified-crawler access cannot be tested by spoofing
 a Googlebot user-agent. To roll back, run `python3 cloudflare/visitor_policy.py
 --disable`, which only disables the rule with ref `500nits_browser_visits`.
 Update this note with the actual outcome. Do not replace other WAF rules.
