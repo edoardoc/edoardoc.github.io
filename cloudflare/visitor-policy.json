@@ -1,0 +1,7 @@
+{
+  "ref": "500nits_browser_visits",
+  "description": "500nits: challenge page requests except verified search crawlers",
+  "action": "managed_challenge",
+  "enabled": true,
+  "expression": "(http.host in {\"500nits.com\" \"www.500nits.com\" \"doodletag.500nits.com\" \"task.500nits.com\" \"eddy.500nits.com\"} and not (cf.client.bot and cf.verified_bot_category eq \"Search Engine Crawler\") and not starts_with(http.request.uri.path, \"/cdn-cgi/\") and (ends_with(lower(http.request.uri.path), \"/\") or ends_with(lower(http.request.uri.path), \".html\") or not (http.request.uri.path contains \".\")))"
+}

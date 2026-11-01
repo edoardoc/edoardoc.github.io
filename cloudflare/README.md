@@ -7,6 +7,10 @@ observed state, not a configuration file that is automatically deployed on push.
 See [session memory](../memory/cloudflare.md) for verified setup, retention limits,
 private full-history exports, and how to rebuild the PDF with daily count tables.
 
+For managed challenges that preserve verified search-engine access, see
+[visitor protection](VISITOR-PROTECTION.md). This has a separate explicit apply
+command; the configuration exporter below remains read-only.
+
 ## Export current configuration
 
 Use Python 3.10 or newer. No third-party packages are needed.

@@ -5,8 +5,10 @@ Last verified: 2026-10-31. Domain: `500nits.com`. Hub: https://500nits.com/.
 ## Scope and decisions
 
 Eddy wants this repository to be the control point for DNS, CNAMEs, redirects,
-email routing, and analytics. The implemented Cloudflare tools are read-only.
-No DNS/policy apply command exists, and these exports do not change live settings.
+email routing, and analytics. The configuration and analytics exporters are read-only.
+No DNS apply command exists. A separate explicit visitor-policy apply/disable
+tool was added on 2026-11-01; see [its actual deployment status](visitor-protection.md).
+Exports themselves do not change live settings.
 Existing redirect source is `cloudflare/www-redirect.js`, with deployment config
 in `wrangler.www-redirect.jsonc`. Hosting `_redirects` are a separate mechanism.
 Do not infer that checked-in Worker source is identical to deployed source.

@@ -5,6 +5,7 @@ observations and operating decisions, not proof of current remote configuration.
 Check the relevant API again before making a new claim about live state.
 
 - [Cloudflare setup and reporting](cloudflare.md): exporter, daily PDF, full-history export, permissions, and interpretation.
+- [Visitor protection](visitor-protection.md): managed-challenge policy and whether it has actually been activated.
 - [Search Console setup](search-console.md): automation, connection status, and next steps; also follow the [project playbook](../.agents/SEARCH_CONSOLE.md).
 - [Private session record](local/2026-10-31.md): local report results and snapshot references; available only on this machine.
 
