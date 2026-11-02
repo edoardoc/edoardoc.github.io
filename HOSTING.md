@@ -66,5 +66,21 @@ Doodle Tag and Task use their own repositories and GitHub Pages deployments.
 Their output settings are unchanged. See [the site inventory](.agents/SITES.md).
 The separate www redirect Worker does not select the Pages output directory.
 
+## Deployment verification and stale cache
+
+The Cloudflare production deployment of commit `360cc46` succeeded with output
+`docs`. Its unique deployment hostname and fresh requests match `docs/index.html`,
+as does GitHub Pages. The custom-domain homepage still applies the existing
+visitor challenge to command-line requests.
+
+Immediately after the switch, the exact `/AGENTS.md` URLs on the custom domain
+and project alias still returned cached root content. Cache-busted requests and
+the unique new deployment returned the test page instead. The new artifact
+excludes that file, but stale cache is a separate issue. A zone cache purge was
+attempted and denied with HTTP 401; Cache Purge permission or a dashboard purge
+is required to complete that cleanup. Do not call the old URLs inaccessible
+until the exact URLs have been checked again. Cloudflare documents asset retention
+and stale-cache cleanup in [Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/).
+
 References: [GitHub publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site),
 [Cloudflare output directories](https://developers.cloudflare.com/pages/configuration/build-configuration/).
