@@ -15,6 +15,17 @@ Doodle Tag's canonical product site is `https://doodletag.500nits.com/`, sourced
 
 The hub's About page is `https://500nits.com/about/` (`aboutUrl` on the hub in `sites.json`). Eddy's latest request keeps this page on the hub and supersedes the earlier local deletion and proposed redirects to the personal site. Use `About` in navigation. Eddy's personal writing site is not ready to link from the hub.
 
+## Hub publishing settings
+
+Read [`HOSTING.md`](../HOSTING.md) before changing publishing directories.
+As verified on 2026-11-02, `500nits.com` is served by the Cloudflare Pages project
+`edoardoc-github-io` and currently publishes the root website. The separate
+`edoardoc.github.io` GitHub Pages deployment uses `master` → `/docs`, which
+currently contains a test homepage. These are independent deployments, not a
+single publishing setting. The hub's `sourcePath` remains `.` until the website
+files are actually migrated. Eddy has explicitly deferred file relocation while
+other work is in progress; do not switch production to the incomplete test folder.
+
 ## Repository boundaries
 
 Before editing, run status checks in the root and every target site repository. A clean root status says nothing about an ignored nested repository.

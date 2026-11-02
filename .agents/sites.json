@@ -8,6 +8,26 @@
       "sourcePath": ".",
       "gitPath": ".",
       "branch": "master",
+      "hosting": {
+        "provider": "cloudflare-pages",
+        "project": "edoardoc-github-io",
+        "defaultHostname": "edoardoc-github-io.pages.dev",
+        "observedContentSource": ".",
+        "buildConfigurationVerified": true,
+        "productionBranch": "master",
+        "buildConfig": {
+          "buildCommand": "",
+          "rootDirectory": "",
+          "outputDirectory": ""
+        },
+        "githubPages": {
+          "hostname": "edoardoc.github.io",
+          "branch": "master",
+          "path": "/docs"
+        },
+        "documentation": "HOSTING.md",
+        "checkedOn": "2026-11-02"
+      },
       "cname": null,
       "aboutUrl": "https://500nits.com/about/",
       "sitemap": "sitemap.xml",
