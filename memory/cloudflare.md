@@ -9,6 +9,13 @@ email routing, and analytics. The configuration and analytics exporters are read
 No DNS apply command exists. A separate explicit visitor-policy apply/disable
 tool was added on 2026-11-01; see [its actual deployment status](visitor-protection.md).
 Exports themselves do not change live settings.
+
+On 2026-11-02, Eddy separately approved eight Nitrosend DNS additions for
+`news.500nits.com`, including three root-level authentication/bounce records.
+A private one-off helper applied those additions; no general DNS apply command
+was added. All eight resolved publicly and all ten pre-existing records were
+preserved. See [newsletter setup](newsletter.md#sending-domain-2026-11-02) for
+the scope, verification artifacts, and remaining Nitrosend setup.
 Existing redirect source is `cloudflare/www-redirect.js`, with deployment config
 in `wrangler.www-redirect.jsonc`. Hosting `_redirects` are a separate mechanism.
 Do not infer that checked-in Worker source is identical to deployed source.
