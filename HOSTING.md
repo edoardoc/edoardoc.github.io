@@ -1,100 +1,91 @@
 # How 500nits is published
 
-Updated 2026-11-02. **Two independent hosting services deploy the same repository
-and `master` branch. Both now publish only `docs/`.**
+Verified on 2026-11-02. **GitHub stores the code; Cloudflare Pages hosts the hub.**
 
-| Address | Hosting service | Published folder |
-| --- | --- | --- |
-| https://edoardoc.github.io/ | GitHub Pages | `master` → `/docs` |
-| https://500nits.com/ | Cloudflare Pages project `edoardoc-github-io` | `docs` |
-| https://edoardoc-github-io.pages.dev/ | The same Cloudflare Pages project | `docs` |
+```text
+GitHub: edoardoc/edoardoc.github.io, master, docs/
+    → Cloudflare Pages: edoardoc-github-io
+    → https://500nits.com/
+```
 
-Cloudflare builds from GitHub commits; it does not copy the finished GitHub Pages
-website. Changing one service's settings does not update the other.
+| Address | Current role |
+| --- | --- |
+| https://500nits.com/ | Canonical public hub, hosted on Cloudflare Pages |
+| https://www.500nits.com/ | Redirects to the apex using the existing Worker |
+| https://edoardoc-github-io.pages.dev/ | Cloudflare project alias; also serves the site |
+| https://edoardoc.github.io/ | GitHub Pages disabled by Eddy; public URL verified HTTP 404 |
 
-## Confirmed Cloudflare settings
+The separate GitHub Pages publication was redundant. Disabling it does not stop
+Cloudflare's Git integration: pushes to `master` still trigger Cloudflare builds.
+Do not re-enable GitHub Pages for this hub repository. GitHub's API can retain
+old source/deployment metadata after unpublishing; the old `master` → `/docs`
+metadata is not evidence that the public GitHub site is currently online.
+
+## Confirmed Cloudflare configuration
 
 | Setting | Value |
 | --- | --- |
-| Repository | `edoardoc/edoardoc.github.io` |
+| Project | `edoardoc-github-io` |
+| Connected repository | `edoardoc/edoardoc.github.io` |
 | Production branch | `master` |
 | Build command | Empty |
 | Root directory | Empty (repository root) |
 | Build output directory | `docs` |
 | Custom domains | `500nits.com`, `www.500nits.com` |
 
-DNS sends the apex and www to `edoardoc-github-io.pages.dev` with proxying enabled.
-GitHub Pages has no custom domain attached. Both services redeploy from pushes.
+DNS sends apex and www to `edoardoc-github-io.pages.dev`, with proxying enabled.
+Cloudflare publishes `docs/` independently of GitHub Pages settings.
 
-## Local migration awaiting review
+## Public files and verification
 
-The full public hub has been moved into `docs/` in the working tree, replacing
-the temporary test homepage. It includes the homepage, About, Botify, shared
-styles/scripts, newsletter configuration, images, fonts, PDFs, discovery files,
-and Cloudflare redirects. Public URLs are unchanged.
+The full hub migration was committed and pushed by Eddy as `74858ca` and verified
+successfully deployed on Cloudflare. It is no longer a local-only/test migration.
+The homepage, About, Botify, assets, newsletter scripts/configuration, robots.txt,
+sitemap.xml, redirects, and 404 page live in `docs/`. Their public URLs are unchanged.
 
 Internal material stays outside `docs/`: agent instructions, memory, tooling,
-credentials, setup notes, and drafts. Newsletter instructions moved from
-`docs/newsletter.md` to `memory/newsletter.md`; the generator now writes
-`docs/newsletter-config.js`. The standalone product-site repositories remain
-where they were. `.nojekyll` keeps GitHub Pages serving the static files directly.
-A noindex `404.html` prevents Cloudflare's default homepage fallback for missing
-paths in the next deployment. Legacy Doodle Tag privacy URLs now redirect to
-the product site's privacy page instead of an absent local file.
+credentials, setup notes, and drafts. Newsletter instructions are in
+`memory/newsletter.md`; its generator writes `docs/newsletter-config.js`.
+The sitemap audit runs the full production checks again.
 
-**Eddy requested local review only. Nothing in this migration is committed,
-pushed, or deployed. Do not apply the automatic deployment rule until review is
-complete.** The public hosts may still serve the earlier test deployment.
+The new deployment serves the public pages successfully, returns 404 for absent
+internal files, and applies the Doodle Tag redirects. Its `404.html` prevents the
+old default homepage fallback. Only files intentionally placed in `docs/` belong
+in future deployments. The `.nojekyll` file is harmless and can stay.
 
-For a quick local preview from the repository root:
+## Visitor challenges
+
+The former all-visitors gate was narrowed on 2026-11-02. Normal page requests
+are no longer selected by that custom rule. Only page requests declaring one of
+the documented bulk/AI crawler identifiers are selected, with verified search
+crawlers exempt. This is a limited deterrent, not human identification.
+See [visitor protection](cloudflare/VISITOR-PROTECTION.md).
+
+## Cache issue: intentionally deferred
+
+Some exact old internal-file URLs still return retained content from an earlier
+root deployment, although the current deployment and fresh URLs return 404.
+This is distinct from whether the latest commit deployed. Cloudflare documents
+that old assets may remain cached for up to one week:
+[Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/#asset-retention).
+
+Eddy explicitly requested waiting on the cache. Do not purge caches, change cache
+rules, add internal-path blocking, or remove old deployments as part of the current
+visitor-policy/documentation task. The old retained URLs have not been declared
+fixed. Private evidence is in `.cloudflare-local/deployment-audit/`.
+
+## Local preview
 
 ```sh
 python3 -m http.server 8085 --bind 127.0.0.1 --directory docs
 ```
 
 Open http://localhost:8085/ and check `/about/` and `/botify-agent/`.
-This simple server verifies static pages and files; Cloudflare `_redirects`
-are deployed rules and are not executed by Python's server. The existing
-`scripts/serve-500nits.sh` also uses `docs/` for its hub preview.
-
-A file such as `docs/about/index.html` appears at `https://500nits.com/about/`
-once deployed; `docs` is not part of the URL. Only the selected publishing folder
-will be included in new deployments. Files inside `docs/` are public, including
-any notes accidentally added later. Old deployment preview URLs and stale caches
-can still retain older content; cache troubleshooting is deferred at Eddy's request.
-
-## History and rollback
-
-GitHub was already on `/docs` while Cloudflare published the root. Cloudflare's
-output setting was changed to `docs` by API and read back successfully; a push
-triggers the new build. Private before/after project records are in
-`.cloudflare-local/deployment-audit/docs-switch-20261102/`.
-
-To restore root output, set Cloudflare's build output directory to empty and
-trigger a fresh deployment. This would publish root-level internal files again;
-prefer finishing the public folder.
+This simple server serves files; it does not execute Cloudflare `_redirects`.
+`scripts/serve-500nits.sh` also uses `docs/` for the hub preview.
 
 ## Other sites
 
-Doodle Tag and Task use their own repositories and GitHub Pages deployments.
-Their output settings are unchanged. See [the site inventory](.agents/SITES.md).
-The separate www redirect Worker does not select the Pages output directory.
-
-## Deployment verification and stale cache
-
-The Cloudflare production deployment of commit `360cc46` succeeded with output
-`docs`. Its unique deployment hostname and fresh requests match `docs/index.html`,
-as does GitHub Pages. The custom-domain homepage still applies the existing
-visitor challenge to command-line requests.
-
-Immediately after the switch, the exact `/AGENTS.md` URLs on the custom domain
-and project alias still returned cached root content. Cache-busted requests and
-the unique new deployment returned the test page instead. The new artifact
-excludes that file, but stale cache is a separate issue. A zone cache purge was
-attempted and denied with HTTP 401; Cache Purge permission or a dashboard purge
-is required to complete that cleanup. Do not call the old URLs inaccessible
-until the exact URLs have been checked again. Cloudflare documents asset retention
-and stale-cache cleanup in [Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/).
-
-References: [GitHub publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site),
-[Cloudflare output directories](https://developers.cloudflare.com/pages/configuration/build-configuration/).
+Doodle Tag and Task use separate repositories and GitHub Pages deployments.
+Their publishing settings are unchanged. Do not disable their Pages sites when
+maintaining this hub. See [the site inventory](.agents/SITES.md).

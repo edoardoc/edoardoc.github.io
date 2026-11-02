@@ -22,11 +22,13 @@
         },
         "githubPages": {
           "hostname": "edoardoc.github.io",
-          "branch": "master",
-          "path": "/docs"
+          "enabled": false,
+          "publicStatus": 404,
+          "disabledBy": "owner"
         },
         "documentation": "HOSTING.md",
-        "checkedOn": "2026-11-02"
+        "checkedOn": "2026-11-02",
+        "lastVerifiedDeploymentCommit": "74858ca5a48a0421afdb827c451c5c77cf95e92c"
       },
       "cname": null,
       "aboutUrl": "https://500nits.com/about/",

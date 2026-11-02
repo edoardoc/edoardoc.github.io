@@ -1,78 +1,60 @@
 # 500nits visitor protection
 
-The sites use Cloudflare Pages (hub) and GitHub Pages (product sites), with
-Cloudflare proxying their public hostnames. Apache `.htaccess` is not an access
-control mechanism on either static host. Use a Cloudflare WAF custom rule.
+The Cloudflare WAF rule in `visitor-policy.json` is a **targeted crawler deterrent**.
+The previous policy challenged every ordinary page visitor. On 2026-11-02 Eddy
+requested reducing that friction; the rule was narrowed in place.
 
-## Policy
+## Current policy
 
-[`visitor-policy.json`](visitor-policy.json) defines one managed-challenge rule.
-It covers the apex, www, Doodle Tag, Task, and the intended Eddy hostname. It
-matches directory paths, `.html` pages, and extensionless paths. It exempts
-Cloudflare-verified bots classified as `Search Engine Crawler`, including Google
-and Bing; a claimed user-agent alone does not exempt a request. Other automation,
-including preview services and command-line tools, can encounter a challenge.
+It covers the apex, www, Doodle Tag, Task, and the intended Eddy hostname. Only
+requests for directory, extensionless, and `.html` page paths that identify with
+one of these case-insensitive user-agent strings match:
 
-Static asset URLs, `robots.txt`, and XML sitemaps remain publicly fetchable. These
-exclusions avoid putting an HTML challenge in front of scripts, images, and search
-discovery files. `/cdn-cgi/` is excluded for Cloudflare's own infrastructure. This
-is a basic page-access policy for the current static sites, not an API protection
-policy or an asset access-control system. Review it when introducing new routes,
-non-HTML page extensions, APIs, or hostnames.
+- `ahrefsbot`, `semrushbot`, `mj12bot`, `dotbot`
+- `gptbot`, `claudebot`, `ccbot`, `bytespider`
 
-Browsers generally pass Cloudflare's check automatically; some visitors see an
-interaction. Some browsers can fail and sophisticated automation can pass. This
-does not prove human identity or enforce human-only access. Alternate origin
-hostnames such as `pages.dev` or `github.io` are outside this hostname policy.
-Origin access restrictions would require a separate hosting assessment.
+Matching requests receive **Managed Challenge**. Cloudflare-verified bots in the
+`Search Engine Crawler` category are exempt. Generic browser, curl, preview, and
+monitoring user agents do not match this rule merely because they request a page.
+Assets, robots.txt, XML sitemaps, and `/cdn-cgi/` remain outside its page filter.
+Other independent Cloudflare protections can still challenge traffic.
 
-The reported ~940 historical visits were sampled estimates of arrivals, not
-unique people. Raw request hits include assets, bots, and repeated requests.
-Compare equal time windows and equivalent metrics. Blocked/challenged requests
-can still be counted in Cloudflare edge traffic, so total hits need not converge
-to the browser visit count after deploying this policy.
+User-agent identifiers can be spoofed or changed. Unknown automation and bots
+claiming to be browsers can pass. This is not a human-only guarantee or a verified
+bot classifier. The Free plan does not expose the paid bot-score field for this
+custom rule; the legacy `cf.threat_score` is always zero and must not be used as
+an alternative classifier. No broad Bot Fight Mode toggle was enabled or changed.
+Alternate origin URLs remain outside this hostname policy.
 
-## Deployment status
+No cache purge, cache-rule edit, or internal-path block is part of this change.
 
-Activated on 2026-11-01 after the WAF token permission update. Cloudflare API
-read-back confirmed the checked-in rule is enabled. Automated page requests on
-the apex, www, Doodle Tag, and Task receive a Cloudflare challenge; all three
-published sites' robots.txt, sitemap.xml, and sampled assets remain HTTP 200.
-A spoofed Googlebot user-agent is challenged. Full browser challenge completion
-and requests from genuinely verified crawler IPs were not tested in this session.
-See [dated memory](../memory/visitor-protection.md) for evidence and limitations.
+## Apply and disable
 
-## Deployment and rollback
-
-Requires **Zone / WAF / Edit** on `500nits.com` and existing zone read access.
-Use the existing private API-token file or `CLOUDFLARE_API_TOKEN`.
+Requires Zone / WAF / Edit on `500nits.com` plus zone read access. The token is
+read from the private `.cloudflare-local/api-token` or `CLOUDFLARE_API_TOKEN`.
 
 ```sh
-# Print the exact policy without network requests.
+# Inspect the exact rule without network requests.
 python3 cloudflare/visitor_policy.py
 
-# Apply only this rule, saving before/after state privately.
+# Apply only this rule, saving before/after state and verifying read-back.
 python3 cloudflare/visitor_policy.py --apply
 
-# Roll back by disabling only this rule.
+# Disable only this rule if it causes problems.
 python3 cloudflare/visitor_policy.py --disable
 ```
 
-The tool uses a single-rule create/update endpoint when a custom-rules entrypoint
-already exists. It never replaces the full rules array. It saves current state
-under `.cloudflare-local/visitor-policy/<timestamp>/`, and verifies the result by
-reading it back. An HTTP 403 or failed verification is not a successful deployment.
-Only an actual 404 is treated as an absent entrypoint. Repository push alone does
-not deploy this Cloudflare rule.
+The tool updates the single rule with ref `500nits_browser_visits` and preserves
+other rules. Private snapshots are in `.cloudflare-local/visitor-policy/`.
+A successful API read-back verifies configuration; live requests verify behavior.
+The original blanket policy is retained in earlier private snapshots, not as the
+default rule to reapply. A repository push alone does not update this WAF rule.
 
-After a successful deployment, check the affected sites in a browser, compare
-Security Events for this rule, and ensure robots/sitemap/static assets still work.
-Spoofing Googlebot in curl cannot test the verified-crawler exception. A full
-browser test and observed real verified-crawler requests provide stronger evidence.
-Roll back promptly if legitimate page access fails.
+The protection does not make hits equivalent to people. Requests include assets
+and automation; Web Analytics visits are sampled arrivals, not unique humans.
 
 ## References
 
-- [Cloudflare managed challenges](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/)
+- [Managed challenges](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/)
 - [Verified bot categories](https://developers.cloudflare.com/bots/concepts/bot/verified-bots/)
-- [Add one rule while preserving others](https://developers.cloudflare.com/ruleset-engine/rulesets-api/add-rule/)
+- [Threat score no longer classifies risk](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/cf.threat_score/)

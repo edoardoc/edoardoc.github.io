@@ -6,7 +6,7 @@ Read this file before editing, auditing, or deploying any 500nits website. The m
 
 | Site | Canonical URL | Source path | Git ownership | Discovery files |
 | --- | --- | --- | --- | --- |
-| Product-label hub | `https://500nits.com/` | `docs/` (full site prepared locally) | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
+| Product-label hub | `https://500nits.com/` | `docs/` | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
 | Eddy's personal site | `https://eddy.500nits.com/` | `eddy_500nits_com/` | separate repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Doodle Tag product site | `https://doodletag.500nits.com/` | `doodletag_500nits_com/` | separate repository and root submodule, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Task for Spaces product site | `https://task.500nits.com/` | `task_500nits_com/` | separate ignored repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
@@ -18,23 +18,21 @@ The hub's About page is `https://500nits.com/about/` (`aboutUrl` on the hub in `
 ## Hub publishing settings
 
 Read [`HOSTING.md`](../HOSTING.md) before changing publishing directories.
-As updated on 2026-11-02, both the Cloudflare Pages project
-`edoardoc-github-io` (500nits.com) and GitHub Pages (`edoardoc.github.io`) publish
-`master` → `docs/`. Cloudflare's root/build command remain empty; its output
-is `docs`. These settings are independent and must be maintained separately.
+Verified on 2026-11-02: the hub is hosted by Cloudflare Pages project
+`edoardoc-github-io`, connected to `edoardoc/edoardoc.github.io`, branch `master`,
+with build output `docs`. The root directory and build command are empty.
+The full hub migration was pushed by Eddy as `74858ca` and verified live.
+The earlier local-review hold and temporary test stage are complete.
 
-The full public hub has now been moved into `docs/` locally, replacing the test
-homepage. The hub `sourcePath` is `docs`; the temporary `deploymentStage: test`
-flag has been removed so the full SEO audit runs again. Public page URLs and
-canonical origins stay unchanged. Internal tooling, memory, newsletter setup
-notes, and drafts remain outside `docs/`. The separate product-site worktrees
-have not been relocated.
+GitHub Pages for this hub repository has been disabled by Eddy; its public
+`edoardoc.github.io` address returns 404. Keep GitHub as the code source and
+Cloudflare Pages as the hub host. Do not re-enable the redundant GitHub publication.
+This does not affect Doodle Tag or Task's separate GitHub Pages deployments.
 
-**Local review hold:** Eddy explicitly requested stopping locally for review.
-Do not commit, push, or deploy this migration until that review is complete.
-This instruction supersedes the automatic deployment rule for this work.
-Current live deployments may still show the test page; local readiness is not
-proof of a release. See `HOSTING.md` for the local preview command.
+Internal tooling, memory, setup notes, and drafts stay outside `docs/`. The full
+SEO audit applies to `docs/`. On 2026-11-02 Eddy authorized narrowing the visitor
+challenge and updating documentation only; cache purging/rules, internal-path
+blocking, and alternate-origin access changes are deferred.
 
 ## Repository boundaries
 
