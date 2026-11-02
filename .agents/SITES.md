@@ -6,7 +6,7 @@ Read this file before editing, auditing, or deploying any 500nits website. The m
 
 | Site | Canonical URL | Source path | Git ownership | Discovery files |
 | --- | --- | --- | --- | --- |
-| Product-label hub | `https://500nits.com/` | repository root | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
+| Product-label hub | `https://500nits.com/` | `docs/` (current noindex test) | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
 | Eddy's personal site | `https://eddy.500nits.com/` | `eddy_500nits_com/` | separate repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Doodle Tag product site | `https://doodletag.500nits.com/` | `doodletag_500nits_com/` | separate repository and root submodule, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Task for Spaces product site | `https://task.500nits.com/` | `task_500nits_com/` | separate ignored repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
@@ -18,13 +18,18 @@ The hub's About page is `https://500nits.com/about/` (`aboutUrl` on the hub in `
 ## Hub publishing settings
 
 Read [`HOSTING.md`](../HOSTING.md) before changing publishing directories.
-As verified on 2026-11-02, `500nits.com` is served by the Cloudflare Pages project
-`edoardoc-github-io` and currently publishes the root website. The separate
-`edoardoc.github.io` GitHub Pages deployment uses `master` → `/docs`, which
-currently contains a test homepage. These are independent deployments, not a
-single publishing setting. The hub's `sourcePath` remains `.` until the website
-files are actually migrated. Eddy has explicitly deferred file relocation while
-other work is in progress; do not switch production to the incomplete test folder.
+As updated on 2026-11-02, both the Cloudflare Pages project
+`edoardoc-github-io` (500nits.com) and GitHub Pages (`edoardoc.github.io`) publish
+`master` → `docs/`. Cloudflare's root/build command remain empty; its output
+is `docs`. These settings are independent and must be maintained separately.
+
+Eddy explicitly requested the Cloudflare switch while file work remains in
+progress. No files were moved: the former full website remains at the repository
+root; `docs/` currently publishes the small noindex test, not the full hub.
+The hub `sourcePath` is now `docs`, with `deploymentStage: test`. All HTML pages
+must remain noindex during that stage. Root About/redirect/sitemap plans above
+remain intended full-site requirements, not claims about the current test output.
+Update the stage and complete the full SEO release checklist when `docs/` is ready.
 
 ## Repository boundaries
 

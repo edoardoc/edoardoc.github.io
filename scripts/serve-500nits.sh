@@ -40,7 +40,7 @@ start_server() {
 
 trap stop_servers EXIT INT TERM
 
-start_server "${ROOT}" 8080
+start_server "${ROOT}/docs" 8080
 start_server "${ROOT}/doodletag_500nits_com" 8081
 start_server "${ROOT}/task_500nits_com" 8082
 start_server "${ROOT}/eddy_500nits_com" 8083

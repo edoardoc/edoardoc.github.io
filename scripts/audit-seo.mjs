@@ -72,6 +72,23 @@ for (const site of registry.sites) {
     continue;
   }
 
+  // An explicitly selected test deployment has no production sitemap contract.
+  // Require noindex on every HTML page until its full-site release is ready.
+  if (site.deploymentStage === "test") {
+    const homepage = readFile(path.join(siteRoot, "index.html"), label);
+    if (homepage) {
+      for (const file of walkHtml(siteRoot, excludedDirectories)) {
+        const html = fs.readFileSync(file, "utf8");
+        const robotsTag = findTag(html, "meta", "name", "robots");
+        if (!/\bnoindex\b/i.test(attribute(robotsTag, "content") ?? "")) {
+          errors.push(`${label}: test page ${path.relative(siteRoot, file)} must explicitly be noindex`);
+        }
+      }
+    }
+    warnings.push(`${label}: publishing a noindex test from ${site.sourcePath}; full production SEO checks are deferred`);
+    continue;
+  }
+
   if (site.cname) {
     const cnamePath = path.join(siteRoot, site.cname);
     const cname = readFile(cnamePath, label)?.trim();

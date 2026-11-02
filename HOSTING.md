@@ -1,83 +1,70 @@
 # How 500nits is published
 
-Checked on 2026-11-02. **Two separate hosting services deploy this repository.**
-They use the same GitHub commits, but have independent publishing settings.
+Updated 2026-11-02. **Two independent hosting services deploy the same repository
+and `master` branch. Both now publish only `docs/`.**
 
-| Address | Hosting service | Files currently served |
+| Address | Hosting service | Published folder |
 | --- | --- | --- |
-| https://edoardoc.github.io/ | GitHub Pages | `master`, `/docs` |
-| https://500nits.com/ | Cloudflare Pages project `edoardoc-github-io` | Repository-root website |
-| https://edoardoc-github-io.pages.dev/ | The same Cloudflare Pages project | The same repository-root website |
+| https://edoardoc.github.io/ | GitHub Pages | `master` → `/docs` |
+| https://500nits.com/ | Cloudflare Pages project `edoardoc-github-io` | `docs` |
+| https://edoardoc-github-io.pages.dev/ | The same Cloudflare Pages project | `docs` |
 
-Changing GitHub Pages to `/docs` changes only the first row. Cloudflare Pages
-does its own deployment; it does not copy the finished `edoardoc.github.io` site.
-Recent GitHub commits have separate successful GitHub Pages and Cloudflare Pages
-deployment checks.
+Cloudflare builds from GitHub commits; it does not copy the finished GitHub Pages
+website. Changing one service's settings does not update the other.
 
-## Why the addresses show different pages
+## Confirmed Cloudflare settings
 
-GitHub's API confirms `master` → `/docs`, with no custom domain attached to that
-GitHub Pages site. The public GitHub homepage exactly matches `docs/index.html`,
-which is currently a small test page.
-
-Cloudflare DNS sends `500nits.com` and `www.500nits.com` to
-`edoardoc-github-io.pages.dev`, with proxying enabled. The `pages.dev` homepage
-exactly matches the repository-root `index.html`.
-
-Both `https://500nits.com/AGENTS.md` and
-`https://edoardoc-github-io.pages.dev/AGENTS.md` return the repository-root
-`AGENTS.md`. Root-level development files are therefore still in the Cloudflare
-deployment. The Cloudflare visitor challenge is not a deployment-file exclusion.
-
-Cloudflare's project API confirms these settings:
-
-| Setting | Current value |
+| Setting | Value |
 | --- | --- |
-| Connected repository | `edoardoc/edoardoc.github.io` |
+| Repository | `edoardoc/edoardoc.github.io` |
 | Production branch | `master` |
-| Build command | Empty (no build command) |
+| Build command | Empty |
 | Root directory | Empty (repository root) |
-| Build output directory | Empty (publishes from the root) |
+| Build output directory | `docs` |
 | Custom domains | `500nits.com`, `www.500nits.com` |
 
-The mismatch is therefore GitHub's `/docs` setting versus Cloudflare's root
-publishing settings. Changing one service does not update the other.
+DNS sends the apex and www to `edoardoc-github-io.pages.dev` with proxying enabled.
+GitHub Pages has no custom domain attached. Both services redeploy from pushes.
 
-## Keep the current work in place
+## Current test and work in progress
 
-Eddy explicitly asked not to move files while work is in progress. This
-investigation changes documentation only. No website files were relocated and
-neither service's publishing settings were changed.
+At Eddy's explicit request, Cloudflare was switched from root output to `docs`
+without moving website files. The former full website remains at the repository
+root for ongoing work; it is no longer the Cloudflare publishing output.
 
-`docs/` currently contains a test homepage and a newsletter setup note. It is
-not yet a complete replacement for the root website. Pointing Cloudflare there
-now would replace the production hub with the test and omit its other files.
+`docs/index.html` is currently the small **noindex test page**. The full homepage,
+About page, assets, robots.txt, sitemap.xml, and root `_redirects` remain outside
+the output until intentionally added to `docs/`. This is not yet an SEO-ready
+production release. The site inventory records `deploymentStage: test`; the audit
+requires every HTML test page to remain noindex. Remove that stage and complete
+the normal SEO checks when publishing the full site.
 
-## When the website folder is ready
+`docs/newsletter.md` is also published because it is inside `docs/`. Keep future
+internal notes outside this folder. Root `AGENTS.md`, `memory/`, and tooling are
+excluded from new production output. Without a custom 404 page, Cloudflare may
+return its index-page fallback for missing paths: HTTP 200 alone does not prove
+an excluded file exists; check the returned content. Old deployment-specific
+preview URLs may retain earlier output; this switch updates current production.
 
-1. Finish assembling the intended public website in the chosen folder, including
-   all pages, assets, `robots.txt`, `sitemap.xml`, and Cloudflare `_redirects`.
-   Keep agent instructions, memory, setup notes, and tooling outside that folder.
-2. For a shared `docs/` setup, keep GitHub Pages on `master` → `/docs`.
-3. In Cloudflare's `edoardoc-github-io` Pages project, set the build output to
-   `docs` relative to the repository root. Check the existing root/build settings
-   first; a configured project root can change how output paths are resolved.
-4. Redeploy Cloudflare Pages and verify the custom domain **and** the `pages.dev`
-   address. Public pages/assets must work and internal files must no longer be
-   served. A bot challenge alone does not establish that a file was removed.
-5. Update `.agents/SITES.md`, `.agents/sites.json`, local preview, and audit paths
-   together when the actual source directory changes.
+The local hub preview now serves `docs/`. A future `docs/about/index.html` will
+appear at `https://500nits.com/about/`; `docs` does not become part of the URL.
 
-Publishing-folder names do not appear in website URLs: `docs/about/index.html`
-would still be `https://500nits.com/about/` when `docs` is the published root.
+## History and rollback
+
+GitHub was already on `/docs` while Cloudflare published the root. Cloudflare's
+output setting was changed to `docs` by API and read back successfully; a push
+triggers the new build. Private before/after project records are in
+`.cloudflare-local/deployment-audit/docs-switch-20261102/`.
+
+To restore root output, set Cloudflare's build output directory to empty and
+trigger a fresh deployment. This would publish root-level internal files again;
+prefer finishing the public folder.
 
 ## Other sites
 
-Doodle Tag and Task have their own repositories and GitHub Pages deployments.
-They are not published from this repository's `docs/` folder. See
-[the site inventory](.agents/SITES.md) for repository boundaries. The separate
-`500nits-www-redirect` Worker source/configuration is in `cloudflare/` and
-`wrangler.www-redirect.jsonc`; it does not choose the Pages output directory.
+Doodle Tag and Task use their own repositories and GitHub Pages deployments.
+Their output settings are unchanged. See [the site inventory](.agents/SITES.md).
+The separate www redirect Worker does not select the Pages output directory.
 
 References: [GitHub publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site),
-[Cloudflare build/output directories](https://developers.cloudflare.com/pages/configuration/build-configuration/).
+[Cloudflare output directories](https://developers.cloudflare.com/pages/configuration/build-configuration/).

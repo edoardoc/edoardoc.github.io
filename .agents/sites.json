@@ -5,20 +5,20 @@
       "id": "hub",
       "name": "500nits product-label hub",
       "baseUrl": "https://500nits.com/",
-      "sourcePath": ".",
+      "sourcePath": "docs",
       "gitPath": ".",
       "branch": "master",
       "hosting": {
         "provider": "cloudflare-pages",
         "project": "edoardoc-github-io",
         "defaultHostname": "edoardoc-github-io.pages.dev",
-        "observedContentSource": ".",
+        "observedContentSource": "docs",
         "buildConfigurationVerified": true,
         "productionBranch": "master",
         "buildConfig": {
           "buildCommand": "",
           "rootDirectory": "",
-          "outputDirectory": ""
+          "outputDirectory": "docs"
         },
         "githubPages": {
           "hostname": "edoardoc.github.io",
@@ -38,7 +38,8 @@
           "redirectTo": "https://doodletag.500nits.com/",
           "status": 301
         }
-      ]
+      ],
+      "deploymentStage": "test"
     },
     {
       "id": "eddy",
