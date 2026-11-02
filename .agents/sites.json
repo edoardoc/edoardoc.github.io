@@ -3,7 +3,7 @@
   "sites": [
     {
       "id": "hub",
-      "name": "500nits studio hub",
+      "name": "500nits product-label hub",
       "baseUrl": "https://500nits.com/",
       "sourcePath": ".",
       "gitPath": ".",
@@ -19,6 +19,17 @@
           "status": 301
         }
       ]
+    },
+    {
+      "id": "eddy",
+      "name": "Eddy",
+      "baseUrl": "https://eddy.500nits.com/",
+      "sourcePath": "eddy_500nits_com",
+      "gitPath": "eddy_500nits_com",
+      "branch": "main",
+      "cname": "CNAME",
+      "sitemap": "sitemap.xml",
+      "robots": "robots.txt"
     },
     {
       "id": "doodletag",

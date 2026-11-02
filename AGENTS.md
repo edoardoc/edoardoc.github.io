@@ -3,7 +3,8 @@
 ## Identity and scope
 
 - Always write `500nits` in lowercase in UI copy, metadata, documentation, reports, and commit messages.
-- Treat this repository as the control point for the 500nits web presence: the studio hub at `https://500nits.com/`, app overviews on the hub, and product sites at `https://<project>.500nits.com/`.
+- Treat this repository as the control point for the 500nits web presence: the product-label hub at `https://500nits.com/`, Eddy's personal site at `https://eddy.500nits.com/`, app overviews on the hub, and product sites at `https://<project>.500nits.com/`.
+- Describe Eddy's work in the first person singular. Do not use a corporate `we` or imply that 500nits is a larger team.
 - Keep the web stack static, lightweight, accessible, and easy for one developer to maintain.
 
 ## Required reading and routing
@@ -23,7 +24,8 @@
 
 ## Web presence requirements
 
-- Maintain the hub as a concise explanation of the studio and a crawlable link to every live product site.
+- Maintain the hub as a concise explanation of Eddy's independent software label and a crawlable link to every live product site.
+- Keep personal background and writing on `https://eddy.500nits.com/`; keep the hub focused on the 500nits label and its products.
 - Give each launched app a focused product site on its canonical `*.500nits.com` hostname, with useful product, store, support, privacy, and press information as applicable.
 - Give a hub app overview and its product site distinct purposes and copy. If two pages become substantially duplicate, choose one canonical destination and align redirects, canonical tags, internal links, and sitemaps.
 - Cross-link the hub and product sites with ordinary HTML links. Do not rely on JavaScript for primary copy, navigation, metadata, or store links.

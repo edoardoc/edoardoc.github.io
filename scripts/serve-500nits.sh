@@ -43,13 +43,15 @@ trap stop_servers EXIT INT TERM
 start_server "${ROOT}" 8080
 start_server "${ROOT}/doodletag_500nits_com" 8081
 start_server "${ROOT}/task_500nits_com" 8082
+start_server "${ROOT}/eddy_500nits_com" 8083
 
 echo
 echo "500nits sites:"
 echo "  http://localhost:8080  (www.500nits.com)"
 echo "  http://localhost:8081  (doodletag.500nits.com)"
 echo "  http://localhost:8082  (task.500nits.com)"
+echo "  http://localhost:8083  (eddy.500nits.com)"
 echo
-echo "Press Ctrl-C to stop all three servers."
+echo "Press Ctrl-C to stop all four servers."
 
 wait

@@ -169,7 +169,7 @@ The reading column uses open text sections, with 18px between paragraphs and ben
 
 ### Newsletter panel
 
-The inverted panel pairs a short invitation with a labeled email field and an action. Supporting copy explicitly states that the visitor must send an email request. Submitting reveals a polite live status with a retry link; it does not claim subscription success. Updates links focus the email field. The ordinary mailto form remains available without JavaScript; no hosted newsletter endpoint is configured.
+The inverted panel pairs a short invitation with a labeled email field and an action. It has no inline signup note. Submitting reveals a polite live status that requires sending the email and offers a retry link; it does not claim subscription success. Updates links focus the email field. The ordinary mailto form remains available without JavaScript; no hosted newsletter endpoint is configured.
 
 ## Do's and Don'ts
 

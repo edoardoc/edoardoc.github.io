@@ -62,9 +62,10 @@ input:focus-visible { outline-color: var(--paper); }
 button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; padding: 11px 14px; color: var(--paper); background: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; }
 button:hover, button:active { color: var(--ink); background: var(--paper); }
 button:disabled { opacity: 0.6; cursor: wait; }
-.signup-note, .signup-status { margin-top: 11px; font-size: 13px; line-height: 1.5; color: #e0e3e8; }
+.signup-status { margin-top: 11px; font-size: 13px; line-height: 1.5; color: #e0e3e8; }
 .signup-status { border-top: 1px solid #8991a1; padding-top: 12px; }
 .signup-status a { font-weight: 600; }
+.signup-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; min-height: 0; overflow: hidden; }
 .products { margin-top: 72px; scroll-margin-top: 30px; }
 .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-bottom: 26px; }
 .section-heading h2, .maker h2 { font-size: 32px; letter-spacing: -0.03em; }

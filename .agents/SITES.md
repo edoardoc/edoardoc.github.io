@@ -6,7 +6,8 @@ Read this file before editing, auditing, or deploying any 500nits website. The m
 
 | Site | Canonical URL | Source path | Git ownership | Discovery files |
 | --- | --- | --- | --- | --- |
-| Studio hub | `https://500nits.com/` | repository root | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
+| Product-label hub | `https://500nits.com/` | repository root | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
+| Eddy's personal site | `https://eddy.500nits.com/` | `eddy_500nits_com/` | separate repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Doodle Tag product site | `https://doodletag.500nits.com/` | `doodletag_500nits_com/` | separate repository and root submodule, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Task for Spaces product site | `https://task.500nits.com/` | `task_500nits_com/` | separate ignored repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 
@@ -19,6 +20,7 @@ The hub's About page is `https://500nits.com/about/` (`aboutUrl` on the hub in `
 Before editing, run status checks in the root and every target site repository. A clean root status says nothing about an ignored nested repository.
 
 - Root work: check, commit, and push from the repository root.
+- Eddy personal-site work: check, commit, and push from `eddy_500nits_com/`. It is ignored by the root repository, so do not expect a root commit.
 - Doodle Tag product-site work: check, commit, and push from `doodletag_500nits_com/`; then commit and push the changed submodule pointer from the root.
 - Task product-site work: check, commit, and push from `task_500nits_com/`. It is ignored by the root repository, so do not expect a root commit.
 - Never mix pre-existing changes from a nested repository into an SEO or deployment commit unless the user explicitly includes them.

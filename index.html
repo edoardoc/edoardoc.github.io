@@ -3,24 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>500nits | Apps by Eddy</title>
-    <meta name="description" content="I build apps for iOS, Android, and macOS under the name 500nits. Browse Doodle Tag, Task for Spaces, and my other projects." />
+    <title>500nits | Software in the AI era</title>
+    <meta name="description" content="I make apps and experiment with AI. Browse my current projects at 500nits, including Doodle Tag, Task for Spaces, and Botify." />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#1f2d4d" />
     <link rel="canonical" href="https://500nits.com/" />
     <link rel="icon" sizes="32x32" href="/favicon.ico" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="500nits | Apps by Eddy" />
-    <meta property="og:description" content="I build apps for iOS, Android, and macOS under the name 500nits." />
+    <meta property="og:title" content="500nits | Software in the AI era" />
+    <meta property="og:description" content="I make apps and experiment with AI." />
     <meta property="og:url" content="https://500nits.com/" />
     <meta property="og:image" content="https://500nits.com/assets/500nits-social.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="500nits. Apps for your phone and your Mac. Doodle Tag and Task for Spaces." />
+    <meta property="og:image:alt" content="500nits. Software in the AI era. I make apps and experiment with AI." />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preload" href="/assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/hub.css" />
+    <script src="/newsletter-config.js" defer></script>
     <script src="/newsletter.js" defer></script>
     <script type="application/ld+json">
       {
@@ -28,7 +29,7 @@
         "@type": "WebSite",
         "name": "500nits",
         "url": "https://500nits.com/",
-        "description": "Independent software by Eddy, including Doodle Tag and Task for Spaces.",
+        "description": "Apps and experiments with AI by Eddy.",
         "creator": {
           "@type": "Person",
           "name": "Eddy",
@@ -54,9 +55,9 @@
 
       <main id="main">
         <section class="intro" aria-labelledby="intro-title">
-          <h1 id="intro-title">Apps for your phone<br />and your Mac.</h1>
+          <h1 id="intro-title">Software in<br /> the AI era.</h1>
           <div class="intro-note">
-            <p>I build apps for iOS, Android, and macOS under the name 500nits.</p>
+            <p>I make apps and experiment with AI.</p>
           </div>
         </section>
 
@@ -65,20 +66,21 @@
             <h2 id="updates-title">Get updates from 500nits</h2>
             <p>Subscribe for new releases and app updates.</p>
           </div>
-          <form class="subscribe-form" action="mailto:apps@500nits.com?subject=Subscribe%20to%20500nits%20updates" method="post" enctype="text/plain" aria-labelledby="updates-title" aria-describedby="signup-note">
+          <form class="subscribe-form" action="https://api.nitrosend.com/v1/public/contacts" method="post" aria-labelledby="updates-title">
             <label for="subscriber-email">Your email address</label>
             <div class="form-row">
-              <input id="subscriber-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required maxlength="254" aria-describedby="signup-note" />
-              <button type="submit">Subscribe by email <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+              <input id="subscriber-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required maxlength="254" />
+              <button type="submit" disabled>Subscribe <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
             </div>
-            <p class="signup-note" id="signup-note">Send the signup email to join the list. Email me to unsubscribe.</p>
+            <input class="signup-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <p class="signup-status" id="signup-status" role="status" aria-live="polite" hidden></p>
+            <noscript><p class="signup-status">Email <a href="mailto:apps@500nits.com">apps@500nits.com</a> to subscribe.</p></noscript>
           </form>
         </section>
 
         <section class="products" id="products" aria-labelledby="products-title">
           <div class="section-heading">
-            <h2 id="products-title">Apps and projects</h2>
+            <h2 id="products-title">Projects</h2>
           </div>
 
           <article class="product" aria-labelledby="doodletag-title">

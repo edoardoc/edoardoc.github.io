@@ -28,4 +28,6 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 No newsletter account or endpoint supplied. Use an honest email-request fallback that opens the visitor's mail app, with explicit copy requiring them to send. Do not claim an automated subscription or unsubscribe mechanism until a verified hosted form is connected. Build directly in code for this session; no standing build-path preference is recorded without an answer.
 
-Current navigation uses the hub's /about/ page. Do not link to the unfinished personal writing site. The signup note requires sending an email and explains how to unsubscribe; the form remains a manual email request until a verified newsletter endpoint is supplied.
+Current navigation uses the hub's /about/ page. Do not link to the unfinished personal writing site. The user removed the inline signup note; submission feedback still requires sending the email. The form remains a manual email request until a verified newsletter endpoint is supplied.
+
+Positioning: Software in the AI era. The short introduction is about making apps and experimenting with AI, without limiting the label to particular platforms. Leave room for future games without claiming one has launched or that every product uses AI.

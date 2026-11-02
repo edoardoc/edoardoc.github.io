@@ -10,6 +10,8 @@ web
 
 500nits is Eddy's independent software label. The hub introduces the label, links to its live products, and invites visitors to subscribe to product updates.
 
+Position the label around software broadly rather than particular devices or operating systems. Eddy suggested AI-era framing and expects to add a video game. Do not imply that every project uses AI, list an unreleased game as available, or invent a release date.
+
 ## Users
 
 Visitors exploring Eddy's software and people who want to hear about releases. Inferred from the redesign request and existing product links; a more specific audience is undecided.

@@ -33,7 +33,7 @@ The title, visible heading, Open Graph title, structured data name, and anchor t
 - Pick one canonical origin and trailing-slash convention for each URL.
 - Make redirects, canonical tags, internal links, sitemap entries, social URLs, and structured data agree.
 - Use permanent server-side redirects for retired duplicate URLs when hosting supports them.
-- Keep the hub's app overview distinct from the canonical product site. The overview should explain the studio relationship and send readers to the product site; the product site should own detailed product, store, support, and privacy intent.
+- Keep the hub's app overview distinct from the canonical product site. The overview should explain the maker and label relationship and send readers to the product site; the product site should own detailed product, store, support, and privacy intent.
 - Do not list redirected, noncanonical, `noindex`, error, or cross-host URLs in a site's sitemap.
 
 ## Discovery files
