@@ -1,4 +1,144 @@
-<meta name="robots" content="noindex,follow" />
-Hello there!:x
-:x
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>500nits | Software in the AI era</title>
+    <meta name="description" content="My current software projects at 500nits: Doodle Tag, Task for Spaces, and Botify. Get release updates or contact me for app support." />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#1f2d4d" />
+    <link rel="canonical" href="https://500nits.com/" />
+    <link rel="icon" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="500nits | Software in the AI era" />
+    <meta property="og:description" content="My current software projects at 500nits: Doodle Tag, Task for Spaces, and Botify." />
+    <meta property="og:url" content="https://500nits.com/" />
+    <meta property="og:image" content="https://500nits.com/assets/500nits-social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="500nits. Software in the AI era." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href="/assets/fonts/karla-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/hub.css" />
+    <script src="/newsletter-config.js" defer></script>
+    <script src="/newsletter.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "500nits",
+        "url": "https://500nits.com/",
+        "description": "Apps and experiments with AI by Eddy.",
+        "creator": {
+          "@type": "Person",
+          "name": "Eddy",
+          "url": "https://500nits.com/about/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="500nits home">
+          <img src="/favicon.svg" alt="" width="42" height="42" />
+          <span>500nits</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="#products">Products</a>
+          <a href="/about/">About</a>
+          <a class="updates-link" href="#updates">Get updates <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+        </nav>
+      </header>
 
+      <main id="main">
+        <section class="intro" aria-labelledby="intro-title">
+          <h1 id="intro-title">Software in<br /> the AI era.</h1>
+        </section>
+
+        <section class="newsletter" id="updates" aria-labelledby="updates-title">
+          <div class="newsletter-copy">
+            <h2 id="updates-title">Get updates from 500nits</h2>
+            <p>Subscribe for new releases and app updates.</p>
+          </div>
+          <form class="subscribe-form" action="https://api.nitrosend.com/v1/public/contacts" method="post" aria-labelledby="updates-title">
+            <label for="subscriber-email">Your email address</label>
+            <div class="form-row">
+              <input id="subscriber-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required maxlength="254" />
+              <button type="submit" disabled>Subscribe <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+            </div>
+            <input class="signup-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="signup-status" id="signup-status" role="status" aria-live="polite" hidden></p>
+            <noscript><p class="signup-status">Email <a href="mailto:apps@500nits.com">apps@500nits.com</a> to subscribe.</p></noscript>
+          </form>
+        </section>
+
+        <section class="products" id="products" aria-labelledby="products-title">
+          <div class="section-heading">
+            <h2 id="products-title">Projects</h2>
+          </div>
+
+          <article class="product" aria-labelledby="doodletag-title">
+            <div class="product-name">
+              <h3 id="doodletag-title"><a href="https://doodletag.500nits.com/">Doodle Tag</a></h3>
+              <p class="product-meta">iOS &amp; Android</p>
+            </div>
+            <div class="product-detail">
+              <p>Draw together on two devices over local Wi-Fi. No accounts or cloud storage.</p>
+              <p class="product-meta">Available on the App Store and Google Play in six languages.</p>
+              <div class="product-links">
+                <a href="https://doodletag.500nits.com/">Visit Doodle Tag <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+                <a class="secondary-link" href="/doodletag-overview.pdf">Press PDF</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product" aria-labelledby="task-title">
+            <div class="product-name">
+              <h3 id="task-title"><a href="https://task.500nits.com/">Task for Spaces</a></h3>
+              <p class="product-meta">macOS · In development</p>
+            </div>
+            <div class="product-detail">
+              <p>Name your Mac's Mission Control desktops and see their names as you switch between Spaces.</p>
+              <p class="product-meta">A native macOS menu-bar app with a plain-text configuration.</p>
+              <div class="product-links">
+                <a href="https://task.500nits.com/">Visit Task for Spaces <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product product-project" aria-labelledby="botify-title">
+            <div class="product-name">
+              <h3 id="botify-title"><a href="/botify-agent/">Botify</a></h3>
+              <p class="product-meta">An ongoing project</p>
+            </div>
+            <div class="product-detail">
+              <p>My experiments with AI agents, Telegram, and automation around existing software.</p>
+              <div class="product-links">
+                <a href="/botify-agent/">Read about Botify <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="maker" aria-labelledby="maker-title">
+          <div>
+            <h2 id="maker-title">Get in touch</h2>
+            <p>Email me if you need help with an app or want to report a bug.</p>
+          </div>
+          <div class="maker-links">
+            <a href="mailto:apps@500nits.com">apps@500nits.com <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="footer-brand" href="/">500nits</a>
+        <p>500nits Ltd · Company No. 05797476<br />Registered in England and Wales.</p>
+        <a href="#updates">Get updates <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+      </footer>
+    </div>
+  </body>
+</html>

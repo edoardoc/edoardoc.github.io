@@ -38,8 +38,7 @@
           "redirectTo": "https://doodletag.500nits.com/",
           "status": 301
         }
-      ],
-      "deploymentStage": "test"
+      ]
     },
     {
       "id": "eddy",

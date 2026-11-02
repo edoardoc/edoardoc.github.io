@@ -4,9 +4,9 @@ The homepage collects email signups directly into Nitrosend list 13128. It uses 
 
 ## Configuration
 
-The local .env file is ignored by Git and has owner-only permissions. It contains NITROSEND_PUBLIC_KEY and NITROSEND_LIST_ID. Run `node scripts/configure-newsletter.mjs` after changing either value. The generator writes only those two public signup fields to newsletter-config.js; it rejects keys without the wpkey_live_ prefix.
+The local .env file is ignored by Git and has owner-only permissions. It contains NITROSEND_PUBLIC_KEY and NITROSEND_LIST_ID. Run `node scripts/configure-newsletter.mjs` after changing either value. The generator writes only those two public signup fields to docs/newsletter-config.js; it rejects keys without the wpkey_live_ prefix.
 
-newsletter-config.js is intentionally tracked and browser-visible because Nitrosend website keys are public. The .env file and any unrelated environment values are not published. Never use an account secret key in the browser configuration.
+docs/newsletter-config.js is intentionally tracked and browser-visible because Nitrosend website keys are public. The .env file and any unrelated environment values are not published. Never use an account secret key in the browser configuration.
 
 ## Form behaviour
 

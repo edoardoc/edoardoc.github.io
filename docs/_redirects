@@ -7,7 +7,8 @@
 /doodletag https://doodletag.500nits.com/ 301
 /doodletag/ https://doodletag.500nits.com/ 301
 /doodletag/index.html https://doodletag.500nits.com/ 301
-/doodletag/privacy  /doodletag/privacy/index.html  200
-/doodletag/privacy/ /doodletag/privacy/index.html  200
+/doodletag/privacy https://doodletag.500nits.com/privacy/ 301
+/doodletag/privacy/ https://doodletag.500nits.com/privacy/ 301
+/doodletag/privacy/index.html https://doodletag.500nits.com/privacy/ 301
 /blog/what-does-it-mean-for-a-software-company-to-use-ai https://eddy.500nits.com/notes/what-does-it-mean-for-a-software-company-to-use-ai/ 301
 /blog/what-does-it-mean-for-a-software-company-to-use-ai/ https://eddy.500nits.com/notes/what-does-it-mean-for-a-software-company-to-use-ai/ 301

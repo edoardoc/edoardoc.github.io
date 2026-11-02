@@ -26,28 +26,42 @@ website. Changing one service's settings does not update the other.
 DNS sends the apex and www to `edoardoc-github-io.pages.dev` with proxying enabled.
 GitHub Pages has no custom domain attached. Both services redeploy from pushes.
 
-## Current test and work in progress
+## Local migration awaiting review
 
-At Eddy's explicit request, Cloudflare was switched from root output to `docs`
-without moving website files. The former full website remains at the repository
-root for ongoing work; it is no longer the Cloudflare publishing output.
+The full public hub has been moved into `docs/` in the working tree, replacing
+the temporary test homepage. It includes the homepage, About, Botify, shared
+styles/scripts, newsletter configuration, images, fonts, PDFs, discovery files,
+and Cloudflare redirects. Public URLs are unchanged.
 
-`docs/index.html` is currently the small **noindex test page**. The full homepage,
-About page, assets, robots.txt, sitemap.xml, and root `_redirects` remain outside
-the output until intentionally added to `docs/`. This is not yet an SEO-ready
-production release. The site inventory records `deploymentStage: test`; the audit
-requires every HTML test page to remain noindex. Remove that stage and complete
-the normal SEO checks when publishing the full site.
+Internal material stays outside `docs/`: agent instructions, memory, tooling,
+credentials, setup notes, and drafts. Newsletter instructions moved from
+`docs/newsletter.md` to `memory/newsletter.md`; the generator now writes
+`docs/newsletter-config.js`. The standalone product-site repositories remain
+where they were. `.nojekyll` keeps GitHub Pages serving the static files directly.
+A noindex `404.html` prevents Cloudflare's default homepage fallback for missing
+paths in the next deployment. Legacy Doodle Tag privacy URLs now redirect to
+the product site's privacy page instead of an absent local file.
 
-`docs/newsletter.md` is also published because it is inside `docs/`. Keep future
-internal notes outside this folder. Root `AGENTS.md`, `memory/`, and tooling are
-excluded from new production output. Without a custom 404 page, Cloudflare may
-return its index-page fallback for missing paths: HTTP 200 alone does not prove
-an excluded file exists; check the returned content. Old deployment-specific
-preview URLs may retain earlier output; this switch updates current production.
+**Eddy requested local review only. Nothing in this migration is committed,
+pushed, or deployed. Do not apply the automatic deployment rule until review is
+complete.** The public hosts may still serve the earlier test deployment.
 
-The local hub preview now serves `docs/`. A future `docs/about/index.html` will
-appear at `https://500nits.com/about/`; `docs` does not become part of the URL.
+For a quick local preview from the repository root:
+
+```sh
+python3 -m http.server 8085 --bind 127.0.0.1 --directory docs
+```
+
+Open http://localhost:8085/ and check `/about/` and `/botify-agent/`.
+This simple server verifies static pages and files; Cloudflare `_redirects`
+are deployed rules and are not executed by Python's server. The existing
+`scripts/serve-500nits.sh` also uses `docs/` for its hub preview.
+
+A file such as `docs/about/index.html` appears at `https://500nits.com/about/`
+once deployed; `docs` is not part of the URL. Only the selected publishing folder
+will be included in new deployments. Files inside `docs/` are public, including
+any notes accidentally added later. Old deployment preview URLs and stale caches
+can still retain older content; cache troubleshooting is deferred at Eddy's request.
 
 ## History and rollback
 

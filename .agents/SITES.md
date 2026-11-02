@@ -6,7 +6,7 @@ Read this file before editing, auditing, or deploying any 500nits website. The m
 
 | Site | Canonical URL | Source path | Git ownership | Discovery files |
 | --- | --- | --- | --- | --- |
-| Product-label hub | `https://500nits.com/` | `docs/` (current noindex test) | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
+| Product-label hub | `https://500nits.com/` | `docs/` (full site prepared locally) | root repository, `master` | `/robots.txt`, `/sitemap.xml` |
 | Eddy's personal site | `https://eddy.500nits.com/` | `eddy_500nits_com/` | separate repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Doodle Tag product site | `https://doodletag.500nits.com/` | `doodletag_500nits_com/` | separate repository and root submodule, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
 | Task for Spaces product site | `https://task.500nits.com/` | `task_500nits_com/` | separate ignored repository, `main` | `/CNAME`, `/robots.txt`, `/sitemap.xml` |
@@ -23,13 +23,18 @@ As updated on 2026-11-02, both the Cloudflare Pages project
 `master` → `docs/`. Cloudflare's root/build command remain empty; its output
 is `docs`. These settings are independent and must be maintained separately.
 
-Eddy explicitly requested the Cloudflare switch while file work remains in
-progress. No files were moved: the former full website remains at the repository
-root; `docs/` currently publishes the small noindex test, not the full hub.
-The hub `sourcePath` is now `docs`, with `deploymentStage: test`. All HTML pages
-must remain noindex during that stage. Root About/redirect/sitemap plans above
-remain intended full-site requirements, not claims about the current test output.
-Update the stage and complete the full SEO release checklist when `docs/` is ready.
+The full public hub has now been moved into `docs/` locally, replacing the test
+homepage. The hub `sourcePath` is `docs`; the temporary `deploymentStage: test`
+flag has been removed so the full SEO audit runs again. Public page URLs and
+canonical origins stay unchanged. Internal tooling, memory, newsletter setup
+notes, and drafts remain outside `docs/`. The separate product-site worktrees
+have not been relocated.
+
+**Local review hold:** Eddy explicitly requested stopping locally for review.
+Do not commit, push, or deploy this migration until that review is complete.
+This instruction supersedes the automatic deployment rule for this work.
+Current live deployments may still show the test page; local readiness is not
+proof of a release. See `HOSTING.md` for the local preview command.
 
 ## Repository boundaries
 
