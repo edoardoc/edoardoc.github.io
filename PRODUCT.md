@@ -18,9 +18,9 @@ Visitors exploring Eddy's software and people who want to hear about releases. I
 
 ## Capabilities and Constraints
 
-Static HTML and CSS, with minimal progressive JavaScript where useful. Preserve ordinary HTML navigation, canonical URLs, product facts, accessibility, and the existing repository release process. The hub's About page at https://500nits.com/about/ introduces Eddy's software work. Eddy's personal writing site is not ready to link from the hub.
+Static HTML and CSS, with minimal progressive JavaScript where useful. Preserve ordinary HTML navigation, canonical URLs, product facts, accessibility, and the existing repository release process. The hub's About page at https://500nits.com/about/ contains Eddy's software background, personal LinkedIn profile, CV, and contact details. Eddy's personal writing site is not ready to link from the hub.
 
-The email newsletter provider and account are undecided. Never invent a working subscription endpoint or show an unearned success state.
+Email signups use Nitrosend's documented public website API and the user-provided destination list 13128. Store local configuration in ignored .env and publish only the generated public website-key configuration. Never use an account secret key in browser code or show subscription success before an acknowledged API response. Do not enable paid features or delivery automations without an explicit request.
 
 ## Brand Commitments
 

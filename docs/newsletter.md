@@ -1,18 +1,25 @@
 # 500nits product updates
 
-The homepage has one prominent, labeled email form. Until a newsletter account is connected, it opens an email draft to apps@500nits.com. The visitor must send that message; submitting the form alone does not subscribe anyone. Requests and removals must be handled manually. No subscriber data is stored in the repository or browser.
+The homepage collects email signups directly into Nitrosend list 13128. It uses Nitrosend's public website key named 500nits and the documented POST /v1/public/contacts endpoint. The site stays static; no server or paid form service is required.
 
-## Recommended hosted setup
+## Configuration
 
-Buttondown supports a plain HTML form, so no backend, API key, third-party script, or iframe is necessary. Its published pricing on 2026-10-31 includes the first 100 subscribers free. Verify pricing when opening the account.
+The local .env file is ignored by Git and has owner-only permissions. It contains NITROSEND_PUBLIC_KEY and NITROSEND_LIST_ID. Run `node scripts/configure-newsletter.mjs` after changing either value. The generator writes only those two public signup fields to newsletter-config.js; it rejects keys without the wpkey_live_ prefix.
 
-1. Create a newsletter in an account you own at https://buttondown.com/ and verify your sender email. Choose the newsletter username there; do not assume that `500nits` is available or belongs to you.
-2. Copy the exact form action from the account's embedding settings. Confirm it is the newsletter you control. Buttondown documents the shape as `https://buttondown.com/api/emails/embed-subscribe/YOUR-BUTTONDOWN-USERNAME`.
-3. In index.html, replace the form's mailto action with that verified HTTPS action, retain `method="post"`, remove `enctype="text/plain"`, and add `<input type="hidden" name="embed" value="1" />`.
-4. Change the button to `Subscribe` and replace `#signup-note` with accurate confirmation, unsubscribe, and provider privacy information for the configured newsletter. Keep a visible label and required email input. Add the provider privacy link before collecting addresses there.
-5. Submit natively to Buttondown. Do not use fetch: the response may require CAPTCHA or further validation. newsletter.js already leaves HTTPS actions to the browser.
-6. Test with an email address you control: verify the confirmation flow, subscriber record, and unsubscribe flow. Then run the SEO audit, commit, push, and verify the live form.
+newsletter-config.js is intentionally tracked and browser-visible because Nitrosend website keys are public. The .env file and any unrelated environment values are not published. Never use an account secret key in the browser configuration.
 
-Sources: https://docs.buttondown.com/building-your-subscriber-base and https://buttondown.com/pricing.
+## Form behaviour
 
-The account-specific action URL is the only missing integration detail. Never publish a guessed endpoint, expose an API key, or claim that opening a draft has added a subscriber.
+newsletter.js sends only the email address, destination list ID, homepage source URL, and company honeypot field. It omits browser credentials. The field remains labeled and uses native email validation. Submission disables the button and announces progress. The form shows success only after an HTTP success response containing ok: true. Errors preserve the email field for retry; network requests time out after 15 seconds. No visitor email address is logged or stored in the browser.
+
+Nitrosend's hidden company honeypot is retained. The API ignores filled honeypots without creating contacts or triggering flows. Normal successful signups may enter any list-add automation already configured by the account owner. This integration does not create or activate campaigns or automations. Without JavaScript, the form offers an email contact link.
+
+## Free-plan limits
+
+Checked on 2026-11-02: Nitrosend's current pricing lists unlimited stored contacts and API access on Free, with 5,000 non-expiring starter emails and then 500 emails per month. No card is required. Collection does not require a paid feature. Sending, verification, enrichment, and optional services have separate allowances. The public website key cannot read the account's billing plan or balance, so published Free limits are not proof of the account's current billing state. No billing changes, paid features, verification purchases, or new delivery flows are part of this integration.
+
+Sources: https://nitrosend.com/pricing and https://docs.nitrosend.com/guides/website-signup-forms.
+
+## Verification
+
+Validate the key and CORS with an empty payload, which cannot create a subscriber. A filled-honeypot request can exercise the real public endpoint without creating a contact or triggering a flow. Browser checks should intercept the API request and verify successful, rejected, rate-limited, malformed, offline, timeout, and duplicate-submit handling without adding test contacts.

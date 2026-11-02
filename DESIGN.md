@@ -121,7 +121,7 @@ Lo-fi means restrained and readable. Ordinary links, horizontal rules, and one i
 
 Karla is locally hosted with Helvetica Neue, Arial, and sans-serif fallbacks. The frontmatter records desktop roles; the system uses a compact, unembellished hierarchy rather than a separate display face.
 
-The main heading is tightly tracked and fluid. Section headings use the headline role; product names use the title role. Newsletter headings are slightly smaller (29px desktop, 26px below 1000px, 27px below 650px). Intro and product descriptions use larger body copy (18px desktop, 17px mobile), with product descriptions limited to 65ch. Metadata is 14px; signup notes and the footer are 13px with signup notes at 1.5 line-height. Navigation and action links are 16px; prominent actions use weight 600. The wordmark uses weight 700.
+The main heading is tightly tracked and fluid. Section headings use the headline role; product names use the title role. Newsletter headings are slightly smaller (29px desktop, 26px below 1000px, 27px below 650px). Product descriptions use larger body copy (18px desktop, 17px mobile), with product descriptions limited to 65ch. Metadata is 14px; signup notes and the footer are 13px with signup notes at 1.5 line-height. Navigation and action links are 16px; prominent actions use weight 600. The wordmark uses weight 700.
 
 Reading-page leads use the reading-lead role with a 58ch maximum width; their size reduces to 20px below 650px. Reading copy uses the reading-body role with a 70ch maximum width, reducing to 17px below 650px while retaining its line-height. Reading section headings inherit the headline role and reduce to 28px on mobile. Chronology headings use the history-title role; dates use the muted history-date role with tabular numerals, and chronology descriptions are 17px. In-page contents links are 15px.
 
@@ -129,11 +129,11 @@ Below 650px, the main heading becomes `clamp(36px, 7.8vw, 49px)`, section headin
 
 ## Layout
 
-The centered page is at most 1080px wide, with 48px gutters on larger screens and 20px gutters below 650px. The desktop introduction, newsletter, product rows, and maker section use asymmetric two-column grids. Generous vertical spacing separates sections; small repeated gaps bind labels, links, and controls.
+The centered page is at most 1080px wide, with 48px gutters on larger screens and 20px gutters below 650px. The homepage introduction is a single heading. The desktop newsletter, product rows, and maker section use asymmetric two-column grids. Generous vertical spacing separates sections; small repeated gaps bind labels, links, and controls.
 
-At 1000px the introduction becomes one column, section headings stack, and form controls can wrap. At 650px the newsletter, product rows, and maker section stack in reading order; controls fill their row, and navigation moves below the wordmark. Newsletter padding reduces from the frontmatter value to 30px at the intermediate breakpoint and 25px 22px on mobile.
+At 1000px section headings stack and form controls can wrap. At 650px the newsletter, product rows, and maker section stack in reading order; controls fill their row, and navigation moves below the wordmark. Newsletter padding reduces from the frontmatter value to 30px at the intermediate breakpoint and 25px 22px on mobile.
 
-Reading pages place a ruled introduction above a two-column layout: a 180px contents column, a flexible reading column, and a 64px gap. The introduction has 72px top and 46px bottom padding; the reading layout has 42px top and 64px bottom padding. Below 800px, contents links wrap above the text with a lower rule and 22px bottom padding; the layout gap becomes 30px. Below 650px, introduction padding becomes 42px 0 30px, reading-layout padding becomes 26px 0 42px, and section spacing reduces from 46px to 36px. The lead's top margin reduces from 22px to 18px.
+The Botify reading page places a ruled introduction above a two-column layout: a 180px contents column, a flexible reading column, and a 64px gap. The introduction has 72px top and 46px bottom padding; the reading layout has 42px top and 64px bottom padding. Below 800px, contents links wrap above the text with a lower rule and 22px bottom padding; the layout gap becomes 30px. Below 650px, introduction padding becomes 42px 0 30px, reading-layout padding becomes 26px 0 42px, and section spacing reduces from 46px to 36px. The lead's top margin reduces from 22px to 18px. About omits the introductory header and opens directly with its LinkedIn and page links beside the reading column. Its Background section supplies the main heading.
 
 ## Elevation & Depth
 
@@ -169,7 +169,7 @@ The reading column uses open text sections, with 18px between paragraphs and ben
 
 ### Newsletter panel
 
-The inverted panel pairs a short invitation with a labeled email field and an action. It has no inline signup note. Submitting reveals a polite live status that requires sending the email and offers a retry link; it does not claim subscription success. Updates links focus the email field. The ordinary mailto form remains available without JavaScript; no hosted newsletter endpoint is configured.
+The inverted panel pairs a short invitation with a labeled email field and a Subscribe action. It has no inline signup note. Submission announces progress and disables the button. A confirmed Nitrosend response shows success; failed requests preserve the email for retry and show a plain error message. Updates links focus the email field. A hidden honeypot stays outside the layout; visitors without JavaScript receive an email contact link.
 
 ## Do's and Don'ts
 
@@ -179,11 +179,11 @@ The inverted panel pairs a short invitation with a labeled email field and an ac
 - **Do** use navy-derived secondary shades for readable metadata and rules.
 - **Do** keep navigation and product destinations available as ordinary HTML links.
 - **Do** preserve visible labels, native validation, and clear keyboard focus.
-- **Do** describe the email request honestly until a verified provider is connected.
+- **Do** show a subscription confirmation only after the signup API acknowledges it.
 
 ### Don't:
 
 - **Don't** add decorative animation, flashes, gradients, or shadows.
 - **Don't** turn product rows into ornamental cards or add rounded control styling.
 - **Don't** introduce a competing accent palette or display font.
-- **Don't** claim an email draft has subscribed its sender.
+- **Don't** show a successful subscription after a failed, timed-out, or unacknowledged request.
