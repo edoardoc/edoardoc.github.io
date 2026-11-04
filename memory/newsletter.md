@@ -53,3 +53,33 @@ that plan; it is not a general DNS deployment command.
 Nitrosend's own Verified status and selected From/Reply-To addresses remain
 unconfirmed: the public website key cannot inspect or change domain settings.
 No sender was selected, welcome automation activated, or email sent in this work.
+
+## Brand kit: 2026-11-04
+
+Eddy supplied a brand-scoped `NITROSEND_SECRET_KEY` in the ignored local `.env`
+and authorized updating the 500nits brand kit. The secret is used only by local
+administrative requests; `scripts/configure-newsletter.mjs` still publishes only
+the public signup key and list ID. The `.env` file has owner-only permissions.
+
+The Nitrosend API confirmed the target brand is 500nits. Its existing navy
+`#1f2d4d`, white `#ffffff`, Karla heading/body fonts, square corners, and spacious
+layout already matched the website. The hosted logo was downloaded and visually
+checked against the site's mark; it matches and was retained.
+
+Updated only `company_description` and `brand_document` through
+`PATCH /v1/my/brands/{sid}`. The description names Eddy and the three current
+projects. The brand document records lowercase 500nits, first-person singular
+copy, short plain English, current project links, and the restrained visual
+style. It includes Eddy's confirmation that a Windows version of Task for Spaces
+is coming, without inventing a release date. Botify remains an ongoing project.
+
+A subsequent GET verified both fields persisted. The logo, fonts, colours,
+legal name/address, header/footer, sender settings, tracking settings, and links
+were checked against the pre-update snapshot and preserved. No email was sent,
+and no campaign or flow was changed. The separate account AI Memory document
+was not edited; the voice guidance is in the brand kit's `brand_document`.
+
+Private request/response backups, update payload, logo, API schema, and readback
+verification are under `.cloudflare-local/nitrosend-brand-kit/`. The private
+`client.py` in that directory supports only GET/PATCH on this brand-kit endpoint;
+it reads the local secret without printing it or following authenticated redirects.
