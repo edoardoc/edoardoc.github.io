@@ -83,3 +83,34 @@ Private request/response backups, update payload, logo, API schema, and readback
 verification are under `.cloudflare-local/nitrosend-brand-kit/`. The private
 `client.py` in that directory supports only GET/PATCH on this brand-kit endpoint;
 it reads the local secret without printing it or following authenticated redirects.
+
+## Welcome flow correction: 2026-11-04
+
+Eddy explicitly asked to fix and activate the existing Signup Welcome Flow
+(flow 18009, email template 26118). The live API showed it was a draft triggered
+by `contact_add`, with no active revision. List 13128 belongs to the same 500nits
+brand. Nitrosend verified `news.500nits.com` and its sending authentication.
+
+Selected the custom sender with local part `updates`, display name Eddy, and
+Reply-To `apps@500nits.com`. Nitrosend's existing aligned author-domain setup
+maps the visible From to `updates@500nits.com`, with effective sending domain
+`news.500nits.com` and source email `updates@news.500nits.com`. This normalization
+was reported to Eddy; the underlying domain pairing was not changed.
+
+Saved draft revision 4486 with `list_add`, `contact_list_id: 13128`, and
+`data.backfill_on_publish: false`. The existing email action and copy were
+preserved; its explicit font override was changed from Roboto to Karla. The email
+has explicit sender and Reply-To values, matching the selected sending identity.
+
+Nitrosend's read-only delivery review passed trigger scoping, content rendering,
+accessibility, and sender configuration, with a low spam score. Activation is
+NOT complete: the brand has no physical mailing address, which preflight requires
+in the footer. Eddy was asked to supply the address; do not invent or retrieve a
+personal address to fill it. Content vetting is also required and currently
+missing for this draft; run approval after the address is saved. The review did
+not report a completed content-vetting result.
+
+No activation or test send was attempted while these checks were blocking. Keep
+the flow a draft until the footer address and Nitrosend approval requirements are
+satisfied. Private before/after snapshots, review results, and exact request
+payloads are in `.cloudflare-local/nitrosend-welcome-flow/`.
