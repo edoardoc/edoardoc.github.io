@@ -114,3 +114,39 @@ No activation or test send was attempted while these checks were blocking. Keep
 the flow a draft until the footer address and Nitrosend approval requirements are
 satisfied. Private before/after snapshots, review results, and exact request
 payloads are in `.cloudflare-local/nitrosend-welcome-flow/`.
+
+## Welcome flow activated: 2026-11-06
+
+Eddy supplied the mailing address for the email footer and asked to continue the
+previously authorized activation. Saved that exact address to the 500nits brand
+kit's `physical_address` field and verified it persisted without changing other
+brand settings. The full address stays in the private Nitrosend snapshots rather
+than being copied into repository documentation.
+
+Ran `nitro_review_delivery` for flow 18009, revision 4486, through Nitrosend's
+authenticated MCP endpoint. The address check passed. Then
+`nitro_control_delivery` with `operation: approve` completed content vetting and
+approved the revision; all preflight checks passed. Activated the same revision
+with `operation: live`, asserting the 500nits brand SID. A separate GET confirmed:
+
+- Status `live`, approval state `approved`, active revision 4486.
+- Trigger `list_add`, scoped to list 13128.
+- `backfill_on_publish: false`; existing members were not enrolled by activation.
+- No unpublished changes. The existing welcome copy and email action were kept.
+- Visible From `updates@500nits.com`, sending domain `news.500nits.com`, and
+  Reply-To `apps@500nits.com`.
+
+This supersedes the activation blocker recorded on 2026-11-04. New list members
+can now enter the welcome flow. Test with an address not already in the list;
+submitting an existing member again may not create another list-add event.
+No test contact was created and no manual test or bulk message was sent.
+
+At activation (21:47 UTC), Nitrosend also reported
+`signup_sending_capacity_reached` on its shared new-account allowance, with a
+suggested retry after 22:00:38 UTC. This did not block activation, but can defer
+dispatch. Nitrosend reports that queued email retries automatically; upgrading
+does not remove this control. Treat these times as observations, not a delivery
+guarantee, and recheck before making claims about actual sends or delivery.
+
+Private address backups, approval and activation responses, and the separate
+live-state verification are under `.cloudflare-local/nitrosend-welcome-flow/`.
