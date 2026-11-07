@@ -150,3 +150,32 @@ guarantee, and recheck before making claims about actual sends or delivery.
 
 Private address backups, approval and activation responses, and the separate
 live-state verification are under `.cloudflare-local/nitrosend-welcome-flow/`.
+
+## Signups saved without welcome messages: 2026-11-07
+
+Eddy reported that fresh website signups were saved but received no welcome
+email. Read-only checks confirmed four new subscribed members joined list 13128
+after activation, between 06:42 and 07:07 UTC. Their contact timelines record the
+list additions. The flow remains live and approved on revision 4486; all trigger,
+content, address, sender, and content-vetting checks still pass.
+
+The flow's message list is empty, sent/failed counts are both zero, and the
+account reports `queued_quantity: 0`. These APIs do not establish whether the
+contacts entered the runtime journey. Do not describe their welcome emails as
+already queued or promise that waiting alone will resolve this.
+
+Current delivery status at approximately 07:47 UTC is `deferred`, with
+`blocking_control: shared_abuse_capacity` and
+`reason_code: signup_sending_capacity_reached`. It reports retry after
+2026-11-08 00:00:38 UTC, even though the commercial daily allowance has 100
+remaining and the starter email budget is unused. This is a platform control;
+the published customer API exposes no recovery action for it. It is not proof
+that every missing welcome message is explained by that control.
+
+Prepared a support request with the flow/list identifiers, affected contact IDs,
+timestamps, and delivery status at
+`.cloudflare-local/nitrosend-welcome-flow/support-request-draft-20261107.json`.
+Eddy was asked for authorization to submit it; it has not been sent. Do not
+replay triggers, resubmit contacts, resend welcome messages, or change the flow
+while the enrollment/delivery state remains uncertain. All diagnostic exports
+remain private in `.cloudflare-local/nitrosend-welcome-flow/`.
